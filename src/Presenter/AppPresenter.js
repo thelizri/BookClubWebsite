@@ -1,11 +1,8 @@
 import React from 'react';
+import AppView from "../View/AppView";
 
-const MyComponent = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
+function App(props){
+    return <AppView />;
+}
 
-export default MyComponent;
+export default App;
