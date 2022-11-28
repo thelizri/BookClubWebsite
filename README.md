@@ -1,8 +1,13 @@
 #Roller
+
 Daniel - Produktägare, backend (presenter?)
+
 Azmeer - Backend (model?), Git Master Assistant
+
 William - Frontend, UI/UX, Git Master
+
 Johannes - Frontend, Scrum Master, UI/UX
+
 
 # Getting Started with Create React App
 
