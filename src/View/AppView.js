@@ -2,16 +2,11 @@ import ExampleComponent from "../Presenter/ExamplePresenter";
 import LoginScreenView from "./LoginScreenView";
 import NavigationBarView from "./NavigationBarView";
 import RegistrationPageView from "./RegistrationPageView";
+import LandingPageView from "./LandingPageView";
 
 
 function AppView() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <RegistrationPageView/>
-      </header>
-    </div>
-  );
+  return <LandingPageView />;
 }
 
 export default AppView;
