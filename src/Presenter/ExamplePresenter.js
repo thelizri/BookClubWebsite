@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import ExampleView from "../View/ExampleView.js'";
+import ExampleView from "../View/ExampleView";
 
 function ExampleComponent(props){
     const[state, setState] = useState({}); //State
