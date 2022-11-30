@@ -10,7 +10,7 @@ function LoginScreenView(props){
                         <img src={require("../images/Timeless_Books.jpg")} className={"img-fluid"} alt={"Image Missing"}/>
                     </div>
                     <div className={"col-lg-7 px-5 pt-5"}>
-                        <h1>YomuBo</h1>
+                        <h1><span id={"name1"}>Yomu</span><span id={"name2"}>Bo</span></h1>
                         <h4>Sign into your account</h4>
                         <form>
                             <div className={"form-row"}>
