@@ -6,7 +6,7 @@ function LoginScreenView(props){
         <section className={"form my-4 mx-5"}>
             <div className={"container-fluid"}>
                 <div className={"row gx-0"}>
-                    <div className={"col d-none d-lg-block"}>
+                    <div className={"col mh-100 d-none d-lg-block"}>
                         <img src={require("../images/Timeless_Books.jpg")} className={"img-fluid"} alt={"Image Missing"}/>
                     </div>
                     <div className={"col px-5 pt-5"}>
