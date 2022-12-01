@@ -1,14 +1,14 @@
 // import ExampleComponent from "../Presenter/ExamplePresenter";
 // import LoginScreenView from "./LoginScreenView";
-import NavigationBarView from "./NavigationBarView";
+import NavigationBarView from "./NavigationBarView"; // Change to presenter!
 // import RegistrationPageView from "./RegistrationPageView";
-import LandingPageView from "./LandingPageView";
+import LandingPagePresenter from "../Presenter/LandingPagePresenter";
 
 function AppView() {
   return (
     <div>
       <NavigationBarView />
-      <LandingPageView />
+      <LandingPagePresenter />
     </div>
   );
 }
