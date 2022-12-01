@@ -1,14 +1,7 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+/*
+ * Public Styles
+ */
 
-body {
+html body {
     background: #F4F2EE;
-}
-
-img {
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
 }
