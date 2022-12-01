@@ -15,14 +15,18 @@ const TEXT = {
  */
 export default function LandingPageView(props) {
     return (
-        <div>
-            <div>
-                <h1>{ TEXT.TITLE }</h1>
-                <p>{ TEXT.MESSAGE }</p>
-            </div>
-            <div>
-                <button id="sign-up-button">{ TEXT.SIGN_UP }</button>
-                <a>{ TEXT.SIGN_IN }</a>
+        <div className="container">
+            <div className="row">
+                <div className="col-md-8">
+                    <h1>{ TEXT.TITLE }</h1>
+                    <p>{ TEXT.MESSAGE }</p>
+                </div>
+                <div className="col-md-4">
+                    <button type=""button className="btn btn-primary" id="sign-up-button">{ TEXT.SIGN_UP }</button>
+                    <div className="row">
+                        <a href="#">{ TEXT.SIGN_IN }</a>
+                    </div>
+                </div>
             </div>
         </div>
     );
