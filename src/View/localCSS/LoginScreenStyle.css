@@ -1,18 +1,6 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-body{
-    background: #F4F2EE;
-}
 .row{
     background: white;
     border-radius: 30px;
-}
-img{
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
 }
 .btn1{
     border: none;
