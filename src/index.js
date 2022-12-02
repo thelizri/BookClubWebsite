@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import App from './View/AppView';
+import App from './pages/AppView';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

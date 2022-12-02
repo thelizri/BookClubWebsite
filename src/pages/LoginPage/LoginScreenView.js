@@ -1,5 +1,5 @@
 import React from 'react';
-import "./localCSS/LoginScreenStyle.css";
+import "./LoginScreenStyle.css";
 
 function LoginScreenView(props){
     return(
@@ -7,7 +7,7 @@ function LoginScreenView(props){
             <div className={"container-fluid"}>
                 <div className={"row gx-0"}>
                     <div className={"col mh-100 d-none d-lg-block"}>
-                        <img src={require("../images/Timeless_Books.jpg")} className={"img-fluid"} alt={"Image Missing"}/>
+                        <img src={require("../../images/Timeless_Books.jpg")} className={"img-fluid"} alt={"Image Missing"}/>
                     </div>
                     <div className={"col px-5 pt-5"}>
                         <h1><span id={"name1"}>Yomu</span><span id={"name2"}>Bo</span></h1>

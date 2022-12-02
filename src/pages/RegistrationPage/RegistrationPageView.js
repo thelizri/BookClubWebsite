@@ -1,5 +1,5 @@
 import React from 'react';
-import NavigationBarView from "./NavigationBarView";
+import NavigationBarView from "../../components/NavigationBar/NavigationBarView";
 
 function RegistrationPageView(props){
     return (<>
