@@ -24,7 +24,7 @@ export default function LandingPageView(props) {
                 <div className="col-md-4">
                     <button type=""button className="btn btn-primary" id="sign-up-button">{ TEXT.SIGN_UP }</button>
                     <div className="row">
-                        <a href="#">{ TEXT.SIGN_IN }</a>
+                        <a href="src/pages#">{ TEXT.SIGN_IN }</a>
                     </div>
                 </div>
             </div>

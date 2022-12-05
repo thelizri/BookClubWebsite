@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
-import App from './pages/AppView';
+import App from './Pages/AppView';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
