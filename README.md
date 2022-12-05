@@ -8,6 +8,10 @@ Azmeer - Backend (model?), Git Master Assistant
 William - Frontend, UI/UX, Git Master  
 Johannes - Frontend, Scrum Master, UI/UX  
 
+# Frameworks  
+Backend: Redux  
+Frontend: Bootstrap 5  
+
 ## Available Scripts
 
 In the project directory, you can run:
