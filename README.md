@@ -1,3 +1,7 @@
+# Git Rules
+Don't commit to master  
+Don't merge your own code  
+
 # Roller  
 Daniel - Produktägare, backend (presenter?)  
 Azmeer - Backend (model?), Git Master Assistant  
