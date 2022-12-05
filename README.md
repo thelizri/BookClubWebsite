@@ -12,6 +12,9 @@ Johannes - Frontend, Scrum Master, UI/UX
 Backend: Redux  
 Frontend: Bootstrap 5  
 
+# Naming Convention  
+Pascal case
+
 ## Available Scripts
 
 In the project directory, you can run:
