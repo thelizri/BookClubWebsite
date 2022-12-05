@@ -1,53 +1,47 @@
-# Git Rules
-Don't commit to master  
-Don't merge your own code  
+# YomuBo
 
-# Roller  
-Daniel - Produktägare, backend (presenter?)  
-Azmeer - Backend (model?), Git Master Assistant  
-William - Frontend, UI/UX, Git Master  
-Johannes - Frontend, Scrum Master, UI/UX  
+**Organizing book clubs has never been this easy.**  
+Find readers with similar book tastes to co-read books with. Propose and vote for which book to read next and let YomuBo calculate the book with most votes!
 
-# Frameworks  
-Backend: Redux  
-Frontend: Bootstrap 5  
+## Planned Features
 
-# Naming Convention  
-Pascal case
+- [x] Landing page
+- [ ] User registration and login
+- [ ] Book club creation and administration
+- [ ] Search and join book clubs
+- [ ] Add and vote for books to read in the book club
+- [ ] View relevant information about the book
+- [ ] Coordinate meeting (digial or physical)
 
-## Available Scripts
+## Folder Structure
 
-In the project directory, you can run:
+A brief description of the file structure can be found in the table below:
 
-### `npm start`
+| Folder            | Description                                                          |
+|-------------------|----------------------------------------------------------------------|
+| `/public`         | Contains general assets                                              |
+| `/src`            | Scripts and associated assets, divided into categories               |
+| `/src/Components` | Component views and presenters paired in folders                     |
+| `/src/Config`     | Configuration files (placeholder files need to be filled in)         |
+| `/src/Images`     | Image files used by other elements of app                            |
+| `/src/Pages`      | Pages of the application                                             |
+| `/src/Store`      | Application state and persistence associated scripts                 |
+| `/src/Utils`      | Utilities used by other elements of app                              |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+For more detailed information on the function of individual files, please read the documentation within these.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Commands
 
-### `npm test`
+The following commands can be run to perform tasks within the project:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Command         | Description                    |
+| --------------- | ------------------------------ |
+| `npm run start` | Starts app in development mode |
+| `npm run build` | Builds the app for production  |
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Developers  
+Daniel - Product Owner, Backend specialist  
+Azmeer - Backend Specialist  
+William - Git Master, Frontend specialist  
+Johannes - Scrum Master, Frontend specialist  
