@@ -43,12 +43,12 @@ The following commands can be run to perform tasks within the project:
 Don't commit directly to master  
 Don't merge your own commits
 
-# Developers  
+## Developers  
 Daniel - Product Owner, Backend specialist  
 Azmeer - Backend Specialist  
 William - Git Master, Frontend specialist  
 Johannes - Scrum Master, Frontend specialist  
 
-# Frameworks
-React - Redux
+## Frameworks
+React - Redux  
 Frontend/UI -Bootstrap 5
