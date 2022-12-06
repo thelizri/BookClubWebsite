@@ -3,6 +3,10 @@
 **Organizing book clubs has never been this easy.**  
 Find readers with similar book tastes to co-read books with. Propose and vote for which book to read next and let YomuBo calculate the book with most votes!
 
+## Git Rules
+Don't commit directly to master
+Don't merge your own commits
+
 ## Planned Features
 
 - [x] Landing page
@@ -45,3 +49,7 @@ Daniel - Product Owner, Backend specialist
 Azmeer - Backend Specialist  
 William - Git Master, Frontend specialist  
 Johannes - Scrum Master, Frontend specialist  
+
+# Frameworks
+React - Redux
+Frontend/UI -Bootstrap 5
