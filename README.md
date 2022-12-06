@@ -3,10 +3,6 @@
 **Organizing book clubs has never been this easy.**  
 Find readers with similar book tastes to co-read books with. Propose and vote for which book to read next and let YomuBo calculate the book with most votes!
 
-## Git Rules
-Don't commit directly to master
-Don't merge your own commits
-
 ## Planned Features
 
 - [x] Landing page
@@ -43,6 +39,9 @@ The following commands can be run to perform tasks within the project:
 | `npm run start` | Starts app in development mode |
 | `npm run build` | Builds the app for production  |
 
+## Git Rules
+Don't commit directly to master  
+Don't merge your own commits
 
 # Developers  
 Daniel - Product Owner, Backend specialist  
