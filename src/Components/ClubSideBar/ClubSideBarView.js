@@ -2,12 +2,16 @@
 var ClubList = (props) => {
     const ClubListView = require("../../Components/ClubList/ClubListView").default;
     
-    return <ClubListView clubs={["Club A", "Club B", "Club C"]}/>
+    return <ClubListView
+        clubs={["Club A", "Club B", "Club C"]}
+        currentClub="Club A"
+        setCurrentClub={(club) => console.log(club)}
+    />;
 };
 var SearchBar = (props) => {
     const SearchBarView = require("../../Components/SearchBar/SearchBarView").default;
     
-    return <SearchBarView/>
+    return <SearchBarView/>;
 };
 
 /**
@@ -20,14 +24,14 @@ export default function ClubSideBarView(props) {
         // https://getbootstrap.com/docs/3.4/components/#panels
         <div>
             <div className="panel panel-default">
-                <div class="panel-heading">My Clubs</div>
-                <div class="panel-body">
+                <div className="panel-heading">My Clubs</div>
+                <div className="panel-body">
                     <ClubList/>
                 </div>
             </div>
             <div className="panel panel-default">
-                <div class="panel-heading">Find Clubs</div>
-                <div class="panel-body">
+                <div className="panel-heading">Find Clubs</div>
+                <div className="panel-body">
                     <SearchBar/>
                 </div>
             </div>
