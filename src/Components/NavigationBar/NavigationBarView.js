@@ -3,6 +3,7 @@ import "./NavigationBarStyle.css";
 
 function NavigationBarView(props){
     return(<nav className="navbar navbar-light navbar-expand-lg" id={"navigation-bar"}>
+        <span id={"hiddenPadding"}>llll</span>
         <a href="src/components#" className="navbar-brand"><span id={"name1"}>Yomu</span><span id={"name2"}>Bo</span></a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" >
             <span className="navbar-toggler-icon"></span>
@@ -26,6 +27,7 @@ function NavigationBarView(props){
                 </li>
             </ul>
         </div>
+        <span id={"hiddenPadding"}>llll</span>
     </nav>);
 };
 
