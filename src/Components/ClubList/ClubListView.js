@@ -10,7 +10,7 @@ export default function ClubListView(props) {
     // https://getbootstrap.com/docs/3.4/components/#list-group-linked
     function renderListItem(club) {
         return (
-            <a href="#" key={club}
+            <a href="#" key={club.name}
                 className={
                     `list-group-item${
                         club === props.currentClub ? " active" : ""
@@ -18,7 +18,7 @@ export default function ClubListView(props) {
                 }
                 onClick={() => props.setCurrentClub(club)}
             >
-                {club}
+                {club.name}
             </a>
         );
     }

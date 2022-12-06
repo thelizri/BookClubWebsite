@@ -1,37 +1,30 @@
-// DUMMY PRESENTERS
-var NavigationBar = (props) => {
-    const NavigationBarView = require("../../Components/NavigationBar/NavigationBarView").default;
-    
-    return <NavigationBarView/>;
-};
-var ClubSideBar = (props) => {
-    const ClubSideBarView = require("../../Components/ClubSideBar/ClubSideBarView").default;
-    
-    return <ClubSideBarView/>
-};
-var ClubPanel = (props) => {
-    const ClubPanelView = require("../../Components/ClubPanel/ClubPanelView").default;
-    
-    return <ClubPanelView clubName={props.clubName}/>;
-};
+import NavigationBarView from "../../Components/NavigationBar/NavigationBarView";
+import ClubSideBarView from "../../Components/ClubSideBar/ClubSideBarView";
+import ClubPanelView from "../../Components/ClubPanel/ClubPanelView";
 
 /**
  * The view for the club page.
  *
- * @param {Object} props - none.
+ * @param {Object} props -
+ *      clubs: a list of user clubs
+ *      currentClub: the currently selected club
+ *      setCurrentClub: callback for setting the current user club
  */
 export default function ClubPageView(props) {
     return (
         <div>
-            <NavigationBar/>
+            <NavigationBarView/>
             <div className="container">
                 <div className="row">
                     <div className="col-md-3">
-                        <ClubSideBar/>
+                        <ClubSideBarView
+                            clubs={props.clubs}
+                            currentClub={props.currentClub}
+                            setCurrentClub={props.setCurrentClub}
+                        />
                     </div>
                     <div className="col-md-9">
-                        { /* CLUB NAME DUMMY */ }
-                        <ClubPanel clubName="Club Name"/>
+                        <ClubPanelView currentClub={props.currentClub}/>
                     </div>
                 </div>
             </div>

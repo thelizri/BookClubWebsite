@@ -1,38 +1,32 @@
-// DUMMY PRESENTERS
-var ClubList = (props) => {
-    const ClubListView = require("../../Components/ClubList/ClubListView").default;
-    
-    return <ClubListView
-        clubs={["Club A", "Club B", "Club C"]}
-        currentClub="Club A"
-        setCurrentClub={(club) => console.log(club)}
-    />;
-};
-var SearchBar = (props) => {
-    const SearchBarView = require("../../Components/SearchBar/SearchBarView").default;
-    
-    return <SearchBarView/>;
-};
+import ClubListView from "../ClubList/ClubListView";
+import SearchBarView from "../SearchBar/SearchBarView";
 
 /**
- * Displays a list of user clubs and a club search bar.
+ * Displays the club page sidebar - a list of user clubs and a club search bar.
  *
- * @param {Object} props - none.
+ * @param {Object} props -
+ *      clubs: a list of user clubs
+ *      currentClub: the currently selected club
+ *      setCurrentClub: callback for setting the current user club
  */
 export default function ClubSideBarView(props) {
+    // https://getbootstrap.com/docs/3.4/components/#panels
     return (
-        // https://getbootstrap.com/docs/3.4/components/#panels
         <div>
             <div className="panel panel-default">
                 <div className="panel-heading">My Clubs</div>
                 <div className="panel-body">
-                    <ClubList/>
+                    <ClubListView
+                        clubs={props.clubs}
+                        currentClub={props.currentClub}
+                        setCurrentClub={props.setCurrentClub}
+                    />
                 </div>
             </div>
             <div className="panel panel-default">
                 <div className="panel-heading">Find Clubs</div>
                 <div className="panel-body">
-                    <SearchBar/>
+                    <SearchBarView/>
                 </div>
             </div>
         </div>
