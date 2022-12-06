@@ -1,7 +1,7 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import RegistrationPageView from "./RegistrationPage/RegistrationPageView";
 import Home from "./LandingPage/LandingPageView";
-import Club from "./ClubPage/ClubPageView";
+import Club from "./ClubPage/ClubPage";
 
 function AppView() {
   return (
