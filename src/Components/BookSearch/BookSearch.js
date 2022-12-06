@@ -1,16 +1,21 @@
 import * as React from "react";
-import { useGetSearchResultsQuery } from "../../../Store/api/apiSlice";
-import { SearchResultsView } from "./SearchResultsView";
+import { useGetSearchResultsQuery } from "../../Store/api/apiSlice";
+import { SearchResultsView } from "./SearchResults/SearchResultsView";
+import { SearchFormView } from "./SearchForm/SearchFormView";
 
 /**
  * Presenter for SearchResultsView.
  * @returns {JSX.Element}
  */
-export const SearchResults = () => {
-    //component states
-    // const { query } = , OR separate presenter for SearchForm?;
+export const BookSearch = () => {
+    // State of API request
     const { data, isLoading, isFetching, isSuccess, isError, error } =
-        useGetSearchResultsQuery( query );
+        useGetSearchResultsQuery();
+
+    // Called by SearchFormView on search query submission
+    const HandleSubmit = ( searchQuery ) => {
+        useGetSearchResultsQuery( searchQuery )
+    }
 
     // Optional chaining
     const isEmpty = !data?.items || data?.items.length === 0;
@@ -32,7 +37,8 @@ export const SearchResults = () => {
     }
 
     return (
-        <section className = 'book-search-results'>
+        <section className = 'book-search'>
+            <SearchFormView onSubmit = {HandleSubmit}/>
             { content }
         </section>
     )
