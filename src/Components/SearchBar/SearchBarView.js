@@ -1,5 +1,11 @@
-export default function SearchBarView() {
+/**
+ *
+ */
+export default function SearchBarView(props) {
+    // https://getbootstrap.com/docs/3.4/components/#input-groups
     return (
-        <div>[Search Bar Dummy]</div>
+        <div className="input-group">
+            <input type="text" className="form-control" placeholder="Search for books..."></input>
+        </div>
     );
 }
