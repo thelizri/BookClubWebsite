@@ -1,6 +1,6 @@
 import React from "react";
 import "./ReadingListStyle.css";
-import SearchBarView from "../SearchBar/SearchBarView";
+import {BookSearch} from "../BookSearch/Search";
 
 function displayBooksCB(book){
     return (<tr>
@@ -22,7 +22,7 @@ function ReadingListView(props){
                 <th>Title</th>
                 <th>Author</th>
                 <th>Pages</th>
-                <th><SearchBarView /></th>
+                <th><BookSearch /></th>
             </tr>
             </thead>
             <tbody>
