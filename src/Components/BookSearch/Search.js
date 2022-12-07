@@ -1,16 +1,16 @@
 import * as React from "react";
 import { useGetSearchResultsQuery } from "../../Store/api/apiSlice";
-import { SearchResultsView } from "./SearchResults/SearchResultsView";
 import SearchBarView from "../SearchBar/SearchBarView";
+import { SearchResultsView } from "./SearchResults/SearchResultsView";
 
 /**
  * Presenter for SearchResultsView.
  * @returns {JSX.Element}
  */
-export const BookSearch = () => {
+export const Search = () => {
     // State of API request
     const { data, isLoading, isFetching, isSuccess, isError, error } =
-        useGetSearchResultsQuery();
+        useGetSearchResultsQuery( "Harry Potter" );
 
     // Called by SearchFormView on search query submission
     const HandleSubmit = ( searchQuery ) => {
