@@ -17,7 +17,6 @@ const LoginFormView = function ({
         email.current.value,
         password.current.value
         );
-        event.preventDefault();
     };
 
     return(

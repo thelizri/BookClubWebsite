@@ -20,7 +20,9 @@ export const NavigationBarView = function() {
                     <a className="nav-link" href="src/components#" id={"navigation"}>Clubs</a>
                 </li>
                 <li className="navbar-item">
-                    <a className="nav-link" href="src/components#" id={"navigation"}>Books</a>
+                    <Link to="/booksearch">
+                        <a className="nav-link" href="src/components#" id={"navigation"}>Books</a>
+                    </Link>
                 </li>
                 <li className="navbar-item">
                     <a className="nav-link" href={"#"} id={"navigation"}>About Us</a>
