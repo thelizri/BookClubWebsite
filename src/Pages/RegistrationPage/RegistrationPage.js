@@ -1,4 +1,4 @@
-import RegistrationForm from "../../Components/RegistrationForm/RegistrationForm"
+import {RegistrationForm} from "../../Components/RegistrationForm/RegistrationForm"
 
 
 const RegistrationPage = function() {
