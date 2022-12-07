@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useGetSearchResultsQuery } from "../../Store/api/apiSlice";
-import { SearchResultsView } from "./SearchResultsView";
+import { SearchResultsView } from "./SearchResults/SearchResultsView";
 import SearchBarView from "../SearchBar/SearchBarView";
 
 /**
