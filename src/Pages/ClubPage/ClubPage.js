@@ -1,19 +1,27 @@
-import ClubPageView from "./ClubPageView";
+import {NavigationBar} from "../../Components/NavigationBar/NavigationBar";
+import {ClubSideBar} from "../../Components/ClubSideBar/ClubSideBar";
+import ClubPanelView from "../../Components/ClubPanel/ClubPanelView";
 
-const CLUBS_DUMMY = [
-    {name: "Club A"},
-    {name: "Club B"},
-    {name: "Club C"}
-];
-const CURRENT_CLUB_DUMMY = CLUBS_DUMMY[0];
-const SET_CURRENT_CLUB_DUMMY = (club) => console.log({setCurrentClub: club});
-
-export default function ClubPage(props) {
+/**
+ * The view for the club page.
+ *
+ * @param {Object} props - none.
+ */
+export const ClubPage = function() {
     return (
-        <ClubPageView
-            clubs={CLUBS_DUMMY}
-            currentClub={CURRENT_CLUB_DUMMY}
-            setCurrentClub={SET_CURRENT_CLUB_DUMMY}
-        />
+        <div>
+            <NavigationBar/>
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-3">
+                        <ClubSideBar/>
+                    </div>
+                    <div className="col-md-9">
+                        { /* CLUB NAME DUMMY */ }
+                        <ClubPanelView clubName="Club Name"/>
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 }

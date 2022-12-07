@@ -4,14 +4,28 @@ import ReactDOM from 'react-dom/client';
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import { Search } from "./Components/BookSearch/Search";
+//import App from './Pages/AppView';
 import { Provider } from "react-redux";
-import { store } from "./Store/store";
+import RegistrationForm from "./Components/RegistrationForm/RegistrationForm"
+import LoginForm from "./Components/LoginForm/LoginForm"
+import store from "./Store/store"
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {LandingPage} from "./Pages/LandingPage/LandingPage";
+import {LoginPage} from "./Pages/LoginPage/LoginPage";
+import {ClubPage} from "./Pages/ClubPage/ClubPage";
+import RegistrationPage from "./Pages/RegistrationPage/RegistrationPage";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Provider store={store}>
-        <Search />
-    </Provider>
+  <Provider store={store}>
+      <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/login" element={<LoginPage />}/>
+              <Route path="/registration" element={<RegistrationPage />} />
+              {/*<Route path="/club" element={<ClubPage />} />*/}
+          </Routes>
+      </BrowserRouter>
+  </Provider>
 );

@@ -1,7 +1,25 @@
 import React from 'react';
-import "./LoginScreenStyle.css";
+import "./LoginFormStyle.css";
+import { useRef } from "react";
+import {Link} from "react-router-dom";
 
-function LoginScreenView(props){
+const LoginFormView = function ({
+    error = "",
+    waiting = false,
+    loginStatus = false,
+    onSubmit = (email, password, passwordConfirm) => {},
+  }) {
+    const email = useRef();
+    const password = useRef();
+
+    const handleSubmit = (event) => {
+        onSubmit(
+        email.current.value,
+        password.current.value
+        );
+        event.preventDefault();
+    };
+
     return(
         <section className={"form my-4 mx-5"}>
             <div className={"container-fluid"}>
@@ -15,7 +33,7 @@ function LoginScreenView(props){
                         <form>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <input type={"email"} className={"form-control my-3"} placeholder={"Email"} required={true}/>
+                                    <input type={"email"} className={"form-control my-3"} placeholder={"Email"} required={true} ref={email}/>
                                     <div className="invalid-feedback">
                                         User does not exist
                                     </div>
@@ -23,7 +41,7 @@ function LoginScreenView(props){
                             </div>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <input type={"password"} className={"form-control my-3"} placeholder={"********"} required={true}/>
+                                    <input type={"password"} className={"form-control my-3"} placeholder={"********"} required={true} ref={password}/>
                                     <div className="invalid-feedback">
                                         Incorrect password
                                     </div>
@@ -31,11 +49,16 @@ function LoginScreenView(props){
                             </div>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <button type={"submit"} className={"btn1"}>Login</button>
+                                    <Link to="/club">
+                                        <button type={"submit"} className={"btn1"} onClick={handleSubmit}>Login</button>
+                                    </Link>
                                 </div>
                             </div>
                             <a href={"#"}>Forgot password?</a>
-                            <p>Don't have an account? <a href={"#"}>Sign up here</a></p>
+                            <Link to="/registration">
+                                <p>Don't have an account? <a href={"#"}>Sign up here</a></p>
+                            </Link>
+
                         </form>
                     </div>
                 </div>
@@ -44,4 +67,4 @@ function LoginScreenView(props){
     );
 };
 
-export default LoginScreenView;
+export default LoginFormView;

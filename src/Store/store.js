@@ -1,19 +1,25 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { googleBooksApi } from "./api/apiSlice";
-import { setupListeners } from "@reduxjs/toolkit/query";
+import { authSlice, listenToAuthenticationChanges } from "./slices/authSlice";
+import { initializeApp } from "firebase/app";
+import firebaseConfig from "../Config/firebaseConfig"
+const firebaseApp = initializeApp(firebaseConfig);
 
-/**
- * Application state.
- */
-export const store = configureStore({
+const store = configureStore({
     reducer: {
-        [googleBooksApi.reducerPath]: googleBooksApi.reducer, // api reducer
+        auth: authSlice.reducer,
     },
-
-    // API middleware for caching, invalidation, polling etc.
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(googleBooksApi.middleware)
+    getDefaultMiddleware({
+      thunk: {
+        extraArgument: {
+          firebaseApp,
+        },
+      },
+    }),
+});
 
-})
+store.dispatch(listenToAuthenticationChanges());
 
-setupListeners(store.dispatch)
+//enablePersistence(store, firebaseApp);
+
+export default store;

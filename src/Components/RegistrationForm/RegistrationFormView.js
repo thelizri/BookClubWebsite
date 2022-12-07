@@ -1,7 +1,25 @@
 import React from 'react';
-import NavigationBarView from "../../Components/NavigationBar/NavigationBarView";
+import {NavigationBarView} from "../NavigationBar/NavigationBarView";
+import { useRef } from "react";
+import {Link} from "react-router-dom";
 
-function RegistrationPageView(props){
+export const RegistrationFormView = function ({
+    error = "",
+    waiting = false,
+    onSubmit = (email, password, passwordConfirm) => {},
+  }) {
+    const email = useRef();
+    const password = useRef();
+    const passwordConfirm = useRef();
+
+    const handleSubmit = (event) => {
+        onSubmit(
+        email.current.value,
+        password.current.value,
+        passwordConfirm.current.value
+        );
+    };
+
     return (<>
         <NavigationBarView />
         <div className={"container"}>
@@ -28,24 +46,24 @@ function RegistrationPageView(props){
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required={true}/>
+                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required={true} ref={email}/>
                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                     <div className={"invalid-feedback"}>The specified email already exists</div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" required={true}/>
+                    <input type="password" className="form-control" id="exampleInputPassword1" required={true} ref={password}/>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="exampleInputPassword2" className="form-label">Confirm Password</label>
+                    <label htmlFor="exampleInputPassword2" className="form-label" ref={passwordConfirm}>Confirm Password</label>
                     <input type="password" className="form-control" id="exampleInputPassword1" required={true}/>
                     <div className={"invalid-feedback"}>The password you re-entered does not match the entered password</div>
                     <div className={"valid-feedback"}>Matches your password</div>
                 </div>
-                <button type="submit" className="btn btn-primary">SIGN UP</button>
+                <Link to="/login">
+                    <button type="submit" className="btn btn-primary" onClick={handleSubmit}>SIGN UP</button>
+                </Link>
             </form>
         </div>
     </>);
 };
-
-export default RegistrationPageView;
