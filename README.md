@@ -39,9 +39,16 @@ The following commands can be run to perform tasks within the project:
 | `npm run start` | Starts app in development mode |
 | `npm run build` | Builds the app for production  |
 
+## Git Rules
+Don't commit directly to master  
+Don't merge your own commits
 
-# Developers  
+## Developers  
 Daniel - Product Owner, Backend specialist  
 Azmeer - Backend Specialist  
 William - Git Master, Frontend specialist  
 Johannes - Scrum Master, Frontend specialist  
+
+## Frameworks
+React - Redux  
+Frontend/UI -Bootstrap 5

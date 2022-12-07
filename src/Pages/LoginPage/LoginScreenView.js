@@ -15,17 +15,23 @@ function LoginScreenView(props){
                         <form>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <input type={"email"} className={"form-control my-3"} placeholder={"Email"}/>
+                                    <input type={"email"} className={"form-control my-3"} placeholder={"Email"} required={true}/>
+                                    <div className="invalid-feedback">
+                                        User does not exist
+                                    </div>
                                 </div>
                             </div>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <input type={"password"} className={"form-control my-3"} placeholder={"********"}/>
+                                    <input type={"password"} className={"form-control my-3"} placeholder={"********"} required={true}/>
+                                    <div className="invalid-feedback">
+                                        Incorrect password
+                                    </div>
                                 </div>
                             </div>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <button type={"button"} className={"btn1"}>Login</button>
+                                    <button type={"submit"} className={"btn1"}>Login</button>
                                 </div>
                             </div>
                             <a href={"#"}>Forgot password?</a>
