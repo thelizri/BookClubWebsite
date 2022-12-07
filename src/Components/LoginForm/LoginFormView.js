@@ -31,17 +31,23 @@ const LoginFormView = function ({
                         <form>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <input type={"email"} className={"form-control my-3"} placeholder={"Email"} ref={email}/>
+                                    <input type={"email"} className={"form-control my-3"} placeholder={"Email"} required={true} ref={email}/>
+                                    <div className="invalid-feedback">
+                                        User does not exist
+                                    </div>
                                 </div>
                             </div>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <input type={"password"} className={"form-control my-3"} placeholder={"********"} ref={password}/>
+                                    <input type={"password"} className={"form-control my-3"} placeholder={"********"} required={true} ref={password}/>
+                                    <div className="invalid-feedback">
+                                        Incorrect password
+                                    </div>
                                 </div>
                             </div>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <button type={"button"} className={"btn1"} onClick={handleSubmit}>Login</button>
+                                    <button type={"submit"} className={"btn1"} onClick={handleSubmit}>Login</button>
                                 </div>
                             </div>
                             <a href={"#"}>Forgot password?</a>
