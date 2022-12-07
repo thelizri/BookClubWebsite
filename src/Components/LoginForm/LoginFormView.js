@@ -1,7 +1,23 @@
 import React from 'react';
-import "./LoginScreenStyle.css";
+import "./LoginFormStyle.css";
+import { useRef } from "react";
 
-function LoginScreenView(props){
+const LoginFormView = function ({
+    error = "",
+    waiting = false,
+    onSubmit = (email, password, passwordConfirm) => {},
+  }) {
+    const email = useRef();
+    const password = useRef();
+
+    const handleSubmit = (event) => {
+        onSubmit(
+        email.current.value,
+        password.current.value
+        );
+        event.preventDefault();
+    };
+
     return(
         <section className={"form my-4 mx-5"}>
             <div className={"container-fluid"}>
@@ -15,17 +31,17 @@ function LoginScreenView(props){
                         <form>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <input type={"email"} className={"form-control my-3"} placeholder={"Email"}/>
+                                    <input type={"email"} className={"form-control my-3"} placeholder={"Email"} ref={email}/>
                                 </div>
                             </div>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <input type={"password"} className={"form-control my-3"} placeholder={"********"}/>
+                                    <input type={"password"} className={"form-control my-3"} placeholder={"********"} ref={password}/>
                                 </div>
                             </div>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <button type={"button"} className={"btn1"}>Login</button>
+                                    <button type={"button"} className={"btn1"} onClick={handleSubmit}>Login</button>
                                 </div>
                             </div>
                             <a href={"#"}>Forgot password?</a>
@@ -38,4 +54,4 @@ function LoginScreenView(props){
     );
 };
 
-export default LoginScreenView;
+export default LoginFormView;
