@@ -46,7 +46,7 @@ Don't merge your own commits
 
 ## Developers  
 Daniel - Product Owner, Backend specialist  
-Azmeer - Backend Specialist  
+Azmeer - Backend Specialist, Architecture specialist
 William - Git Master, Frontend specialist  
 Johannes - Scrum Master, Frontend specialist  
 
