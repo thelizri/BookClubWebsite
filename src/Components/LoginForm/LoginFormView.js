@@ -1,10 +1,12 @@
 import React from 'react';
 import "./LoginFormStyle.css";
 import { useRef } from "react";
+import {Link} from "react-router-dom";
 
 const LoginFormView = function ({
     error = "",
     waiting = false,
+    loginStatus = false,
     onSubmit = (email, password, passwordConfirm) => {},
   }) {
     const email = useRef();
@@ -47,11 +49,16 @@ const LoginFormView = function ({
                             </div>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <button type={"submit"} className={"btn1"} onClick={handleSubmit}>Login</button>
+                                    <Link to="/club">
+                                        <button type={"submit"} className={"btn1"} onClick={handleSubmit}>Login</button>
+                                    </Link>
                                 </div>
                             </div>
                             <a href={"#"}>Forgot password?</a>
-                            <p>Don't have an account? <a href={"#"}>Sign up here</a></p>
+                            <Link to="/registration">
+                                <p>Don't have an account? <a href={"#"}>Sign up here</a></p>
+                            </Link>
+
                         </form>
                     </div>
                 </div>

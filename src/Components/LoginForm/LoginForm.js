@@ -4,15 +4,16 @@ import { useMatch } from "react-router";
 import LoginFormView from "./LoginFormView";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  authenticate,
-  resetAuthenticationStatus,
-  selectAuthenticationError,
-  selectAuthenticationIsWaiting,
+    authenticate,
+    resetAuthenticationStatus,
+    selectAuthenticationError,
+    selectAuthenticationIsWaiting, selectUser,
 } from "../../Store/slices/authSlice";
 
 const LoginForm = function() {
     const error = useSelector(selectAuthenticationError);
     const waiting = useSelector(selectAuthenticationIsWaiting);
+    const loginStatus = useSelector(selectUser);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -27,7 +28,7 @@ const LoginForm = function() {
 
     return(
         <div>
-            <LoginFormView error={error} waiting={waiting} onSubmit={handleSubmit} />
+            <LoginFormView loginStatus={loginStatus} error={error} waiting={waiting} onSubmit={handleSubmit} />
         </div>
     )
 }

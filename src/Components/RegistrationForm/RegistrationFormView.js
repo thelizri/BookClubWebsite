@@ -1,8 +1,9 @@
 import React from 'react';
-import NavigationBarView from "../NavigationBar/NavigationBarView";
+import {NavigationBarView} from "../NavigationBar/NavigationBarView";
 import { useRef } from "react";
+import {Link} from "react-router-dom";
 
-const RegistrationPageView = function ({
+export const RegistrationFormView = function ({
     error = "",
     waiting = false,
     onSubmit = (email, password, passwordConfirm) => {},
@@ -59,10 +60,10 @@ const RegistrationPageView = function ({
                     <div className={"invalid-feedback"}>The password you re-entered does not match the entered password</div>
                     <div className={"valid-feedback"}>Matches your password</div>
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={handleSubmit}>SIGN UP</button>
+                <Link to="/login">
+                    <button type="submit" className="btn btn-primary" onClick={handleSubmit}>SIGN UP</button>
+                </Link>
             </form>
         </div>
     </>);
 };
-
-export default RegistrationPageView;

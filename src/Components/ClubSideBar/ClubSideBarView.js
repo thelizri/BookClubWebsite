@@ -1,11 +1,11 @@
 // DUMMY PRESENTERS
 var ClubList = (props) => {
-    const ClubListView = require("../../Components/ClubList/ClubListView").default;
+    const ClubListView = require("../ClubList/ClubListView").default;
     
     return <ClubListView clubs={["Club A", "Club B", "Club C"]}/>
 };
 var SearchBar = (props) => {
-    const SearchBarView = require("../../Components/SearchBar/SearchBarView").default;
+    const SearchBarView = require("../SearchBar/SearchBarView").default;
     
     return <SearchBarView/>
 };

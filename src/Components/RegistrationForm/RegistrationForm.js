@@ -1,7 +1,6 @@
 import { useEffect } from "react";
-import { useMatch } from "react-router";
 
-import RegistrationFormView from "./RegistrationFormView";
+import { RegistrationFormView } from "./RegistrationFormView";
 import { useDispatch, useSelector } from "react-redux";
 import {
   authenticate,
@@ -10,7 +9,7 @@ import {
   selectAuthenticationIsWaiting,
 } from "../../Store/slices/authSlice";
 
-const RegistrationForm = function() {
+export const RegistrationForm = function() {
     const error = useSelector(selectAuthenticationError);
     const waiting = useSelector(selectAuthenticationIsWaiting);
     const dispatch = useDispatch();
@@ -32,5 +31,3 @@ const RegistrationForm = function() {
         </div>
     )
 }
-
-export default RegistrationForm;

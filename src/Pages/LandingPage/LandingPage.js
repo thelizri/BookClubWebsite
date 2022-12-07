@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 /**
  * String Constants
  */
@@ -13,7 +15,7 @@ const TEXT = {
 /**
  * Landing Page View
  */
-export default function LandingPageView(props) {
+export const LandingPage = function() {
     return (
         <div className="container">
             <div className="row">
@@ -22,9 +24,13 @@ export default function LandingPageView(props) {
                     <p>{ TEXT.MESSAGE }</p>
                 </div>
                 <div className="col-md-4">
-                    <button type=""button className="btn btn-primary" id="sign-up-button">{ TEXT.SIGN_UP }</button>
+                    <Link to="/registration">
+                        <button type="button" className="btn btn-primary" id="sign-up-button">{ TEXT.SIGN_UP }</button>
+                    </Link>
                     <div className="row">
-                        <a href="src/pages#">{ TEXT.SIGN_IN }</a>
+                        <Link to="/login">
+                            <a href="src/pages#">{ TEXT.SIGN_IN }</a>
+                        </Link>
                     </div>
                 </div>
             </div>

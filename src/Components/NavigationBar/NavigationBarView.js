@@ -1,7 +1,8 @@
 import React from 'react';
 import "./NavigationBarStyle.css";
+import {Link} from "react-router-dom";
 
-function NavigationBarView(props){
+export const NavigationBarView = function() {
     return(<nav className="navbar navbar-light navbar-expand-lg" id={"navigation-bar"}>
         <span id={"hiddenPadding"}>llll</span>
         <a href="src/components#" className="navbar-brand"><span id={"name1"}>Yomu</span><span id={"name2"}>Bo</span></a>
@@ -11,7 +12,9 @@ function NavigationBarView(props){
         <div className="collapse navbar-collapse" id={"navbarCollapse"}>
             <ul className="navbar-nav ms-auto">
                 <li className="navbar-item">
-                    <a className="nav-link" href="src/components#" id={"navigation"}>Home</a>
+                    <Link to="/">
+                        <a className="nav-link" href="src/components#" id={"navigation"}>Home</a>
+                    </Link>
                 </li>
                 <li className="navbar-item">
                     <a className="nav-link" href="src/components#" id={"navigation"}>Clubs</a>
@@ -30,5 +33,3 @@ function NavigationBarView(props){
         <span id={"hiddenPadding"}>llll</span>
     </nav>);
 };
-
-export default NavigationBarView;
