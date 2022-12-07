@@ -1,5 +1,5 @@
 import ClubListView from "../ClubList/ClubListView";
-import SearchBarView from "../SearchBar/SearchBarView";
+import { SearchBarView } from "../SearchBar/SearchBarView";
 
 /**
  * Displays the club page sidebar - a list of user clubs and a club search bar.
