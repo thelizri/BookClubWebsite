@@ -1,6 +1,6 @@
 import React from "react";
 import "./ReadingListStyle.css";
-import {BookSearch} from "../BookSearch/BookSearch";
+import {BookSearch} from "../BookSearch/Search";
 
 function displayBooksCB(book){
     return (<tr>
