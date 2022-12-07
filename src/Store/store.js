@@ -1,8 +1,25 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "../feature/authReducer";
+import { authSlice, listenToAuthenticationChanges } from "./slices/authSlice";
+import { initializeApp } from "firebase/app";
+import firebaseConfig from "../Config/firebaseConfig"
+const firebaseApp = initializeApp(firebaseConfig);
 
-export const store = configureStore({
+const store = configureStore({
     reducer: {
-        auth: authReducer,
+        auth: authSlice.reducer,
     },
+    middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      thunk: {
+        extraArgument: {
+          firebaseApp,
+        },
+      },
+    }),
 });
+
+store.dispatch(listenToAuthenticationChanges());
+
+//enablePersistence(store, firebaseApp);
+
+export default store;
