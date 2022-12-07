@@ -6,10 +6,11 @@ Find readers with similar book tastes to co-read books with. Propose and vote fo
 ## Planned Features
 
 - [x] Landing page
-- [ ] User registration and login
+- [x] User registration and login
 - [ ] Book club creation and administration
 - [ ] Search and join book clubs
-- [ ] Add and vote for books to read in the book club
+- [ ] Add books to read in the book club
+- [ ] Vote for books to read in the book club
 - [ ] View relevant information about the book
 - [ ] Coordinate meeting (digial or physical)
 
