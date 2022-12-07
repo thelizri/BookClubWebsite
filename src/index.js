@@ -14,6 +14,7 @@ import {LandingPage} from "./Pages/LandingPage/LandingPage";
 import {LoginPage} from "./Pages/LoginPage/LoginPage";
 import {ClubPage} from "./Pages/ClubPage/ClubPage";
 import RegistrationPage from "./Pages/RegistrationPage/RegistrationPage";
+import {BookSearchPage} from "./Pages/BookSearch/BookSearchPage";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -24,6 +25,7 @@ root.render(
               <Route path="/" element={<LandingPage />} />
               <Route path="/login" element={<LoginPage />}/>
               <Route path="/registration" element={<RegistrationPage />} />
+              <Route path="/booksearch" element={<BookSearchPage />} />
               {/*<Route path="/club" element={<ClubPage />} />*/}
           </Routes>
       </BrowserRouter>

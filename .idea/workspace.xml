@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="23d4ccd9-1d4b-4cfe-b436-509697e6e15d" name="Changes" comment="Added routing to all but club page">
+      <change afterPath="$PROJECT_DIR$/src/Pages/BookSearch/BookSearchPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/BookSearch/SearchResults/SearchResultsView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BookSearch/SearchResults/SearchResultsView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/LoginForm/LoginFormView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/LoginForm/LoginFormView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ReadingList/ReadingListView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ReadingList/ReadingListView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Config/firebaseConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Config/firebaseConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Store/api/apiSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store/api/apiSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Store/slices/authSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store/slices/authSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package.json" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="routing" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2IKDwu0aVDN3kjooAfSl9gp1J6y" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="23d4ccd9-1d4b-4cfe-b436-509697e6e15d" name="Changes" comment="" />
+      <created>1669921624469</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669921624469</updated>
+      <workItem from="1669921628994" duration="6940000" />
+      <workItem from="1669968609233" duration="1991000" />
+      <workItem from="1670003172398" duration="7925000" />
+      <workItem from="1670367403888" duration="208000" />
+      <workItem from="1670412835342" duration="272000" />
+      <workItem from="1670413251277" duration="11966000" />
+    </task>
+    <task id="LOCAL−00001" summary="Added routing to all but club page">
+      <created>1670425477387</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1670425477387</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added routing to all but club page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added routing to all but club page" />
+  </component>
+</project>

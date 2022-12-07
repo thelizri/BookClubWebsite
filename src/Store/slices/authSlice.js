@@ -11,6 +11,9 @@ import {
     signOut,
 } from "firebase/auth";
 import { FULFILLED, IDLE, PENDING, REJECTED } from "../../Constants/promiseStatus";
+import {initializeApp} from "firebase/app";
+import {firebaseConfig} from "../../Config/firebaseConfig";
+const firebaseApp = initializeApp(firebaseConfig);
 
 const initialState = {
     user: {
@@ -31,8 +34,7 @@ const initialState = {
 export const authenticate = createAsyncThunk(
   "auth/authenticate",
   async (
-    { email, password, passwordConfirm, signup },
-    { extra: { firebaseApp } }
+    { email, password, passwordConfirm, signup }
   ) => {
     if (signup && password !== passwordConfirm)
       throw new Error("Passwords do not match :-/");
@@ -92,7 +94,7 @@ const setUser = authSlice.actions.setUser;
 const setFirebaseAuthReady = authSlice.actions.setFirebaseAuthReady;
 
 export const listenToAuthenticationChanges = () =>
-  (dispatch, _, { firebaseApp }) => {
+  (dispatch, _) => {
     const auth = getAuth(firebaseApp);
 
     onAuthStateChanged(auth, (user) => {

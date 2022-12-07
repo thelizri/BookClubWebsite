@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import apiKey from "../../Config/googleBooksConfig";
+import {apiKey} from "../../Config/googleBooksConfig";
 
 
 /**

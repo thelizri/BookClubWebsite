@@ -49,7 +49,7 @@ const LoginFormView = function ({
                             </div>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <Link to="/club">
+                                    <Link to="/booksearch">
                                         <button type={"submit"} className={"btn1"} onClick={handleSubmit}>Login</button>
                                     </Link>
                                 </div>
