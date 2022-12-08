@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="23d4ccd9-1d4b-4cfe-b436-509697e6e15d" name="Changes" comment="Did a minor fix to the search results">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/LoginForm/LoginFormView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/LoginForm/LoginFormView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/NavigationBar/NavigationBarView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NavigationBar/NavigationBarView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Config/firebaseConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Config/firebaseConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/BookSearch/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BookSearch/Search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/BookSearch/SearchResults/SearchResultsView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BookSearch/SearchResultsView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package.json" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -52,6 +53,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\karlw\WebstormProjects\dh2642_project_book_club\src\Components\BookSearch" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -66,6 +72,7 @@
       <workItem from="1670367403888" duration="208000" />
       <workItem from="1670412835342" duration="272000" />
       <workItem from="1670413251277" duration="12720000" />
+      <workItem from="1670538113792" duration="1554000" />
     </task>
     <task id="LOCAL−00001" summary="Added routing to all but club page">
       <created>1670425477387</created>
