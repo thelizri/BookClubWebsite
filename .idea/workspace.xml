@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23d4ccd9-1d4b-4cfe-b436-509697e6e15d" name="Changes" comment="Did a minor fix to the search results">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/BookSearch/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BookSearch/Search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/BookSearch/SearchResults/SearchResultsView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BookSearch/SearchResultsView.js" afterDir="false" />
-    </list>
+    <list default="true" id="23d4ccd9-1d4b-4cfe-b436-509697e6e15d" name="Changes" comment="Small tweak to search results" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +67,7 @@
       <workItem from="1670367403888" duration="208000" />
       <workItem from="1670412835342" duration="272000" />
       <workItem from="1670413251277" duration="12720000" />
-      <workItem from="1670538113792" duration="1554000" />
+      <workItem from="1670538113792" duration="1871000" />
     </task>
     <task id="LOCAL−00001" summary="Added routing to all but club page">
       <created>1670425477387</created>
@@ -86,7 +81,14 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1670429699763</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Small tweak to search results">
+      <created>1670540004091</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670540004091</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +108,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added routing to all but club page" />
     <MESSAGE value="Did a minor fix to the search results" />
-    <option name="LAST_COMMIT_MESSAGE" value="Did a minor fix to the search results" />
+    <MESSAGE value="Small tweak to search results" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small tweak to search results" />
   </component>
 </project>
