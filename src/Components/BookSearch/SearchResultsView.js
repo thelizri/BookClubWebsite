@@ -3,14 +3,15 @@ export const SearchResultsView = ( { foundBooks, error } ) => {
     
     function renderListItem(book) {
         return (
-            <li className="list-group-item"><a href="#" key={book.id}>{book.volumeInfo.title}</a></li>
+            <a className={"list-group-item list-group-item-action h4 lead"}
+               href="src/Components/BookSearch/SearchResultsView#" key={book.id}><strong>{book.volumeInfo.title}</strong></a>
         );
     }
 
     console.log(foundBooks)
     return (
         <div>
-            <ul className="list-group">{foundBooks.map(renderListItem)}</ul>
+            {foundBooks.map(renderListItem)}
         </div>
     );
 }

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useGetSearchResultsQuery } from "../../Store/api/apiSlice";
 import SearchBarView from "../SearchBar/SearchBarView";
-import { SearchResultsView } from "./SearchResults/SearchResultsView";
+import { SearchResultsView } from "./SearchResultsView";
 
 /**
  * Presenter for SearchResultsView.

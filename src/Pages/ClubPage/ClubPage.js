@@ -1,6 +1,6 @@
 import {NavigationBar} from "../../Components/NavigationBar/NavigationBar";
 import {ClubSideBar} from "../../Components/ClubSideBar/ClubSideBar";
-import ClubPanelView from "../../Components/ClubPanel/ClubPanelView";
+import ClubPanel from "../../Components/ClubPanel/ClubPanel";
 
 /**
  * The view for the club page.
@@ -17,8 +17,7 @@ export const ClubPage = function() {
                         <ClubSideBar/>
                     </div>
                     <div className="col-md-9">
-                        { /* CLUB NAME DUMMY */ }
-                        <ClubPanelView clubName="Club Name"/>
+                        <ClubPanel/>
                     </div>
                 </div>
             </div>
