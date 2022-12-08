@@ -26,7 +26,7 @@ root.render(
               <Route path="/login" element={<LoginPage />}/>
               <Route path="/registration" element={<RegistrationPage />} />
               <Route path="/booksearch" element={<BookSearchPage />} />
-              {/*<Route path="/club" element={<ClubPage />} />*/}
+              <Route path="/club" element={<ClubPage />} />
           </Routes>
       </BrowserRouter>
   </Provider>
