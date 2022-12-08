@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23d4ccd9-1d4b-4cfe-b436-509697e6e15d" name="Changes" comment="Added Meeting Panel to Club Page">
-      <change afterPath="$PROJECT_DIR$/src/Components/ClubPanel/ClubPanelStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ClubPanel/ClubPanelView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ClubPanel/ClubPanelView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/NavigationBar/NavigationBarView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NavigationBar/NavigationBarView.js" afterDir="false" />
+    <list default="true" id="23d4ccd9-1d4b-4cfe-b436-509697e6e15d" name="Changes" comment="Small tweaks">
+      <change afterPath="$PROJECT_DIR$/src/Components/ClubSideBar/ClubSidebarStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ClubSideBar/ClubSideBarView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ClubSideBar/ClubSideBarView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +74,7 @@
       <workItem from="1670367403888" duration="208000" />
       <workItem from="1670412835342" duration="272000" />
       <workItem from="1670413251277" duration="12720000" />
-      <workItem from="1670538113792" duration="3566000" />
+      <workItem from="1670538113792" duration="4065000" />
     </task>
     <task id="LOCAL−00001" summary="Added routing to all but club page">
       <created>1670425477387</created>
@@ -104,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670540364720</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Small tweaks">
+      <created>1670542035677</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670542035677</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,6 +131,7 @@
     <MESSAGE value="Did a minor fix to the search results" />
     <MESSAGE value="Small tweak to search results" />
     <MESSAGE value="Added Meeting Panel to Club Page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Meeting Panel to Club Page" />
+    <MESSAGE value="Small tweaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small tweaks" />
   </component>
 </project>

@@ -1,4 +1,5 @@
 import SearchBar from "../SearchBar/SearchBar";
+import "./ClubSidebarStyle.css"
 
 // DUMMY PRESENTERS
 var ClubList = (props) => {
@@ -24,13 +25,13 @@ export default function ClubSideBarView(props) {
     return (
         // https://getbootstrap.com/docs/3.4/components/#panels
         <div>
-            <div className="panel panel-default">
+            <div className="panel panel-default" id={"sidebartop"}>
                 <div className="panel-heading">My Clubs</div>
                 <div className="panel-body">
                     <ClubList/>
                 </div>
             </div>
-            <div className="panel panel-default">
+            <div className="panel panel-default" id={"sidebarbottom"}>
                 <div className="panel-heading">Find Clubs</div>
                 <div className="panel-body">
                     <SearchBar/>
