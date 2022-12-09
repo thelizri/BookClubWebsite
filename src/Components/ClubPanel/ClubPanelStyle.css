@@ -1,0 +1,14 @@
+#panelbody{
+    background-color:#F4F2EE;
+    border-radius: 25px;
+}
+#panelhead{
+    background-color: white;
+    font-weight: bold;
+    font-size:30px;
+    font-family: "Abril Fatface";
+}
+
+#panel{
+    background-color:white;
+}

@@ -1,7 +1,7 @@
 /**
  * Create Club View
  */
-export default function CreateClubView(props) {
+export function CreateClubView(props) {
     /**
      * Text Input Callback
      */

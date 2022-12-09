@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import "./LandingPageStyle.css";
 
 /**
  * String Constants
@@ -17,7 +18,7 @@ const TEXT = {
  */
 export const LandingPage = function() {
     return (
-        <div className="container">
+        <div className="landing d-flex justify-content-center align-items-center">
             <div className="row">
                 <div className="col-md-8">
                     <h1>{ TEXT.TITLE }</h1>
