@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23d4ccd9-1d4b-4cfe-b436-509697e6e15d" name="Changes" comment="Removed underline from links">
-      <change afterPath="$PROJECT_DIR$/src/Images/landing-page-image.jpg" afterDir="false" />
+    <list default="true" id="23d4ccd9-1d4b-4cfe-b436-509697e6e15d" name="Changes" comment="Centered landing page">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/landing-page-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/landing-page-image.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pages/LandingPage/LandingPageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/LandingPage/LandingPageStyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,6 +58,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\karlw\WebstormProjects\dh2642_project_book_club\public" />
       <recent name="C:\Users\karlw\WebstormProjects\dh2642_project_book_club\src\Components\BookSearch" />
     </key>
   </component>

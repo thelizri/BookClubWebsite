@@ -1,3 +1,8 @@
 .landing{
     height: 100vh;
+    background-image: url("/public/pexels-miguel-á-padriñán-932262.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    position: relative;
+    color:black;
 }
