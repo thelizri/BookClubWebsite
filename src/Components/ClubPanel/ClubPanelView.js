@@ -1,5 +1,6 @@
 import { ReadingList } from "../ReadingList/ReadingList";
 import { NextMeeting } from "../NextMeeting/NextMeeting";
+import {Votes} from "../Votes/Votes";
 import "./ClubPanelStyle.css";
 // DUMMY COMPONENTS
 var BookPanel = () => <div>[Book Panel Dummy]</div>;
@@ -23,7 +24,7 @@ export default function ClubPanelView(props) {
                             <BookPanel/>
                         </div>
                         <div className="col-md-4">
-                            <VotingPanel/>
+                            <Votes />
                         </div>
                     </div>
                     <div className="row">

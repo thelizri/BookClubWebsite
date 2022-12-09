@@ -4,7 +4,7 @@ import "./NextMeetingStyle.css";
 function NextMeetingView(props){
     return (<div className={"container"}>
         <div><h1>Next Meeting</h1></div>
-        <table className="table table-sm table-striped">
+        <table className="table table-sm table-striped bg-white" id={"table"}>
             <thead id={"headNextMeeting"}>
             <tr>
                 <th>Meeting #{props.number}</th>
