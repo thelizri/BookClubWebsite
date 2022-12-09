@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23d4ccd9-1d4b-4cfe-b436-509697e6e15d" name="Changes" comment="Added background color to the body">
-      <change beforePath="$PROJECT_DIR$/src/Components/NavigationBar/NavigationBarStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NavigationBar/NavigationBarStyle.css" afterDir="false" />
+    <list default="true" id="23d4ccd9-1d4b-4cfe-b436-509697e6e15d" name="Changes" comment="Removed underline from links">
+      <change afterPath="$PROJECT_DIR$/src/Images/landing-page-image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/LandingPage/LandingPageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/LandingPage/LandingPageStyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
