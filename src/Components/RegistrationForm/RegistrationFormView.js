@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavigationBarView} from "../NavigationBar/NavigationBarView";
 import { useRef } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const RegistrationFormView = function ({
     error = "",

@@ -1,5 +1,5 @@
-import ReadingList from "../ReadingList/ReadingList";
-import NextMeeting from "../NextMeeting/NextMeeting";
+import { ReadingList } from "../ReadingList/ReadingList";
+import { NextMeeting } from "../NextMeeting/NextMeeting";
 import "./ClubPanelStyle.css";
 // DUMMY COMPONENTS
 var BookPanel = () => <div>[Book Panel Dummy]</div>;

@@ -1,7 +1,5 @@
 import ReadingListView from "./ReadingListView";
 
-const ReadingList = () => {
+export const ReadingList = () => {
     return <ReadingListView/>;
 };
-
-export default ReadingList;
