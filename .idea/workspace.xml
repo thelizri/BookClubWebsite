@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23d4ccd9-1d4b-4cfe-b436-509697e6e15d" name="Changes" comment="Did a minor fix to the search results">
+    <list default="true" id="23d4ccd9-1d4b-4cfe-b436-509697e6e15d" name="Changes" comment="Added functionality for granting access to certain pages based on authentication status. Has multiple bugs.">
+      <change afterPath="$PROJECT_DIR$/src/Components/AccessController/AccessIfAuthenticated.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/LoadingIcon/LoadingIcon.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/LoginForm/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/LoginForm/LoginForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/LoginForm/LoginFormView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/LoginForm/LoginFormView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/NavigationBar/NavigationBarView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NavigationBar/NavigationBarView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Config/firebaseConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Config/firebaseConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Constants/promiseStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Constants/promiseStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Store/slices/authSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store/slices/authSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="routing" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,7 +69,8 @@
       <workItem from="1670003172398" duration="7925000" />
       <workItem from="1670367403888" duration="208000" />
       <workItem from="1670412835342" duration="272000" />
-      <workItem from="1670413251277" duration="12720000" />
+      <workItem from="1670413251277" duration="45770000" />
+      <workItem from="1670605983355" duration="886000" />
     </task>
     <task id="LOCAL−00001" summary="Added routing to all but club page">
       <created>1670425477387</created>
@@ -79,7 +84,13 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1670429699763</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="Did another minor fix to the login button">
+      <created>1670430336366</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1670430336366</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,6 +110,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added routing to all but club page" />
     <MESSAGE value="Did a minor fix to the search results" />
-    <option name="LAST_COMMIT_MESSAGE" value="Did a minor fix to the search results" />
+    <MESSAGE value="Did another minor fix to the login button" />
+    <MESSAGE value="Added functionality for granting access to certain pages based on authentication status. Has multiple bugs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added functionality for granting access to certain pages based on authentication status. Has multiple bugs." />
   </component>
 </project>

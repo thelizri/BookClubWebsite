@@ -15,6 +15,7 @@ import {LoginPage} from "./Pages/LoginPage/LoginPage";
 import {ClubPage} from "./Pages/ClubPage/ClubPage";
 import RegistrationPage from "./Pages/RegistrationPage/RegistrationPage";
 import {BookSearchPage} from "./Pages/BookSearch/BookSearchPage";
+import {AccessIfAuthenticated} from "./Components/AccessController/AccessIfAuthenticated";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -22,10 +23,30 @@ root.render(
   <Provider store={store}>
       <BrowserRouter>
           <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/login" element={<LoginPage />}/>
-              <Route path="/registration" element={<RegistrationPage />} />
-              <Route path="/booksearch" element={<BookSearchPage />} />
+              <Route path="/" element={
+                  <AccessIfAuthenticated loggedIn>
+                      <LandingPage />
+                  </AccessIfAuthenticated>
+                }
+              />
+              <Route path="/login" element={
+                  <AccessIfAuthenticated loggedIn>
+                      <LoginPage />
+                  </AccessIfAuthenticated>
+                }
+              />
+              <Route path="/registration" element={
+                  <AccessIfAuthenticated loggedIn>
+                      <RegistrationPage />
+                  </AccessIfAuthenticated>
+                }
+              />
+              <Route path="/club" element={
+                  <AccessIfAuthenticated>
+                      <BookSearchPage />
+                  </AccessIfAuthenticated>
+                }
+              />
               {/*<Route path="/club" element={<ClubPage />} />*/}
           </Routes>
       </BrowserRouter>

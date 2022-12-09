@@ -48,9 +48,7 @@ const LoginFormView = function ({
                             </div>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <Link to="/booksearch">
-                                        <button type={"submit"} className={"btn1"} onClick={handleSubmit}>Login</button>
-                                    </Link>
+                                    <button type={"submit"} className={"btn1"} onClick={handleSubmit}>Login</button>
                                 </div>
                             </div>
                             <a href={"#"}>Forgot password?</a>

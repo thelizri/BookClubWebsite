@@ -7,6 +7,7 @@ import {
     createUserWithEmailAndPassword,
     getAuth,
     onAuthStateChanged,
+    setPersistence,
     signInWithEmailAndPassword,
     signOut,
 } from "firebase/auth";
@@ -21,14 +22,14 @@ const initialState = {
         email: null,
     },
 
-    firebaseAuthReady: false,
-    firebaseReady: false,
-
     authenticate: {
         status: IDLE,
         requestId: null,
         error: "",
     },
+
+    firebaseAuthReady: false,
+    firebaseReady: false,
 };
 
 export const authenticate = createAsyncThunk(
@@ -40,10 +41,20 @@ export const authenticate = createAsyncThunk(
       throw new Error("Passwords do not match :-/");
 
     const auth = getAuth(firebaseApp);
+    /*let userCredential;
 
-    const userCredential = signup ? 
-    await createUserWithEmailAndPassword(auth, email, password) : 
+    if(signup) {
+        userCredential = await createUserWithEmailAndPassword(auth, email, password)
+    } else {
+        console.log("test1");
+        userCredential = await signInWithEmailAndPassword(auth, email, password);
+        console.log("test2");
+    }*/
+
+    const userCredential = signup ?
+    await createUserWithEmailAndPassword(auth, email, password) :
     await signInWithEmailAndPassword(auth, email, password);
+
 
     return { uid: userCredential.user.uid, email: userCredential.user.email };
   }
@@ -138,5 +149,5 @@ export const selectFirebaseReady = createSelector(
   (data) => data.firebaseReady
 );
 
-export const resetAuthenticationStatus = authSlice.actions.resetStatus;
 export const setFirebaseReady = authSlice.actions.setFirebaseReady;
+export const resetAuthenticationStatus = authSlice.actions.resetStatus;

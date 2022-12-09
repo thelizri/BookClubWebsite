@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useMatch } from "react-router";
 
-import LoginFormView from "./LoginFormView";
+
 import { useDispatch, useSelector } from "react-redux";
 import {
     authenticate,
@@ -9,20 +9,23 @@ import {
     selectAuthenticationError,
     selectAuthenticationIsWaiting, selectUser,
 } from "../../Store/slices/authSlice";
+import LoginFormView from "./LoginFormView";
 
 const LoginForm = function() {
     const error = useSelector(selectAuthenticationError);
     const waiting = useSelector(selectAuthenticationIsWaiting);
     const loginStatus = useSelector(selectUser);
     const dispatch = useDispatch();
+    const signupMode = false;
+    const passwordConfirm = "";
 
     useEffect(() => {
         dispatch(resetAuthenticationStatus());
-    }, [dispatch]);
+    }, [dispatch, signupMode]);
 
     const handleSubmit = (email, password) => {
         dispatch(
-        authenticate({ email, password })
+        authenticate({ signup: signupMode, email, password, passwordConfirm })
         );
     };
 
