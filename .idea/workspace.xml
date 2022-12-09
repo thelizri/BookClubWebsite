@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="23d4ccd9-1d4b-4cfe-b436-509697e6e15d" name="Changes" comment="Centered landing page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Images/landing-page-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/landing-page-image.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/LandingPage/LandingPageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/LandingPage/LandingPageStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/AccessController/AccessIfAuthenticated.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/AccessController/AccessIfAuthenticated.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/LoginForm/LoginFormView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/LoginForm/LoginFormView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +25,9 @@
         <option value="CSS File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/master" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">

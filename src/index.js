@@ -4,17 +4,13 @@ import ReactDOM from 'react-dom/client';
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
-//import App from './Pages/AppView';
 import { Provider } from "react-redux";
-import RegistrationForm from "./Components/RegistrationForm/RegistrationForm"
-import LoginForm from "./Components/LoginForm/LoginForm"
 import store from "./Store/store"
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {LandingPage} from "./Pages/LandingPage/LandingPage";
 import {LoginPage} from "./Pages/LoginPage/LoginPage";
 import {ClubPage} from "./Pages/ClubPage/ClubPage";
-import RegistrationPage from "./Pages/RegistrationPage/RegistrationPage";
-import {BookSearchPage} from "./Pages/BookSearch/BookSearchPage";
+import {RegistrationPage} from "./Pages/RegistrationPage/RegistrationPage";
 import {AccessIfAuthenticated} from "./Components/AccessController/AccessIfAuthenticated";
 
 
@@ -43,11 +39,10 @@ root.render(
               />
               <Route path="/club" element={
                   <AccessIfAuthenticated>
-                      <BookSearchPage />
+                      <ClubPage />
                   </AccessIfAuthenticated>
                 }
               />
-              {/*<Route path="/club" element={<ClubPage />} />*/}
           </Routes>
       </BrowserRouter>
   </Provider>

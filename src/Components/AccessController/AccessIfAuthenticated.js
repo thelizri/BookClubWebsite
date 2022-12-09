@@ -16,7 +16,7 @@ export const AccessIfAuthenticated = function ({ loggedIn: loggedIn = false, chi
         return <LoadingIcon />;
     }
 
-    if(user.uid !== null) {
+    if(loggedIn && user.uid !== null) {
         return <Navigate replace to="/club" />
     }
 
