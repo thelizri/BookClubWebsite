@@ -21,6 +21,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/master" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -116,7 +119,7 @@
       <option name="project" value="LOCAL" />
       <updated>1670549500811</updated>
     </task>
-    <task id="LOCAL-00007" summary="Added background image to landing page">
+<task id="LOCAL-00007" summary="Added background image to landing page">
       <created>1670559554061</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
@@ -181,7 +184,7 @@
     <MESSAGE value="Small tweak to search results" />
     <MESSAGE value="Added Meeting Panel to Club Page" />
     <MESSAGE value="Added background color to the body" />
-    <MESSAGE value="Added background image to landing page" />
+<MESSAGE value="Added background image to landing page" />
     <MESSAGE value="Added votes panel" />
     <MESSAGE value="Votes view" />
     <MESSAGE value="Small tweaks" />
