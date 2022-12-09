@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useGetSearchResultsQuery } from "../../Store/api/apiSlice";
-import SearchBarView from "../SearchBar/SearchBarView";
+import { SearchBarView } from "../SearchBar/SearchBarView";
 import { SearchResultsView } from "./SearchResultsView";
 
 /**
@@ -8,45 +8,50 @@ import { SearchResultsView } from "./SearchResultsView";
  * @returns {JSX.Element}
  */
 export const Search = () => {
+    // State of query
+    const [ searchQuery, setSearchQuery ] = React.useState( "Harry Potter" );
+
     // State of API request
     const { data, isLoading, isFetching, isSuccess, isError, error } =
-        useGetSearchResultsQuery( "Harry Potter" );
+        useGetSearchResultsQuery( searchQuery );
 
-    // Called by SearchFormView on search query submission
-    const HandleSubmit = ( searchQuery ) => {
-        useGetSearchResultsQuery( searchQuery )
+    let preliminaryQuery = "";
+    const storeSearchQuery = ( query ) => {
+        preliminaryQuery = query;
+    }
+
+    const executeQuery = () => {
+        setSearchQuery( preliminaryQuery )
     }
 
     // Optional chaining
     const isEmpty = !data?.items || data?.items.length === 0;
 
     const noResultsMsg = isEmpty ? 'No books found :-/' : null;
-    const errorMsg = isError ? 'Search failed :-(' : null ;
+    const errorMsg = isError ? 'Search failed :-(' : null;
 
     let content = null;
 
-    if ( isLoading || isFetching ) {
+    if( isLoading || isFetching ) {
         // content = <LoadingImage /> or similar
-    }
-    else if ( isSuccess && !isEmpty ) {
+    } else if( isSuccess && !isEmpty ) {
         content = <SearchResultsView
-            foundBooks = { data.items }
-            error = { errorMsg }/>
-    }
-    else if ( isSuccess && isEmpty ) {
+            foundBooks={ data.items }
+            error={ errorMsg }/>
+    } else if( isSuccess && isEmpty ) {
         content = <SearchResultsView
             foundBooks={ noResultsMsg }
-            error = { errorMsg } />
-    }
-    else if ( isError ) {
+            error={ errorMsg }/>
+    } else if( isError ) {
         content = <SearchResultsView foundBooks={ noResultsMsg }
-                                     error = { errorMsg } />
+                                     error={ errorMsg }/>
         console.log( error?.data?.error?.message );
     }
 
     return (
-        <section className = 'book-search'>
-            <SearchBarView onSubmit = {HandleSubmit}/>
+        <section className='book-search'>
+            <SearchBarView onSubmit={ executeQuery }
+                           inputQuery={ storeSearchQuery }/>
             { content }
         </section>
     )
