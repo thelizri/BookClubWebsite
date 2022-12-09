@@ -6,6 +6,10 @@
     /* background: #F4F2EE; */
 /* } */
 
+*{
+    font-family: 'Quattrocento Sans', sans-serif;
+}
+
 .panel {
     background-color: rgba(0, 0, 0, 0.1);
 }
@@ -16,6 +20,9 @@
 h1{
     font-family: 'Playfair Display', serif;
 }
-p{
-    font-family: 'Quattrocento Sans', sans-serif;
+h2{
+    font-family: 'Playfair Display', serif;
+}
+h3{
+    font-family: 'Playfair Display', serif;
 }
