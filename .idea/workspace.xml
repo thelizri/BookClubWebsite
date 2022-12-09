@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23d4ccd9-1d4b-4cfe-b436-509697e6e15d" name="Changes" comment="Votes view">
-      <change beforePath="$PROJECT_DIR$/src/Components/ClubPanel/ClubPanelStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ClubPanel/ClubPanelStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ClubPanel/ClubPanelView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ClubPanel/ClubPanelView.js" afterDir="false" />
+    <list default="true" id="23d4ccd9-1d4b-4cfe-b436-509697e6e15d" name="Changes" comment="Small tweaks">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670624812746</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Small tweaks">
+      <created>1670625283771</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1670625283771</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,11 +180,11 @@
     <MESSAGE value="Did a minor fix to the search results" />
     <MESSAGE value="Small tweak to search results" />
     <MESSAGE value="Added Meeting Panel to Club Page" />
-    <MESSAGE value="Small tweaks" />
     <MESSAGE value="Added background color to the body" />
     <MESSAGE value="Added background image to landing page" />
     <MESSAGE value="Added votes panel" />
     <MESSAGE value="Votes view" />
-    <option name="LAST_COMMIT_MESSAGE" value="Votes view" />
+    <MESSAGE value="Small tweaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small tweaks" />
   </component>
 </project>
