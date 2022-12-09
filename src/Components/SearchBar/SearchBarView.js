@@ -4,10 +4,8 @@
  * @param {function} setSearchText - callback that receives a search text parameter.
  * @param {function} onSubmit - callback that initiates the search.
  */
-export default function SearchBarView({
-    setSearchText,
-    onSubmit
-}) {
+export const SearchBarView = function( { inputQuery, onSubmit } ) {
+
     // https://getbootstrap.com/docs/3.4/components/#input-groups
     return (
         <div className="input-group">
@@ -17,7 +15,7 @@ export default function SearchBarView({
                 placeholder="Search..."
                 aria-label="Search"
                 aria-describedby="search-addon"
-                onChange={(event) => setSearchText(event.target.value)}
+                onChange={(event) => inputQuery(event.target.value)}
             />
             <button
                 type="button"

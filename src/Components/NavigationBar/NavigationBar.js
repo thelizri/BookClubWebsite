@@ -1,4 +1,4 @@
-import {NavigationBarView} from "./NavigationBarView";
+import { NavigationBarView } from "./NavigationBarView";
 
 
 export const NavigationBar = function() {

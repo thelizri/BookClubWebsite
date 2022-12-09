@@ -1,6 +1,6 @@
-import {NavigationBar} from "../../Components/NavigationBar/NavigationBar";
-import {ClubSideBar} from "../../Components/ClubSideBar/ClubSideBar";
-import ClubPanel from "../../Components/ClubPanel/ClubPanel";
+import { NavigationBar } from "../../Components/NavigationBar/NavigationBar";
+import { ClubSideBar } from "../../Components/ClubSideBar/ClubSideBar";
+import { ClubPanel } from "../../Components/ClubPanel/ClubPanel";
 
 /**
  * The view for the club page.
