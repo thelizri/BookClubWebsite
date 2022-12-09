@@ -12,7 +12,7 @@ export const NavigationBarView = function() {
         <div className="collapse navbar-collapse" id={"navbarCollapse"}>
             <ul className="navbar-nav ms-auto">
                 <li className="navbar-item">
-                    <Link to="/">
+                    <Link to="/" id={"react-link"}>
                         <a className="nav-link" href="src/components#" id={"navigation"}>Home</a>
                     </Link>
                 </li>
@@ -20,7 +20,7 @@ export const NavigationBarView = function() {
                     <a className="nav-link" href="src/components#" id={"navigation"}>Clubs</a>
                 </li>
                 <li className="navbar-item">
-                    <Link to="/booksearch">
+                    <Link to="/booksearch" id={"react-link"}>
                         <a className="nav-link" href="src/components#" id={"navigation"}>Books</a>
                     </Link>
                 </li>

@@ -13,3 +13,6 @@
 #hiddenPadding{
     visibility: hidden;
 }
+#react-link{
+    text-decoration: none;
+}

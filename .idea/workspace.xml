@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23d4ccd9-1d4b-4cfe-b436-509697e6e15d" name="Changes" comment="Small tweaks">
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+    <list default="true" id="23d4ccd9-1d4b-4cfe-b436-509697e6e15d" name="Changes" comment="Added background color to the body">
+      <change beforePath="$PROJECT_DIR$/src/Components/NavigationBar/NavigationBarStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NavigationBar/NavigationBarStyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670542035677</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added background color to the body">
+      <created>1670549500811</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670549500811</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +138,7 @@
     <MESSAGE value="Small tweak to search results" />
     <MESSAGE value="Added Meeting Panel to Club Page" />
     <MESSAGE value="Small tweaks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small tweaks" />
+    <MESSAGE value="Added background color to the body" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added background color to the body" />
   </component>
 </project>
