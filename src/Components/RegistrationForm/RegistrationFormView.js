@@ -1,23 +1,23 @@
 import React from 'react';
 import {NavigationBarView} from "../NavigationBar/NavigationBarView";
 import { useRef } from "react";
-import {Link} from "react-router-dom";
 
 export const RegistrationFormView = function ({
-    error = "",
-    waiting = false,
-    onSubmit = (email, password, passwordConfirm) => {},
-  }) {
+                                                  error = "",
+                                                  waiting = false,
+                                                  onSubmit = (email, password, passwordConfirm) => {},
+                                              }) {
     const email = useRef();
     const password = useRef();
     const passwordConfirm = useRef();
 
     const handleSubmit = (event) => {
         onSubmit(
-        email.current.value,
-        password.current.value,
-        passwordConfirm.current.value
+            email.current.value,
+            password.current.value,
+            passwordConfirm.current.value
         );
+        event.preventDefault();
     };
 
     return (<>
@@ -55,14 +55,12 @@ export const RegistrationFormView = function ({
                     <input type="password" className="form-control" id="exampleInputPassword1" required={true} ref={password}/>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="exampleInputPassword2" className="form-label" ref={passwordConfirm}>Confirm Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" required={true}/>
+                    <label htmlFor="exampleInputPassword2" className="form-label">Confirm Password</label>
+                    <input type="password" className="form-control" id="exampleInputPassword1" required={true} ref={passwordConfirm}/>
                     <div className={"invalid-feedback"}>The password you re-entered does not match the entered password</div>
                     <div className={"valid-feedback"}>Matches your password</div>
                 </div>
-                <Link to="/login">
-                    <button type="submit" className="btn btn-primary" onClick={handleSubmit}>SIGN UP</button>
-                </Link>
+                <button type="submit" className="btn btn-primary" onClick={handleSubmit}>SIGN UP</button>
             </form>
         </div>
     </>);

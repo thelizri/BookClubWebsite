@@ -1,34 +1,35 @@
 import { useEffect } from "react";
-import { useMatch } from "react-router";
-
-import LoginFormView from "./LoginFormView";
 import { useDispatch, useSelector } from "react-redux";
 import {
     authenticate,
     resetAuthenticationStatus,
     selectAuthenticationError,
-    selectAuthenticationIsWaiting, selectUser,
+    selectAuthenticationIsWaiting,
+    selectUser,
 } from "../../Store/slices/authSlice";
 
+import LoginFormView from "./LoginFormView";
+
 const LoginForm = function() {
-    const error = useSelector(selectAuthenticationError);
-    const waiting = useSelector(selectAuthenticationIsWaiting);
-    const loginStatus = useSelector(selectUser);
+    const error = useSelector( selectAuthenticationError );
+    const waiting = useSelector( selectAuthenticationIsWaiting );
+    const loginStatus = useSelector( selectUser );
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(resetAuthenticationStatus());
-    }, [dispatch]);
+    useEffect( () => {
+        dispatch( resetAuthenticationStatus() );
+    }, [ dispatch ] );
 
-    const handleSubmit = (email, password) => {
+    const handleSubmit = ( email, password ) => {
         dispatch(
-        authenticate({ email, password })
+            authenticate( { email, password } )
         );
     };
 
-    return(
+    return (
         <div>
-            <LoginFormView loginStatus={loginStatus} error={error} waiting={waiting} onSubmit={handleSubmit} />
+            <LoginFormView loginStatus={ loginStatus } error={ error }
+                           waiting={ waiting } onSubmit={ handleSubmit }/>
         </div>
     )
 }
