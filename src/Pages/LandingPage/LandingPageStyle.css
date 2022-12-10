@@ -1,12 +1,37 @@
-.landing{
-    position: fixed;
+.image{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+.image_img{
+    display:block;
+    width: 100%;
+    height: 100vh;
+
+    /* Add the blur effect */
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+}
+
+.image_overlay{
+    position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
-    /* Preserve aspet ratio */
-    min-width: 100%;
-    min-height: 100%;
-
-    background-image: url("/public/pexels-miguel-á-padriñán-932262.jpg");
-    background-size: cover;
+h1{
+    color: #FD9C0D;
+}
+p{
+    color: #FD9C0D;
+}
+a{
+    color:white;
 }
