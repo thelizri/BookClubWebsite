@@ -7,13 +7,12 @@ import {
     selectAuthenticationIsWaiting,
     selectUser,
 } from "../../Store/slices/authSlice";
-
 import LoginFormView from "./LoginFormView";
+import {validateEmail, validatePassword} from "../../Utils/validation";
 
 const LoginForm = function() {
     const error = useSelector( selectAuthenticationError );
     const waiting = useSelector( selectAuthenticationIsWaiting );
-    const loginStatus = useSelector( selectUser );
     const dispatch = useDispatch();
 
     useEffect( () => {
@@ -26,10 +25,18 @@ const LoginForm = function() {
         );
     };
 
+    const validEmail = () => {
+        return validateEmail(error);
+    }
+
+    const validPassword = () => {
+        return validatePassword(error);
+    }
+
     return (
         <div>
-            <LoginFormView loginStatus={ loginStatus } error={ error }
-                           waiting={ waiting } onSubmit={ handleSubmit }/>
+            <LoginFormView validEmail={ validEmail } validPassword={ validPassword }
+                           error={ error } waiting={ waiting } onSubmit={ handleSubmit }/>
         </div>
     )
 }

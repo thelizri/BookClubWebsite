@@ -2,6 +2,7 @@ import {
     createAsyncThunk,
     createSelector,
     createSlice,
+    createAction,
 } from "@reduxjs/toolkit";
 import { initializeApp } from "firebase/app";
 import {
@@ -25,6 +26,9 @@ const initialState = {
     user : {
         uid : null,
         email : null,
+        firstName : null,
+        lastName : null,
+        gender : null,
     },
 
     firebaseAuthReady : false,
@@ -34,6 +38,8 @@ const initialState = {
         status : IDLE,
         requestId : null,
         error : "",
+        errorEmail : false,
+        errorPassword : false,
     },
 };
 
@@ -46,12 +52,21 @@ export const authenticate = createAsyncThunk(
             throw new Error( "Passwords do not match :-/" );
 
         const auth = getAuth( firebaseApp );
+        let userCredential;
 
-        const userCredential = signup ?
+        try {
+            userCredential = signup ?
+                await createUserWithEmailAndPassword( auth, email, password ) :
+                await signInWithEmailAndPassword( auth, email, password );
+        } catch(err) {
+            throw err;
+        }
+
+        /*const userCredential = signup ?
                                await createUserWithEmailAndPassword( auth,
                                    email, password ) :
                                await signInWithEmailAndPassword( auth, email,
-                                   password );
+                                   password );*/
 
         return {
             uid : userCredential.user.uid,
@@ -93,7 +108,7 @@ export const authSlice = createSlice( {
         [ authenticate.rejected ] : ( state, { meta, error } ) => {
             if( state.authenticate.requestId !== meta.requestId ) return;
 
-            state.authenticate.error = error.message;
+            state.authenticate.error = error.code;
             state.authenticate.status = REJECTED;
         },
 
