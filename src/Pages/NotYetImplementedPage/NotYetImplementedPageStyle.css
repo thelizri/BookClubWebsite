@@ -1,0 +1,31 @@
+.image{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+.image_img{
+    display:block;
+    width: 100%;
+    height: 100vh;
+
+    /* Add the blur effect */
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+.image_overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    color: #45746D;
+}

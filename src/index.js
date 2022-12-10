@@ -11,6 +11,7 @@ import { ClubPage } from "./Pages/ClubPage/ClubPage";
 import { LandingPage } from "./Pages/LandingPage/LandingPage";
 import { LoginPage } from "./Pages/LoginPage/LoginPage";
 import { RegistrationPage } from "./Pages/RegistrationPage/RegistrationPage";
+import {NotYetImplementedPage} from "./Pages/NotYetImplementedPage/NotYetImplementedPage";
 import store from "./Store/store"
 
 
@@ -24,6 +25,7 @@ root.render(
                 <Route path="/registration" element={ <RegistrationPage/> }/>
                 <Route path="/booksearch" element={ <BookSearchPage/> }/>
                 <Route path="/club" element={ <ClubPage/> }/>
+                <Route path="/error" element={ <NotYetImplementedPage/> }/>
             </Routes>
         </BrowserRouter>
     </Provider>
