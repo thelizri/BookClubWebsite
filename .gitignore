@@ -25,3 +25,7 @@ yarn-error.log*
 #config
 /src/Config/
 *Config*.*
+
+#idea folder that is specific to webstorm
+/.idea/
+.idea/workspace.xml
