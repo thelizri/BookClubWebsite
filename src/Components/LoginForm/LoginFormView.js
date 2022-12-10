@@ -11,8 +11,8 @@ const LoginFormView = function ({
     loginStatus = false,
     onSubmit = (email, password, passwordConfirm) => {},
   }) {
-    const email = useRef();
-    const password = useRef();
+    const email = useRef("");
+    const password = useRef("");
 
     const handleSubmit = (event) => {
         onSubmit(
@@ -23,7 +23,7 @@ const LoginFormView = function ({
     };
 
     return(
-        <Form className={"form my-4 mx-5"}>
+        <Form className={"form my-4 mx-5"} id={"basicFormLogin"}>
             <div className={"container-fluid"}>
                 <div className={"row gx-0"}>
                     <div className={"col mh-100 d-none d-lg-block"}>
@@ -35,18 +35,20 @@ const LoginFormView = function ({
                         <form>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <Form.Group controlId="formBasicEmail">
+                                    <Form.Group controlId="formBasicEmail" className={"formBasicEmail"}>
                                         <Form.Control type="email" placeholder="Enter email" ref={email}/>
-                                        <Form.Control.Feedback type="invalid">
+                                        <Form.Control.Feedback type="invalid" className={"formBasicEmailFeedback"}>
+                                            Error email
                                         </Form.Control.Feedback>
                                     </Form.Group>
                                 </div>
                             </div>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <Form.Group controlId="formBasicPassword">
-                                        <Form.Control type="password" placeholder="Password" ref={password}/>
-                                        <Form.Control.Feedback type="invalid">
+                                    <Form.Group controlId="formBasicPassword" className={"formBasicPassword"}>
+                                        <Form.Control type="password" placeholder="Password" ref={password} isInvalid={password.current.value!=="123456"} />
+                                        <Form.Control.Feedback type="invalid" className={"formBasicPasswordFeedback"}>
+                                            Error password
                                         </Form.Control.Feedback>
                                     </Form.Group>
                                 </div>
@@ -60,7 +62,6 @@ const LoginFormView = function ({
                             <Link to="/registration">
                                 <p>Don't have an account? <a href={"#"}>Sign up here</a></p>
                             </Link>
-
                         </form>
                     </div>
                 </div>
