@@ -1,10 +1,12 @@
 #panelbody{
     background-color:#F4F2EE;
     border-radius: 25px;
+    font-size: 14px;
 }
 #panelhead{
     background-color: white;
     font-weight: bolder;
+    font-size: 32px;
 }
 
 #panel{

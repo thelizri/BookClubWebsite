@@ -33,7 +33,7 @@ function VotesView(props){
     const clubMembers = [{name: "Daniel", voted: true}, {name: "Azmeer", voted: false}];
 
     return (<div className={"container"} id={"container"}>
-        <div><h1>Votes</h1></div>
+        <div><h1 id={"header24ClubPanelView"}>Votes</h1></div>
         <table className="table table-sm bg-white" id={"table"}>
             <thead id={"headNextMeeting"}>
             <tr>

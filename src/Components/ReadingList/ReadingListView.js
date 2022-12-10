@@ -15,7 +15,7 @@ function ReadingListView(props){
     //const books = [book];
 
     return <div className={"container"}>
-        <div><h1>Reading List</h1></div>
+        <div><h1 id={"header24ClubPanelView"}>Reading List</h1></div>
         <table className="table table-sm">
             <thead id={"headReadingList"}>
             <tr>
