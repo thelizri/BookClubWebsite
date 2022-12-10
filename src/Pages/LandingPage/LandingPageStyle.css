@@ -26,12 +26,12 @@
     justify-content: center;
 }
 
-h1{
+.image-header{
     color: #FD9C0D;
 }
-p{
+.image-paragraph{
     color: #FD9C0D;
 }
-a{
+.image-link{
     color:white;
 }

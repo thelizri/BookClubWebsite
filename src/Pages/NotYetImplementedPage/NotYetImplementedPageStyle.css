@@ -26,7 +26,7 @@
     justify-content: center;
 }
 
-h1{
-    color: #45746D;
+.error-header{
+    color: #558A81;
     font-size: xxx-large;
 }

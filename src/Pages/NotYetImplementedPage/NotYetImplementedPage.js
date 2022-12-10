@@ -12,7 +12,7 @@ export const NotYetImplementedPage = function () {
         <div className={"image"}>
             <img className={"image_img"} src={require("../../Images/errorpage.jpg")} alt={"cant load image"}/>
             <div className={"image_overlay"}>
-                <h1 className={"image-header"}>{MESSAGE}</h1>
+                <h1 className={"error-header"}>{MESSAGE}</h1>
             </div>
         </div>
     );

@@ -29,7 +29,7 @@ export const LandingPage = function() {
                 </Link>
                 <div className="row">
                     <Link to="/login">
-                        <a href="src/pages#">{ TEXT.SIGN_IN }</a>
+                        <a className={"image-link"} href="src/pages#">{ TEXT.SIGN_IN }</a>
                     </Link>
                 </div>
             </div>
