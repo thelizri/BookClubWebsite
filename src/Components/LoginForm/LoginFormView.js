@@ -6,8 +6,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 const LoginFormView = function ({
-    displayError = (error) => {},
-    error = "",
+    validEmail = () => {},
+    validPassword = () => {},
     waiting = false,
     loginStatus = false,
     onSubmit = (email, password, passwordConfirm) => {},
@@ -37,9 +37,9 @@ const LoginFormView = function ({
                             <div className={"form-row"}>
                                 <div className={"col"}>
                                     <Form.Group controlId="formBasicEmail" className={"formBasicEmail"}>
-                                        <Form.Control type="email" placeholder="Enter email" ref={email}/>
+                                        <Form.Control type="email" placeholder="Enter email" ref={email} isInvalid={validEmail()}/>
                                         <Form.Control.Feedback type="invalid" className={"formBasicEmailFeedback"}>
-                                            Error email
+                                            Email error message
                                         </Form.Control.Feedback>
                                     </Form.Group>
                                 </div>
@@ -47,9 +47,9 @@ const LoginFormView = function ({
                             <div className={"form-row"}>
                                 <div className={"col"}>
                                     <Form.Group controlId="formBasicPassword" className={"formBasicPassword"}>
-                                        <Form.Control type="password" placeholder="Password" ref={password} isInvalid={error} />
+                                        <Form.Control type="password" placeholder="Password" ref={password} isInvalid={validPassword()} />
                                         <Form.Control.Feedback type="invalid" className={"formBasicPasswordFeedback"}>
-                                            {displayError(error)}
+                                            Password error message
                                         </Form.Control.Feedback>
                                     </Form.Group>
                                 </div>
