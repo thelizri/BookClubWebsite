@@ -37,6 +37,7 @@ const LoginFormView = function ({
                             <div className={"form-row"}>
                                 <div className={"col"} id={"formForEmailOrPasswordLogin"}>
                                     <Form.Group controlId="formBasicEmail" className={"formBasicEmail"}>
+
                                         <Form.Control type="email" placeholder="Enter email" ref={email} isInvalid={validEmail()}/>
                                         <Form.Control.Feedback type="invalid" className={"formBasicEmailFeedback"}>
                                             Email error message
@@ -47,7 +48,9 @@ const LoginFormView = function ({
                             <div className={"form-row"} id={"formForEmailOrPasswordLogin"}>
                                 <div className={"col"}>
                                     <Form.Group controlId="formBasicPassword" className={"formBasicPassword"}>
+
                                         <Form.Control type="password" placeholder="Password" ref={password} isInvalid={validPassword()} />
+
                                         <Form.Control.Feedback type="invalid" className={"formBasicPasswordFeedback"}>
                                             Password error message
                                         </Form.Control.Feedback>

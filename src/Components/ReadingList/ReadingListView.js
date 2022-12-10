@@ -11,12 +11,13 @@ function displayBooksCB(book){
 }
 
 function ReadingListView(props){
-    //var book = {title:"Harry Potter",author:"Rowling",pages:500};
-    //const books = [book];
+    const book1 = {title:"Harry Potter",author:"Rowling",pages:500};
+    const book2 = {title:"Stormlight Archive",author:"Sandersson",pages:900};
+    const books = [book1, book2];
 
     return <div className={"container"}>
         <div><h1 id={"header24ClubPanelView"}>Reading List</h1></div>
-        <table className="table table-sm">
+        <table className="table table-sm bg-white table-borderless" id={"table"}>
             <thead id={"headReadingList"}>
             <tr>
                 <th>Title</th>
@@ -26,7 +27,7 @@ function ReadingListView(props){
             </tr>
             </thead>
             <tbody>
-            {/*books.map(displayBooksCB)*/}
+            {books.map(displayBooksCB)}
             </tbody>
         </table>
     </div>
