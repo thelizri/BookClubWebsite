@@ -25,3 +25,6 @@ yarn-error.log*
 #config
 /src/Config/
 *Config*.*
+
+#workspace
+.idea/workspace.xml
