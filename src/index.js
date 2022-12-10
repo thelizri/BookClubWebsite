@@ -12,6 +12,7 @@ import {LoginPage} from "./Pages/LoginPage/LoginPage";
 import {ClubPage} from "./Pages/ClubPage/ClubPage";
 import {RegistrationPage} from "./Pages/RegistrationPage/RegistrationPage";
 import {AccessIfAuthenticated} from "./Components/AccessController/AccessIfAuthenticated";
+import {NotYetImplementedPage} from "./Pages/NotYetImplementedPage/NotYetImplementedPage";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -43,6 +44,7 @@ root.render(
                   </AccessIfAuthenticated>
                 }
               />
+              <Route path="/error" element={ <NotYetImplementedPage/> }/>
           </Routes>
       </BrowserRouter>
   </Provider>
