@@ -2,6 +2,8 @@ import React from 'react';
 import "./LoginFormStyle.css";
 import { useRef } from "react";
 import {Link} from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 const LoginFormView = function ({
     error = "",
@@ -9,8 +11,8 @@ const LoginFormView = function ({
     loginStatus = false,
     onSubmit = (email, password, passwordConfirm) => {},
   }) {
-    const email = useRef();
-    const password = useRef();
+    const email = useRef("");
+    const password = useRef("");
 
     const handleSubmit = (event) => {
         onSubmit(
@@ -21,7 +23,7 @@ const LoginFormView = function ({
     };
 
     return(
-        <section className={"form my-4 mx-5"}>
+        <Form className={"form my-4 mx-5"} id={"basicFormLogin"}>
             <div className={"container-fluid"}>
                 <div className={"row gx-0"}>
                     <div className={"col mh-100 d-none d-lg-block"}>
@@ -33,35 +35,38 @@ const LoginFormView = function ({
                         <form>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <input type={"email"} className={"form-control my-3"} placeholder={"Email"} required={true} ref={email}/>
-                                    <div className="invalid-feedback">
-                                        User does not exist
-                                    </div>
+                                    <Form.Group controlId="formBasicEmail" className={"formBasicEmail"}>
+                                        <Form.Control type="email" placeholder="Enter email" ref={email}/>
+                                        <Form.Control.Feedback type="invalid" className={"formBasicEmailFeedback"}>
+                                            Error email
+                                        </Form.Control.Feedback>
+                                    </Form.Group>
                                 </div>
                             </div>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <input type={"password"} className={"form-control my-3"} placeholder={"********"} required={true} ref={password}/>
-                                    <div className="invalid-feedback">
-                                        Incorrect password
-                                    </div>
+                                    <Form.Group controlId="formBasicPassword" className={"formBasicPassword"}>
+                                        <Form.Control type="password" placeholder="Password" ref={password} isInvalid={password.current.value!=="123456"} />
+                                        <Form.Control.Feedback type="invalid" className={"formBasicPasswordFeedback"}>
+                                            Error password
+                                        </Form.Control.Feedback>
+                                    </Form.Group>
                                 </div>
                             </div>
                             <div className={"form-row"}>
                                 <div className={"col"}>
-                                    <button type={"submit"} className={"btn1"} onClick={handleSubmit}>Login</button>
+                                    <Button variant="primary" type="button" className={"btn1"} onClick={handleSubmit}>Login</Button>
                                 </div>
                             </div>
                             <a href={"#"}>Forgot password?</a>
                             <Link to="/registration">
                                 <p>Don't have an account? <a href={"#"}>Sign up here</a></p>
                             </Link>
-
                         </form>
                     </div>
                 </div>
             </div>
-        </section>
+        </Form>
     );
 };
 

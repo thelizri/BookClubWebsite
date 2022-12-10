@@ -3,7 +3,7 @@ import "./NextMeetingStyle.css";
 
 function NextMeetingView(props){
     return (<div className={"container"}>
-        <div><h1>Next Meeting</h1></div>
+        <div><h1 id={"header24ClubPanelView"}>Next Meeting</h1></div>
         <table className="table table-sm bg-white" id={"table"}>
             <thead id={"headNextMeeting"}>
             <tr>
