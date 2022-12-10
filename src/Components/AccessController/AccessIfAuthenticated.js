@@ -9,7 +9,6 @@ import {LoadingIcon} from "../LoadingIcon/LoadingIcon";
 
 export const AccessIfAuthenticated = function ({ loggedIn: loggedIn = false, children}) {
     const firebaseAuthReady = useSelector(selectFirebaseAuthReady);
-    const firebaseReady = useSelector(selectFirebaseReady);
     const user = useSelector(selectUser);
 
     if(!firebaseAuthReady) {

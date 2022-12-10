@@ -7,7 +7,7 @@ import {
     selectAuthenticationIsWaiting,
     selectUser,
 } from "../../Store/slices/authSlice";
-
+import { handleError } from "../../Utils/errorHandling"
 import LoginFormView from "./LoginFormView";
 
 const LoginForm = function() {
@@ -15,6 +15,7 @@ const LoginForm = function() {
     const waiting = useSelector( selectAuthenticationIsWaiting );
     const loginStatus = useSelector( selectUser );
     const dispatch = useDispatch();
+    let invalidLogin;
 
     useEffect( () => {
         dispatch( resetAuthenticationStatus() );
@@ -26,9 +27,13 @@ const LoginForm = function() {
         );
     };
 
+    const showErrorMessage = () => {
+        handleError(error);
+    }
+
     return (
         <div>
-            <LoginFormView loginStatus={ loginStatus } error={ error }
+            <LoginFormView displayError={showErrorMessage} loginStatus={ loginStatus } error={ error }
                            waiting={ waiting } onSubmit={ handleSubmit }/>
         </div>
     )

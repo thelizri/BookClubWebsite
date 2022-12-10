@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 const LoginFormView = function ({
+    displayError = (error) => {},
     error = "",
     waiting = false,
     loginStatus = false,
@@ -46,9 +47,9 @@ const LoginFormView = function ({
                             <div className={"form-row"}>
                                 <div className={"col"}>
                                     <Form.Group controlId="formBasicPassword" className={"formBasicPassword"}>
-                                        <Form.Control type="password" placeholder="Password" ref={password} isInvalid={password.current.value!=="123456"} />
+                                        <Form.Control type="password" placeholder="Password" ref={password} isInvalid={error} />
                                         <Form.Control.Feedback type="invalid" className={"formBasicPasswordFeedback"}>
-                                            Error password
+                                            {displayError(error)}
                                         </Form.Control.Feedback>
                                     </Form.Group>
                                 </div>

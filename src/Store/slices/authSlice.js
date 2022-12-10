@@ -25,6 +25,9 @@ const initialState = {
     user : {
         uid : null,
         email : null,
+        firstName : null,
+        lastName : null,
+        gender : null,
     },
 
     firebaseAuthReady : false,
@@ -34,6 +37,8 @@ const initialState = {
         status : IDLE,
         requestId : null,
         error : "",
+        errorEmail : false,
+        errorPassword : false,
     },
 };
 
@@ -47,11 +52,32 @@ export const authenticate = createAsyncThunk(
 
         const auth = getAuth( firebaseApp );
 
-        const userCredential = signup ?
+        let userCredential;
+        if(signup) {
+            await createUserWithEmailAndPassword( auth,
+                email, password )
+                .then(userCredential => {return {
+                    uid : userCredential.user.uid,
+                    email : userCredential.user.email
+                }})
+                .catch(err => {});
+        } else {
+            await signInWithEmailAndPassword( auth, email,
+                password )
+                .then(userCredential => {return {
+                    uid : userCredential.user.uid,
+                    email : userCredential.user.email
+                }})
+                .catch(err => {
+                    return {error : err.code};
+                });
+        }
+
+        /*const userCredential = signup ?
                                await createUserWithEmailAndPassword( auth,
                                    email, password ) :
                                await signInWithEmailAndPassword( auth, email,
-                                   password );
+                                   password );*/
 
         return {
             uid : userCredential.user.uid,
