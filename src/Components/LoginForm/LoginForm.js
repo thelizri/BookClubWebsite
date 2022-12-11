@@ -14,6 +14,7 @@ const LoginForm = function() {
     const error = useSelector( selectAuthenticationError );
     const waiting = useSelector( selectAuthenticationIsWaiting );
     const dispatch = useDispatch();
+    const login = true;
 
     useEffect( () => {
         dispatch( resetAuthenticationStatus() );
@@ -26,11 +27,11 @@ const LoginForm = function() {
     };
 
     const validEmail = () => {
-        return validateEmail(error);
+        return validateEmail(error, login);
     }
 
     const validPassword = () => {
-        return validatePassword(error);
+        return validatePassword(error, login);
     }
 
     return (

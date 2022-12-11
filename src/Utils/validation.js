@@ -1,4 +1,4 @@
-export const validateEmail = function (err) {
+export const validateEmail = function (err, login = false) {
     if(!err) return false;
     let errorMessage;
 
@@ -9,15 +9,23 @@ export const validateEmail = function (err) {
             break;
         case 'auth/email-already-exists' : errorMessage = 'User is already registered';
             break;
+        case 'auth/email-already-in-use' : errorMessage = 'User is already registered';
+            break;
         default : return false;
     }
 
-    const signInForm = document.querySelector('#basicFormLogin');
-    signInForm.querySelector('.formBasicEmailFeedback').innerHTML = errorMessage;
+    if(login) {
+        const signInForm = document.querySelector('#basicFormLogin');
+        signInForm.querySelector('.formBasicEmailFeedback').innerHTML = errorMessage;
+    } else {
+        const regForm = document.querySelector('#registrationForm');
+        regForm.querySelector('.regFormEmailFeedback').innerHTML = errorMessage;
+    }
+
     return true;
 }
 
-export const validatePassword = function (err) {
+export const validatePassword = function (err, login = false) {
     if(!err) return false;
     let errorMessage;
 
@@ -26,12 +34,19 @@ export const validatePassword = function (err) {
             break;
         case 'auth/wrong-password' : errorMessage = 'You have entered the incorrect password';
             break;
-        case 'auth/invalid-password' : errorMessage = 'Password must be at least six characters.';
+        case 'auth/invalid-password' : errorMessage = 'Password must be at least six characters';
+            break;
+        case 'auth/weak-password' : errorMessage = "Please choose a stronger password"
             break;
         default : return false;
     }
 
-    const signInForm = document.querySelector('#basicFormLogin');
-    signInForm.querySelector('.formBasicPasswordFeedback').innerHTML = errorMessage;
+    if(login) {
+        const signInForm = document.querySelector('#basicFormLogin');
+        signInForm.querySelector('.formBasicPasswordFeedback').innerHTML = errorMessage;
+    } else {
+        const regForm = document.querySelector('#registrationForm');
+        regForm.querySelector('.regFormPasswordFeedback').innerHTML = errorMessage;
+    }
     return true;
 }

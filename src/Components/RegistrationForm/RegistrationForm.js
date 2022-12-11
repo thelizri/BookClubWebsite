@@ -17,6 +17,7 @@ import {
 } from "../../Store/slices/metaData";
 
 import { RegistrationFormView } from "./RegistrationFormView";
+import {validateEmail, validatePassword} from "../../Utils/validation";
 
 export const RegistrationForm = function() {
     const error = useSelector( selectAuthenticationError );
@@ -48,9 +49,18 @@ export const RegistrationForm = function() {
         );
     };
 
+    const validEmail = () => {
+        return validateEmail(error);
+    }
+
+    const validPassword = () => {
+        return validatePassword(error);
+    }
+
     return (
         <div>
             <RegistrationFormView error={ error } waiting={ waiting }
+                                  validEmail={ validEmail } validPassword={ validPassword }
                                   onSubmit={ handleSubmit }/>
         </div>
     )

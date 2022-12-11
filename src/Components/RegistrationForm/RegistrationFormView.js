@@ -7,14 +7,20 @@ import Button from "react-bootstrap/Button";
 export const RegistrationFormView = function ({
                                                   error = "",
                                                   waiting = false,
+                                                  validEmail = () => {},
+                                                  validPassword = () => {},
                                                   onSubmit = (email, password, passwordConfirm) => {},
                                               }) {
+    const firstName = useRef();
+    const lastName = useRef();
     const email = useRef();
     const password = useRef();
     const passwordConfirm = useRef();
 
     const handleSubmit = (event) => {
         onSubmit(
+            firstName.current.value,
+            lastName.current.value,
             email.current.value,
             password.current.value,
             passwordConfirm.current.value
@@ -25,17 +31,17 @@ export const RegistrationFormView = function ({
     return (<>
         <NavigationBarView />
         <div className={"container"}>
-            <Form>
+            <Form id={"registrationForm"}>
                 {/*First Name*/}
                 <Form.Group controlId="formRegFirstName" className={"m-2"}>
                     <Form.Label>First name</Form.Label>
-                    <Form.Control type="text"/>
+                    <Form.Control required type="text" ref={firstName}/>
                 </Form.Group>
 
                 {/*Last Name*/}
                 <Form.Group controlId="formRegLastName" className={"m-2"}>
                     <Form.Label>Last name</Form.Label>
-                    <Form.Control type="text"/>
+                    <Form.Control type="text" ref={lastName} />
                 </Form.Group>
 
                 {/*Gender*/}
@@ -50,7 +56,10 @@ export const RegistrationFormView = function ({
                 {/*Email*/}
                 <Form.Group controlId="formRegEmail" className={"m-2"}>
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control type="email" placeholder="Enter email" ref={email} isInvalid={validEmail()} />
+                    <Form.Control.Feedback type="invalid" className={"regFormEmailFeedback"}>
+                        Email error message
+                    </Form.Control.Feedback>
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                     </Form.Text>
@@ -59,13 +68,16 @@ export const RegistrationFormView = function ({
                 {/*Password*/}
                 <Form.Group controlId="formRegPassword" className={"m-2"}>
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control type="password" placeholder="Password" ref={password} isInvalid={validPassword()} />
+                    <Form.Control.Feedback type="invalid" className={"regFormPasswordFeedback"}>
+                        Password error message
+                    </Form.Control.Feedback>
                 </Form.Group>
 
                 {/*Password confirm*/}
                 <Form.Group controlId="formRegConfirmPassword" className={"m-2"}>
                     <Form.Label>Confirm password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control type="password" placeholder="Password" ref={passwordConfirm} />
                 </Form.Group>
 
                 {/*Submit button*/}
