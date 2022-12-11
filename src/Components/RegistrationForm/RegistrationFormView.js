@@ -1,22 +1,20 @@
 import React from 'react';
 import {NavigationBarView} from "../NavigationBar/NavigationBarView";
 import { useRef } from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 export const RegistrationFormView = function ({
                                                   error = "",
                                                   waiting = false,
                                                   onSubmit = (email, password, passwordConfirm) => {},
                                               }) {
-    const firstName = useRef();
-    const lastName = useRef();
     const email = useRef();
     const password = useRef();
     const passwordConfirm = useRef();
 
     const handleSubmit = (event) => {
         onSubmit(
-            firstName.current.value,
-            lastName.current.value,
             email.current.value,
             password.current.value,
             passwordConfirm.current.value
@@ -27,45 +25,52 @@ export const RegistrationFormView = function ({
     return (<>
         <NavigationBarView />
         <div className={"container"}>
-            <form>
-                <div className="mb-2">
-                    <label className="form-label">First name</label>
-                    <input type="text" className="form-control" ref={firstName} />
-                </div>
-                <div className="mb-4">
-                    <label className="form-label">Last name</label>
-                    <input type="text" className="form-control" ref={lastName} />
-                </div>
-                <div className="form-check form-check-inline mb-4">
-                    <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Male"/>
-                    <label className="form-check-label" htmlFor="inlineCheckbox1">Male</label>
-                </div>
-                <div className="form-check form-check-inline mb-4">
-                    <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="Female"/>
-                    <label className="form-check-label" htmlFor="inlineCheckbox2">Female</label>
-                </div>
-                <div className="form-check form-check-inline mb-4">
-                    <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="Other"/>
-                    <label className="form-check-label" htmlFor="inlineCheckbox2">Other</label>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required={true} ref={email}/>
-                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                    <div className={"invalid-feedback"}>The specified email already exists</div>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" required={true} ref={password}/>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="exampleInputPassword2" className="form-label">Confirm Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" required={true} ref={passwordConfirm}/>
-                    <div className={"invalid-feedback"}>The password you re-entered does not match the entered password</div>
-                    <div className={"valid-feedback"}>Matches your password</div>
-                </div>
-                <button type="submit" className="btn btn-primary" onClick={handleSubmit}>SIGN UP</button>
-            </form>
+            <Form>
+                {/*First Name*/}
+                <Form.Group controlId="formRegFirstName" className={"m-2"}>
+                    <Form.Label>First name</Form.Label>
+                    <Form.Control type="text"/>
+                </Form.Group>
+
+                {/*Last Name*/}
+                <Form.Group controlId="formRegLastName" className={"m-2"}>
+                    <Form.Label>Last name</Form.Label>
+                    <Form.Control type="text"/>
+                </Form.Group>
+
+                {/*Gender*/}
+                <Form.Group controlId="formRegGender" className={"m-2"}>
+                    <div key={"inline-radio"}>
+                        <Form.Check inline name={"gender1"} type="radio" label="Male" id={"male-radio"} />
+                        <Form.Check inline name={"gender1"} type="radio" label="Female" id={"female-radio"} />
+                        <Form.Check inline name={"gender1"} type="radio" label="Other" id={"other-radio"} />
+                    </div>
+                </Form.Group>
+
+                {/*Email*/}
+                <Form.Group controlId="formRegEmail" className={"m-2"}>
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Text className="text-muted">
+                        We'll never share your email with anyone else.
+                    </Form.Text>
+                </Form.Group>
+
+                {/*Password*/}
+                <Form.Group controlId="formRegPassword" className={"m-2"}>
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" />
+                </Form.Group>
+
+                {/*Password confirm*/}
+                <Form.Group controlId="formRegConfirmPassword" className={"m-2"}>
+                    <Form.Label>Confirm password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" />
+                </Form.Group>
+
+                {/*Submit button*/}
+                <Button type="submit" className="btn btn-primary m-2" onClick={handleSubmit}>SIGN UP</Button>
+            </Form>
         </div>
     </>);
 };
