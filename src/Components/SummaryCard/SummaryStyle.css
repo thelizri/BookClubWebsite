@@ -15,3 +15,10 @@
 .progress-bar{
     background-color: #EDA14A;
 }
+.CircularProgressbar-path {
+    stroke: #EE864B;
+}
+.CircularProgressbar-trail {
+    stroke: #FEF2E0;
+}
+

@@ -1,5 +1,6 @@
 import React from "react";
 import "./SummaryStyle.css";
+import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 
 function SummaryView(props){
     return (<div className={"container bg-white m-2"} id={"summaryViewContainer"}>
@@ -14,6 +15,10 @@ function SummaryView(props){
             <div className={"col"}>
                 <div><h4>Title</h4></div>
                 <div><h4 className={"text-muted"}>Author</h4></div>
+                <CircularProgressbarWithChildren value={91}>
+                    <div><h2>376/415</h2></div>
+                    <div>pages read</div>
+                </CircularProgressbarWithChildren>
             </div>
 
             {/*How many pages you need to read*/}
@@ -27,8 +32,8 @@ function SummaryView(props){
         </div>
         <div className="progress m-3">
             <div className="progress-bar" role="progressbar" aria-valuenow="70"
-                 aria-valuemin="0" aria-valuemax="100" style={{width:'70%'}}>
-                70%
+                 aria-valuemin="0" aria-valuemax="100" style={{width:'90%'}}>
+                90%
             </div>
         </div>
     </div>);
