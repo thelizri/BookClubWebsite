@@ -11,10 +11,19 @@ function SummaryView(props){
             </div>
 
             {/*Column for the circular progress bar and the title/author*/}
-            <div className={"col"}>test</div>
+            <div className={"col"}>
+                <div><h4>Title</h4></div>
+                <div><h4 className={"text-muted"}>Author</h4></div>
+            </div>
 
             {/*How many pages you need to read*/}
-            <div className={"col"}>test</div>
+            <div className={"col"}>
+                <div id={"currentread"}>Currently reading</div>
+                <div className={"text-center fw-bold"}>Pages to read per day</div>
+                <div className={"text-center"}><h1>18.5</h1></div>
+                <div className={"text-center fw-bold"}>Days until meeting</div>
+                <div className={"text-center"}><h1>2</h1></div>
+            </div>
         </div>
         <div className="progress m-3">
             <div className="progress-bar" role="progressbar" aria-valuenow="70"

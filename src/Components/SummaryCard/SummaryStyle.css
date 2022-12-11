@@ -4,3 +4,14 @@
 #summaryViewContainer{
     border-radius: 20px;
 }
+#currentread{
+    margin: 10px 10px 10px 10px;
+    border-radius: 5px;
+    background-color: #E8D8C9;
+    text-align: center;
+    padding: 5px 2px 5px 2px;
+    border-style: none;
+}
+.progress-bar{
+    background-color: #EDA14A;
+}
