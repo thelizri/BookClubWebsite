@@ -9,7 +9,6 @@ export const validateEmail = function (err) {
             break;
         case 'auth/email-already-exists' : errorMessage = 'User is already registered';
             break;
-        case 'auth/invalid-email' : errorMessage = 'Invalid email';
         default : return false;
     }
 
@@ -28,6 +27,7 @@ export const validatePassword = function (err) {
         case 'auth/wrong-password' : errorMessage = 'You have entered the incorrect password';
             break;
         case 'auth/invalid-password' : errorMessage = 'Password must be at least six characters.';
+            break;
         default : return false;
     }
 

@@ -2,7 +2,6 @@ import {
     createAsyncThunk,
     createSelector,
     createSlice,
-    createAction,
 } from "@reduxjs/toolkit";
 import { initializeApp } from "firebase/app";
 import {
@@ -38,8 +37,6 @@ const initialState = {
         status : IDLE,
         requestId : null,
         error : "",
-        errorEmail : false,
-        errorPassword : false,
     },
 };
 
@@ -61,12 +58,6 @@ export const authenticate = createAsyncThunk(
         } catch(err) {
             throw err;
         }
-
-        /*const userCredential = signup ?
-                               await createUserWithEmailAndPassword( auth,
-                                   email, password ) :
-                               await signInWithEmailAndPassword( auth, email,
-                                   password );*/
 
         return {
             uid : userCredential.user.uid,
