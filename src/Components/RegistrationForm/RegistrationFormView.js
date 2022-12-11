@@ -50,7 +50,7 @@ export const RegistrationFormView = function ({
                 {/*Email*/}
                 <Form.Group controlId="formRegEmail" className={"m-2"}>
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control type="email" placeholder="Enter email" ref={email}/>
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                     </Form.Text>
@@ -59,13 +59,13 @@ export const RegistrationFormView = function ({
                 {/*Password*/}
                 <Form.Group controlId="formRegPassword" className={"m-2"}>
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control type="password" placeholder="Password" ref={password}/>
                 </Form.Group>
 
                 {/*Password confirm*/}
                 <Form.Group controlId="formRegConfirmPassword" className={"m-2"}>
                     <Form.Label>Confirm password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control type="password" placeholder="Confirm" ref={passwordConfirm}/>
                 </Form.Group>
 
                 {/*Submit button*/}
