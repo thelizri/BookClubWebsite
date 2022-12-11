@@ -5,6 +5,7 @@ const initialState = {
     id: null,
     language: "",
     maxMembers: 1,
+    meetings: [],
     meetingType: "",
     members: [],
     readingList: [],
@@ -22,6 +23,9 @@ const club = createSlice({
         },
         setMaxMembers: ( state, { payload } ) => {
             state.maxMembers = payload;
+        },
+        setMeetings: ( state, { payload } ) => {
+            state.meetings = payload;
         },
         setMeetingType: ( state, { payload } ) => {
             state.meetingType = payload;
@@ -41,7 +45,7 @@ const club = createSlice({
     }
 });
 
-export const { setClubId, setLanguage, setMaxMembers, setMeetingType, setMembers, setReadingList,
+export const { setClubId, setLanguage, setMeetings, setMaxMembers, setMeetingType, setMembers, setReadingList,
                 removeMember, removeBookFromReadingList } = club.actions;
 
 export const selectLanguage = state => state.club.language;

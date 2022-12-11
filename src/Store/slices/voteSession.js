@@ -14,6 +14,11 @@ const voteSession = createSlice({
         setVoteSessionId: ( state, { payload } ) => {
             state.id = payload;
         },
-
+        setVoteId: ( state, { payload } ) => {
+            state.voteId = payload;
+        },
+        setMeetingId: ( state, { payload } ) => {
+            state.meetingId = payload;
+        },
     }
 })

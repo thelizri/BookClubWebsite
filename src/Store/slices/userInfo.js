@@ -1,16 +1,13 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-
 const initialState = {
     id: null,
-    clubs: [],
     firstName: "",
     lastName: "",
     gender: null,
     languages: [],
 }
-
-const userInfo = createSlice({
+export const userInfo = createSlice({
     name: 'userInfo',
     initialState,
     reducers: {
@@ -43,3 +40,5 @@ const userInfo = createSlice({
 
 export const { setUserId, setFirstName, setLastName, setGender, setLanguages,
                 removeClub, removeLanguage } = userInfo.actions;
+
+export const selectUser = (state) => state.userInfo;

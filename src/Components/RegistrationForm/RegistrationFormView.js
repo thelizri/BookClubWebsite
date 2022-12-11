@@ -7,12 +7,16 @@ export const RegistrationFormView = function ({
                                                   waiting = false,
                                                   onSubmit = (email, password, passwordConfirm) => {},
                                               }) {
+    const firstName = useRef();
+    const lastName = useRef();
     const email = useRef();
     const password = useRef();
     const passwordConfirm = useRef();
 
     const handleSubmit = (event) => {
         onSubmit(
+            firstName.current.value,
+            lastName.current.value,
             email.current.value,
             password.current.value,
             passwordConfirm.current.value
@@ -26,11 +30,11 @@ export const RegistrationFormView = function ({
             <form>
                 <div className="mb-2">
                     <label className="form-label">First name</label>
-                    <input type="text" className="form-control"  />
+                    <input type="text" className="form-control" ref={firstName} />
                 </div>
                 <div className="mb-4">
                     <label className="form-label">Last name</label>
-                    <input type="text" className="form-control" />
+                    <input type="text" className="form-control" ref={lastName} />
                 </div>
                 <div className="form-check form-check-inline mb-4">
                     <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Male"/>
