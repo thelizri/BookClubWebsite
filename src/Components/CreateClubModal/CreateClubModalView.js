@@ -5,9 +5,9 @@ import "./CreateClubModalStyle.css";
 export default function CreateClubModalView(){
     return(<>
         {/*Button trigger modal*/}
-        <Button type="button" class="btn btn-primary create-club-button" id="create-club-button" data-bs-toggle="modal" data-bs-target="#createClubModal">
+        <button type="button" class="btn btn-primary create-club-button" id="create-club-button" data-bs-toggle="modal" data-bs-target="#createClubModal">
             Create new club
-        </Button>
+        </button>
 
         {/*Modal*/}
         <div class="modal fade" id="createClubModal" tabindex="-1" aria-labelledby="createClubModalLabel" aria-hidden="true">
@@ -30,8 +30,8 @@ export default function CreateClubModalView(){
                         </Form>
                     </div>
                     <div class="modal-footer head-footer-modal">
-                        <Button type="button" class="btn btn-secondary close-modal" data-bs-dismiss="modal">Close</Button>
-                        <Button type="button" class="btn btn-primary create-club-button">Create club</Button>
+                        <button type="button" class="btn btn-secondary close-modal" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary create-club-button">Create club</button>
                     </div>
                 </div>
             </div>
