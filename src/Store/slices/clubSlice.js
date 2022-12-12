@@ -2,51 +2,55 @@ import { createSlice, createSelector } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    id: null,
-    language: "",
-    maxMembers: 1,
-    meetings: [],
-    meetingType: "",
-    members: [],
-    readingList: [],
+    clubs: [],
+
+    club: {
+        id: null,
+        language: "",
+        maxMembers: 1,
+        meetings: [],
+        meetingType: "",
+        members: [],
+        readingList: [],
+    }
 }
 
-const club = createSlice({
+const clubSlice = createSlice({
     name: 'club',
     initialState,
     reducers: {
         setClubId: ( state, { payload } ) => {
-            state.id = payload;
+            state.club.id = payload;
         },
         setLanguage: ( state, { payload } ) => {
-            state.language = payload;
+            state.club.language = payload;
         },
         setMaxMembers: ( state, { payload } ) => {
-            state.maxMembers = payload;
+            state.club.maxMembers = payload;
         },
         setMeetings: ( state, { payload } ) => {
-            state.meetings = payload;
+            state.club.meetings = payload;
         },
         setMeetingType: ( state, { payload } ) => {
-            state.meetingType = payload;
+            state.club.meetingType = payload;
         },
         setMembers: ( state, { payload } ) => {
-            state.members = [...state.members, payload];
+            state.club.members = [...state.members, payload];
         },
         setReadingList: ( state, { payload } ) => {
-            state.members = [...state.readingList, payload];
+            state.club.members = [...state.readingList, payload];
         },
         removeMember: (state, { payload } ) => {
-            state.members = state.members.filter((member) => member.id !== payload);
+            state.club.members = state.members.filter((member) => member.id !== payload);
         },
         removeBookFromReadingList: (state, { payload } ) => {
-            state.readingList = state.readingList.filter((book) => book.id !== payload);
+            state.club.readingList = state.readingList.filter((book) => book.id !== payload);
         },
     }
 });
 
 export const { setClubId, setLanguage, setMeetings, setMaxMembers, setMeetingType, setMembers, setReadingList,
-                removeMember, removeBookFromReadingList } = club.actions;
+                removeMember, removeBookFromReadingList } = clubSlice.actions;
 
 export const selectLanguage = state => state.club.language;
 

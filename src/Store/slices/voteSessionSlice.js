@@ -7,7 +7,7 @@ const initialState = {
     meetingId: null,
 }
 
-const voteSession = createSlice({
+const voteSessionSlice = createSlice({
     name: 'voteSession',
     initialState,
     reducers: {

@@ -1,5 +1,5 @@
 import { getDatabase, ref } from "firebase/database"
-import persistUserClubs from "./persistors/userClubs"
+import persistUserClubs from "./persistors/userClubPersistor"
 import firebase from "firebase/compat";
 import {setFirebaseReady} from "../slices/authSlice";
 

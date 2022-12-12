@@ -13,6 +13,7 @@ export const RegistrationFormView = function ({
                                               }) {
     const firstName = useRef();
     const lastName = useRef();
+    const gender = useRef();
     const email = useRef();
     const password = useRef();
     const passwordConfirm = useRef();
@@ -21,6 +22,7 @@ export const RegistrationFormView = function ({
         onSubmit(
             firstName.current.value,
             lastName.current.value,
+            gender.current,
             email.current.value,
             password.current.value,
             passwordConfirm.current.value
@@ -46,10 +48,10 @@ export const RegistrationFormView = function ({
 
                 {/*Gender*/}
                 <Form.Group controlId="formRegGender" className={"m-2"}>
-                    <div key={"inline-radio"}>
-                        <Form.Check inline name={"gender1"} type="radio" label="Male" id={"male-radio"} />
-                        <Form.Check inline name={"gender1"} type="radio" label="Female" id={"female-radio"} />
-                        <Form.Check inline name={"gender1"} type="radio" label="Other" id={"other-radio"} />
+                    <div key={"inline-radio"} onChange={event => gender.current = event.target.value}>
+                        <Form.Check inline name={"gender1"} value="Male" type="radio" label="Male" id={"male-radio"} />
+                        <Form.Check inline name={"gender1"} value="Female" type="radio" label="Female" id={"female-radio"} />
+                        <Form.Check inline name={"gender1"} value="Other" type="radio" label="Other" id={"other-radio"} />
                     </div>
                 </Form.Group>
 

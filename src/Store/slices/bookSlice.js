@@ -10,7 +10,7 @@ const initialState = {
     votes: [],
 }
 
-const book = createSlice({
+const bookSlice = createSlice({
     name: 'book',
     initialState,
     reducers: {
@@ -29,4 +29,4 @@ const book = createSlice({
     }
 })
 
-export const { setBookId, setAddedByUserId, setGoogleBooksId, setCurrentlyReading } = book.actions;
+export const { setBookId, setAddedByUserId, setGoogleBooksId, setCurrentlyReading } = bookSlice.actions;

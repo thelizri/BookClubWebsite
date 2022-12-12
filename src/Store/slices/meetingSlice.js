@@ -3,7 +3,6 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
     id: null,
-    clubId: null,
     address: null,
     creationDate: null,
     meetingLink: "",
@@ -11,7 +10,7 @@ const initialState = {
     voteDeadline: null,
 }
 
-const meeting = createSlice({
+const meetingSlice = createSlice({
     name: "meeting",
     initialState,
     reducers: {
@@ -36,5 +35,5 @@ const meeting = createSlice({
     }
 })
 
-export const { setMeetingId, setAddress, setCreationDate, setMeetingLink, setMeetingTime, setVoteDeadline } = meeting.actions;
+export const { setMeetingId, setAddress, setCreationDate, setMeetingLink, setMeetingTime, setVoteDeadline } = meetingSlice.actions;
 

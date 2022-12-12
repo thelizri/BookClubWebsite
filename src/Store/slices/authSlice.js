@@ -22,12 +22,15 @@ import {
 const firebaseApp = initializeApp( firebaseConfig );
 
 const initialState = {
+    users: [],
     user : {
         uid : null,
         email : null,
         firstName : null,
         lastName : null,
+        clubIds : [],
         gender : null,
+        languages : [],
     },
 
     firebaseAuthReady : false,
@@ -61,7 +64,8 @@ export const authenticate = createAsyncThunk(
 
         return {
             uid : userCredential.user.uid,
-            email : userCredential.user.email
+            email : userCredential.user.email,
+            signup
         };
     }
 );
@@ -70,11 +74,16 @@ export const authSlice = createSlice( {
     name : "auth",
     initialState,
     reducers : {
-        resetStatus : ( state ) => {
+        resetAuthenticationStatus : ( state ) => {
             state.authenticate.status = IDLE;
         },
         setUser : ( state, { payload } ) => {
-            state.user.uid = payload.uid;
+            state.user.firstName = payload.firstName;
+            state.user.lastName = payload.lastName;
+            state.user.gender = payload.gender;
+        },
+        setIdAndEmail : ( state, { payload } ) => {
+            state.user.uid = payload.id;
             state.user.email = payload.email;
         },
         setFirebaseAuthReady : ( state ) => {
@@ -82,6 +91,24 @@ export const authSlice = createSlice( {
         },
         setFirebaseReady : ( state ) => {
             state.firebaseReady = true;
+        },
+        setLanguages: ( state, { payload } ) => {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    languages: [...state.user.languages, payload]
+                }
+            }
+        },
+        removeLanguage: ( state, { payload } ) => {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    languages: state.languages.filter((language) => language !== payload)
+                }
+            }
         },
     },
     extraReducers : {
@@ -94,6 +121,7 @@ export const authSlice = createSlice( {
 
             state.user.uid = payload.uid;
             state.user.email = payload.email;
+            if( payload.signup ) state.users = [...state.users, state.user];
             state.authenticate.status = FULFILLED;
         },
         [ authenticate.rejected ] : ( state, { meta, error } ) => {
@@ -107,8 +135,8 @@ export const authSlice = createSlice( {
     },
 } );
 
-const setUser = authSlice.actions.setUser;
-const setFirebaseAuthReady = authSlice.actions.setFirebaseAuthReady;
+export const { setUser, setFirebaseAuthReady, resetAuthenticationStatus,
+    setFirebaseReady, setIdAndEmail, setLanguages, removeLanguage } = authSlice.actions;
 
 export const listenToAuthenticationChanges = () =>
     ( dispatch, _ ) => {
@@ -116,7 +144,7 @@ export const listenToAuthenticationChanges = () =>
 
         onAuthStateChanged( auth, ( user ) => {
             if( user ) {
-                dispatch( setUser( { uid : user.uid, email : user.email } ) );
+                dispatch( setIdAndEmail( { uid : user.uid, email : user.email } ) );
             }
 
             dispatch( setFirebaseAuthReady() );
@@ -133,6 +161,11 @@ export const logout = () =>
 // export default authSlice.reducer;
 
 const selectAuth = ( state ) => state.auth;
+
+export const selectAuthenticationSuccess = createSelector(
+    selectAuth,
+    ( data ) => data.authenticate.status === FULFILLED
+);
 
 export const selectAuthenticationIsWaiting = createSelector(
     selectAuth,
@@ -154,6 +187,3 @@ export const selectFirebaseReady = createSelector(
     selectAuth,
     ( data ) => data.firebaseReady
 );
-
-export const resetAuthenticationStatus = authSlice.actions.resetStatus;
-export const setFirebaseReady = authSlice.actions.setFirebaseReady;

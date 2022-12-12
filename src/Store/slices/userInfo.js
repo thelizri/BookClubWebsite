@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-    id: null,
+    email: null,
     firstName: "",
     lastName: "",
     gender: null,
@@ -11,8 +11,13 @@ export const userInfo = createSlice({
     name: 'userInfo',
     initialState,
     reducers: {
-        setUserId: ( state, { payload } ) => {
-            state.id = payload;
+        setRegistrationData: ( state, { payload } ) => {
+            state.email = payload.email;
+            state.firstName = payload.firstName;
+            state.lastName = payload.lastName;
+        },
+        setUserEmail: ( state, { payload } ) => {
+            state.email = payload;
         },
         setClubs: ( state, { payload } ) => {
             state.clubs = [...state.clubs, payload];
@@ -38,7 +43,7 @@ export const userInfo = createSlice({
     }
 });
 
-export const { setUserId, setFirstName, setLastName, setGender, setLanguages,
+export const { setUserId, setFirstName, setLastName, setGender, setLanguages, setRegistrationData,
                 removeClub, removeLanguage } = userInfo.actions;
 
 export const selectUser = (state) => state.userInfo;
