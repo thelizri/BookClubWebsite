@@ -53,3 +53,4 @@ Johannes - Scrum Master, Frontend specialist
 ## Frameworks
 React - Redux  
 Frontend/UI -Bootstrap 5
+Stuffff
