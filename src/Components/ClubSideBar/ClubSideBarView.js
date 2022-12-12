@@ -1,5 +1,6 @@
 import { SearchBar } from "../SearchBar/SearchBar";
 import "./ClubSidebarStyle.css"
+import CreateClubModalView from "../CreateClubModal/CreateClubModalView";
 
 // DUMMY PRESENTERS
 var ClubList = (props) => {
@@ -31,6 +32,7 @@ export default function ClubSideBarView(props) {
                     <ClubList/>
                 </div>
             </div>
+            <CreateClubModalView />
             <div className="panel panel-default" id={"sidebarbottom"}>
                 <div className="panel-heading">Find Clubs</div>
                 <div className="panel-body">
