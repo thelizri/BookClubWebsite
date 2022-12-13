@@ -2,7 +2,27 @@ import React from 'react';
 import "./NavigationBarStyle.css";
 import {Link} from "react-router-dom";
 
-export const NavigationBarView = function() {
+// React-bootstrap imports
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Dropdown from 'react-bootstrap/Dropdown';
+
+export const NavigationBarView = ({
+    logOut = () => {console.log("logout")}
+}) => {
+    // https://react-bootstrap.netlify.app/components/dropdowns/#split-button-dropdowns
+    const PROFILE_BUTTON = () => {
+        return (
+            <Dropdown id="profile-button" as={ButtonGroup}>
+                <Button variant="success">Profile</Button>
+                <Dropdown.Toggle split variant="success" />
+                <Dropdown.Menu>
+                    <Dropdown.Item href="#" onClick={logOut}>Log out</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
+        );
+    };
+    
     return(<nav className="navbar navbar-light navbar-expand-lg" id={"navigation-bar"}>
         <span id={"hiddenPadding"}>llll</span>
         <span className="navbar-brand"><strong id={"name1"}>Yomu</strong><strong id={"name2"}>Bo</strong></span>
@@ -32,9 +52,7 @@ export const NavigationBarView = function() {
                     </Link>
                 </li>
                 <li className="navbar-item">
-                    <Link to={"/error"} id={"react-link"}>
-                        <a className="nav-link" href={"#"} id={"navigation"}>Profile</a>
-                    </Link>
+                    {PROFILE_BUTTON()}
                 </li>
             </ul>
         </div>
