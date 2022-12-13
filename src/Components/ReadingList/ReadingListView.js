@@ -31,7 +31,7 @@ function ReadingListView(props){
                 {<th><SearchModalView /></th>}
             </tr>
             </thead>
-            <tbody>
+            <tbody id={"bodyReadingList"}>
             {books.map(displayBooksCB)}
             </tbody>
         </table>
