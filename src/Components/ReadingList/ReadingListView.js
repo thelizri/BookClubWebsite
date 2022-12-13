@@ -1,5 +1,6 @@
 import React from "react";
 import "./ReadingListStyle.css";
+import SearchModalView from "../SearchModal/SearchModalView";
 //import {BookSearch} from "../BookSearch/Search";
 
 function displayBooksCB(book){
@@ -27,7 +28,7 @@ function ReadingListView(props){
                 <th>Title</th>
                 <th>Author</th>
                 <th>Pages</th>
-                {/*<th><BookSearch /></th>*/}
+                {<th><SearchModalView /></th>}
             </tr>
             </thead>
             <tbody>
