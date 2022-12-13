@@ -1,13 +1,11 @@
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Form from "react-bootstrap/Form";
+import "./SearchModalStyle.css";
 import {Search} from "../BookSearch/Search";
 
 
 function SearchModalView() {
     return(<>
         {/*Button trigger modal*/}
-        <button type="button" class="btn btn-primary" id="search-modal" data-bs-toggle="modal" data-bs-target="#searchModal">
+        <button type="button" class="btn" id="search-modal-button" data-bs-toggle="modal" data-bs-target="#searchModal">
             Search for new Books
         </button>
 

@@ -11,7 +11,7 @@ export const SearchResultsView = ( { foundBooks, error } ) => {
 
     console.log( foundBooks )
     return (
-        <div className={"list-group"}>
+        <div className={"list-group col-10"}>
             { foundBooks.map( renderListItem ) }
         </div>
     );
