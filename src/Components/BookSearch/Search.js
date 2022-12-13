@@ -1,30 +1,31 @@
 import * as React from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useGetSearchResultsQuery } from "../../Store/api/apiSlice";
-import { SearchBarView } from "../SearchBar/SearchBarView";
-import { SearchResultsView } from "./SearchResultsView";
-import {useDispatch, useSelector} from "react-redux";
-import {addBookToReadingList} from "../../Store/slices/club";
-import {selectBook, setSelectedBook} from "../../Store/slices/bookSlice";
-import {useEffect} from "react";
+import { selectBook, setSelectedBook } from "../../Store/slices/bookSlice";
+import { addBookToReadingList } from "../../Store/slices/club";
+import { SearchModalView } from "../SearchModal/SearchModalView";
 
 /**
  * Presenter for SearchResultsView.
  * @returns {JSX.Element}
  */
 export const Search = () => {
-    const book = useSelector(selectBook);
+    const dispatch = useDispatch();
+    const book = useSelector( selectBook );
+
     // State of query
-    const [ searchQuery, setSearchQuery ] = React.useState( "Harry Potter" );
+    const [ searchQuery, setSearchQuery ] = React.useState();
 
     // State of API request
     const { data, isLoading, isFetching, isSuccess, isError, error } =
         useGetSearchResultsQuery( searchQuery );
 
-    useEffect(() => {
-        if(book.pageCount !== 0) {
-            dispatch(addBookToReadingList(book));
+    useEffect( () => {
+        if( book.pageCount !== 0 ) {
+            dispatch( addBookToReadingList( book ) );
         }
-    }, [ book ])
+    }, [ book ] )
 
     let preliminaryQuery = "";
     const storeSearchQuery = ( query ) => {
@@ -42,34 +43,31 @@ export const Search = () => {
     const errorMsg = isError ? 'Search failed :-(' : null;
 
     let content = null;
-    const dispatch = useDispatch();
 
-    function addSelectedBookToReadingList(googleBooksId, title, author, pageCount) {
-        dispatch(setSelectedBook( { googleBooksId, title, author, pageCount } ));
+    function addSelectedBookToReadingList( googleBooksId, title, author, pageCount ) {
+        dispatch(
+            setSelectedBook( { googleBooksId, title, author, pageCount } ) );
     }
 
     if( isLoading || isFetching ) {
         // content = <LoadingImage /> or similar
     } else if( isSuccess && !isEmpty ) {
-        content = <SearchResultsView
+        content = <SearchModalView
             foundBooks={ data.items }
             error={ errorMsg }
-            onSubmit={ addSelectedBookToReadingList }/>
+            onSelection={ addSelectedBookToReadingList }
+            onSubmit={ executeQuery }
+            inputQuery={ storeSearchQuery }/>
     } else if( isSuccess && isEmpty ) {
-        content = <SearchResultsView
+        content = <SearchModalView
             foundBooks={ noResultsMsg }
-            error={ errorMsg } />
-    } else if( isError ) {
-        content = <SearchResultsView foundBooks={ noResultsMsg }
-                                     error={ errorMsg }/>
-        console.log( error?.data?.error?.message );
+            error={ errorMsg }
+            onSelection={ addSelectedBookToReadingList }
+            onSubmit={ executeQuery }
+            inputQuery={ storeSearchQuery }/>
     }
 
     return (
-        <section className='book-search'>
-            <SearchBarView onSubmit={ executeQuery }
-                           inputQuery={ storeSearchQuery }/>
-            { content }
-        </section>
+        <section className='book-search'>{ content }</section>
     )
 }
