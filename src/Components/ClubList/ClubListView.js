@@ -1,3 +1,4 @@
+import "./ClubListStyle.css"
 /**
  * Displays a list of clubs.
  *
@@ -11,11 +12,7 @@ export default function ClubListView(props) {
     function renderListItem(club) {
         return (
             <a href="#" key={club.name}
-                className={
-                    `list-group-item${
-                        club === props.currentClub ? " active" : ""
-                    }`
-                }
+                className={"list-group-item list-group-item-action"}
                 onClick={() => props.setCurrentClub(club)}
             >
                 {club.name}
@@ -24,7 +21,7 @@ export default function ClubListView(props) {
     }
     
     return (
-        <div className="list-group">
+        <div className="list-group" id={"listForClubs"}>
             {
                 props.clubs.map(renderListItem)
             }
