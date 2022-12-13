@@ -3,3 +3,8 @@
     background-color: #EE864B;
     padding: 1px;
 }
+#search-modal-button:hover{
+    color:whitesmoke;
+    background-color: #EA671C;
+    padding: 1px;
+}

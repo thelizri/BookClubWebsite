@@ -1,5 +1,9 @@
 .create-club-button{
     background-color: #EE864B;
+    border: transparent;
+}
+.create-club-button:hover{
+    background-color: #EA671C;
 }
 
 .close-modal{
