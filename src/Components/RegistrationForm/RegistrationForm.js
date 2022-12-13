@@ -8,7 +8,7 @@ import {
     selectAuthenticationSuccess,
     selectUser,
     setUser,
-} from "../../Store/slices/authSlice";
+} from "../../Store/slices/userSlice";
 
 import { RegistrationFormView } from "./RegistrationFormView";
 import {validateEmail, validatePassword} from "../../Utils/validation";

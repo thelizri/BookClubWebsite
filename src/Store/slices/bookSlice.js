@@ -2,15 +2,13 @@ import {createSlice} from "@reduxjs/toolkit";
 
 
 const initialState = {
-    id: null,
-    addedByUserId: null,
+    addedByUserId: "irsPW5zlE4SPq5KwvnT3Snq10w63", //for future usage
+    currentPage: 1,
     googleBooksId: null,
     currentlyReading: null,
-    finishedReadingDate: null,
-    votes: [],
 }
 
-const bookSlice = createSlice({
+export const book = createSlice({
     name: 'book',
     initialState,
     reducers: {
@@ -29,4 +27,4 @@ const bookSlice = createSlice({
     }
 })
 
-export const { setBookId, setAddedByUserId, setGoogleBooksId, setCurrentlyReading } = bookSlice.actions;
+export const { setBookId, setAddedByUserId, setGoogleBooksId, setCurrentlyReading } = book.actions;

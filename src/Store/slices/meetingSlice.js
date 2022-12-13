@@ -4,13 +4,12 @@ import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
     id: null,
     address: null,
-    creationDate: null,
+    currentMeeting: null,
     meetingLink: "",
     meetingTime: null,
-    voteDeadline: null,
 }
 
-const meetingSlice = createSlice({
+export const meeting = createSlice({
     name: "meeting",
     initialState,
     reducers: {
@@ -20,8 +19,8 @@ const meetingSlice = createSlice({
         setAddress: ( state, { payload } ) => {
             state.address = payload;
         },
-        setCreationDate: ( state, { payload } ) => {
-            state.creationDate = payload;
+        setCurrentMeeting: ( state, { payload } ) => {
+            state.currentMeeting = payload;
         },
         setMeetingLink: ( state, { payload } ) => {
             state.meetingLink = payload;
@@ -29,11 +28,8 @@ const meetingSlice = createSlice({
         setMeetingTime: ( state, { payload } ) => {
             state.meetingTime = payload;
         },
-        setVoteDeadline: ( state, { payload } ) => {
-            state.voteDeadline = payload;
-        },
     }
 })
 
-export const { setMeetingId, setAddress, setCreationDate, setMeetingLink, setMeetingTime, setVoteDeadline } = meetingSlice.actions;
+export const { setMeetingId, setAddress, setCurrentMeeting, setMeetingLink, setMeetingTime } = meeting.actions;
 

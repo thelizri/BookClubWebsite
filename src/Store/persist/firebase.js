@@ -1,10 +1,10 @@
 import { getDatabase, ref } from "firebase/database"
-import persistUserClubs from "./persistors/userClubPersistor"
+import persistClubs from "./persistors/clubsPersistor"
 import firebase from "firebase/compat";
-import {setFirebaseReady} from "../slices/authSlice";
+import {setFirebaseReady} from "../slices/userSlice";
 
 const persistors = [
-    ["userClubs", persistUserClubs],
+    ["clubs", persistClubs],
 ]
 const persistData = function (store, firebaseApp) {
     let prevState = store.getState();
@@ -12,7 +12,7 @@ const persistData = function (store, firebaseApp) {
     const firebaseDb = getDatabase(firebaseApp);
 
     store.subscribe(() => {
-        const REF = `users`;
+        const REF = `yomubo`;
         const prevUserId = prevState.auth.user.uid;
         const userId = store.getState().auth.user.uid;
 
@@ -26,6 +26,7 @@ const persistData = function (store, firebaseApp) {
             }
         }
 
+        //user logs out
         if(prevUserId && !userId) unsubscribers.forEach((unsubscriber) => unsubscriber());
 
         if (userId && !prevUserId) {
@@ -48,8 +49,8 @@ const persistData = function (store, firebaseApp) {
                     )
                 })
             })();
-
-
         }
+
+        prevState = store.getState();
     })
 }

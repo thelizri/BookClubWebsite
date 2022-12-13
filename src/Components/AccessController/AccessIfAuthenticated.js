@@ -3,7 +3,7 @@ import {
     selectFirebaseAuthReady,
     selectFirebaseReady,
     selectUser
-} from "../../Store/slices/authSlice";
+} from "../../Store/slices/userSlice";
 import { useSelector } from "react-redux";
 import {LoadingIcon} from "../LoadingIcon/LoadingIcon";
 

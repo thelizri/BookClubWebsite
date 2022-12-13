@@ -3,7 +3,6 @@ import {
     createSelector,
     createSlice,
 } from "@reduxjs/toolkit";
-import { initializeApp } from "firebase/app";
 import {
     createUserWithEmailAndPassword,
     getAuth,
@@ -11,15 +10,13 @@ import {
     signInWithEmailAndPassword,
     signOut,
 } from "firebase/auth";
-import { firebaseConfig } from "../../Config/firebaseConfig";
 import {
     FULFILLED,
     IDLE,
     PENDING,
     REJECTED
 } from "../../Constants/promiseStatus";
-
-const firebaseApp = initializeApp( firebaseConfig );
+import {firebaseApp} from "../store";
 
 const initialState = {
     users: [],
@@ -70,7 +67,7 @@ export const authenticate = createAsyncThunk(
     }
 );
 
-export const authSlice = createSlice( {
+export const userSlice = createSlice( {
     name : "auth",
     initialState,
     reducers : {
@@ -136,7 +133,7 @@ export const authSlice = createSlice( {
 } );
 
 export const { setUser, setFirebaseAuthReady, resetAuthenticationStatus,
-    setFirebaseReady, setIdAndEmail, setLanguages, removeLanguage } = authSlice.actions;
+    setFirebaseReady, setIdAndEmail, setLanguages, removeLanguage } = userSlice.actions;
 
 export const listenToAuthenticationChanges = () =>
     ( dispatch, _ ) => {

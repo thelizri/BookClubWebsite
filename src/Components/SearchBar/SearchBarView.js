@@ -1,3 +1,6 @@
+import {selectMaxMembers} from "../../Store/slices/club";
+import {useSelector} from "react-redux";
+
 /**
  * Search bar component
  *
@@ -5,6 +8,12 @@
  * @param {function} onSubmit - callback that initiates the search.
  */
 export const SearchBarView = function( { inputQuery, onSubmit } ) {
+    const test = useSelector(selectMaxMembers);
+
+    function handleSubmit(e) {
+        onSubmit();
+        e.preventDefault();
+    }
 
     // https://getbootstrap.com/docs/3.4/components/#input-groups
     return (
@@ -20,9 +29,9 @@ export const SearchBarView = function( { inputQuery, onSubmit } ) {
             <button
                 type="button"
                 className="btn btn-outline-dark"
-                onClick={onSubmit}
+                onClick={handleSubmit}
             >
-                Search
+                {test}
             </button>
         </div>
     );

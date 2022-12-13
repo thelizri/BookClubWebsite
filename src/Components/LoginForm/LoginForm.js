@@ -6,7 +6,7 @@ import {
     selectAuthenticationError,
     selectAuthenticationIsWaiting,
     selectUser,
-} from "../../Store/slices/authSlice";
+} from "../../Store/slices/userSlice";
 import LoginFormView from "./LoginFormView";
 import {validateEmail, validatePassword} from "../../Utils/validation";
 

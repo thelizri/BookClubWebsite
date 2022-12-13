@@ -1,9 +1,10 @@
 import {createSlice} from "@reduxjs/toolkit";
 
+//might be redundant
 const initialState = {
     userId: null,
     bookId: null,
-    voteSessionId: null,
+    voteSessionId: null, //probably want to remove
 }
 
 const voteSlice = createSlice({

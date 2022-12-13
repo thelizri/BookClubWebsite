@@ -1,11 +1,20 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import { googleBooksApi } from "./api/apiSlice";
-import { authSlice, listenToAuthenticationChanges } from "./slices/authSlice";
-import { userInfo } from "./slices/userInfo";
+import { userSlice, listenToAuthenticationChanges } from "./slices/userSlice";
+import { book } from "./slices/bookSlice";
+import { meeting } from "./slices/meetingSlice";
+import { club } from "./slices/club";
+import { persistClubs } from "./persist/clubPersistence";
+import {initializeApp} from "firebase/app";
+import {firebaseConfig} from "../Config/firebaseConfig";
+export const firebaseApp = initializeApp( firebaseConfig );
 
 const store = configureStore( {
     reducer : {
-        auth : authSlice.reducer,
+        auth : userSlice.reducer,
+        book : book.reducer,
+        club : club.reducer,
+        meeting : meeting.reducer,
         [ googleBooksApi.reducerPath ] : googleBooksApi.reducer, // api reducer,
     },
     middleware : ( getDefaultMiddleware ) =>
@@ -14,6 +23,6 @@ const store = configureStore( {
 
 store.dispatch( listenToAuthenticationChanges() );
 
-//enablePersistence(store, firebaseApp);
+persistClubs(store, firebaseApp);
 
 export default store;
