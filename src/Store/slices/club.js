@@ -118,7 +118,7 @@ export const { addBookToReadingList, addGenre, addMember, setClubId, setClubName
 
 export const selectClub = state => state.club;
 
-export const selectClubId = state => state.id;
+export const selectClubId = state => state.club.id;
 
 export const selectClubName = state => state.club.clubName;
 

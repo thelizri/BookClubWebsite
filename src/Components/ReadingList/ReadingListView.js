@@ -10,11 +10,11 @@ function displayBooksCB(book){
         </div></td>
         <td>{book.title}</td>
         <td>{book.author}</td>
-        <td>{book.pages}</td>
+        <td>{book.pageCount}</td>
     </tr>);
 }
 
-function ReadingListView(props){
+const ReadingListView = function({readingList = []}) {
     const book1 = {title:"Harry Potter",author:"Rowling",pages:500, isbn:"9780747542155"};
     const book2 = {title:"Stormlight Archive",author:"Sandersson",pages:900, isbn:"9780575097360"};
     const books = [book1, book2];
@@ -32,7 +32,7 @@ function ReadingListView(props){
             </tr>
             </thead>
             <tbody id={"bodyReadingList"}>
-            {books.map(displayBooksCB)}
+            {readingList.map(displayBooksCB)}
             </tbody>
         </table>
     </div>

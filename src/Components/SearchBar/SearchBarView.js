@@ -8,8 +8,6 @@ import {useSelector} from "react-redux";
  * @param {function} onSubmit - callback that initiates the search.
  */
 export const SearchBarView = function( { inputQuery, onSubmit } ) {
-    const test = useSelector(selectMaxMembers);
-
     function handleSubmit(e) {
         onSubmit();
         e.preventDefault();
@@ -31,7 +29,7 @@ export const SearchBarView = function( { inputQuery, onSubmit } ) {
                 className="btn btn-outline-dark"
                 onClick={handleSubmit}
             >
-                {test}
+                Search
             </button>
         </div>
     );

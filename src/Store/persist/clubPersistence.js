@@ -57,7 +57,7 @@ export const persistClubs = function (store, firebaseApp) {
             }
 
             const genres = club.genres;
-            if(genres !== prevClub.genres /*&& !arrayEquals(genres, prevClub.genres*/)) {
+            if(genres !== prevClub.genres /*&& !arrayEquals(genres, prevClub.genres*/) {
                 setData({ genres }, clubRef);
             }
 
@@ -106,7 +106,7 @@ export const persistClubs = function (store, firebaseApp) {
             }
 
             const memberIds = club.memberIds;
-            if(memberIds !== prevClub.memberIds /*&& !arrayEquals(memberIds, prevClub.memberIds*/)) {
+            if(memberIds !== prevClub.memberIds /*&& !arrayEquals(memberIds, prevClub.memberIds*/) {
                 setData({ memberIds }, clubRef);
             }
 

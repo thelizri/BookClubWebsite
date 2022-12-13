@@ -1,5 +1,6 @@
 import "./SearchModalStyle.css";
 import {Search} from "../BookSearch/Search";
+import {useRef} from "react";
 
 
 function SearchModalView() {
