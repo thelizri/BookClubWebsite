@@ -1,5 +1,5 @@
-import {Link} from "react-router-dom";
 import React from 'react';
+import { Link } from "react-router-dom";
 import "./LandingPageStyle.css";
 
 /**
@@ -19,17 +19,21 @@ const TEXT = {
  */
 export const LandingPage = function() {
     return (
-        <div className={"image"}>
-            <img className={"image_img"} src={require("../../Images/background.jpg")} alt={"cant load image"}/>
-            <div className={"image_overlay"}>
-                <h1 className={"image-header"}>{TEXT.TITLE}</h1>
-                <p className={"image-paragraph"}>{TEXT.MESSAGE}</p>
+        <div className={ "image" }>
+            <img className={ "image_img" }
+                 src={ require( "../../Images/background.jpg" ) }
+                 alt={ "cant load image" }/>
+            <div className={ "image_overlay" }>
+                <h1 className={ "image-header" }>{ TEXT.TITLE }</h1>
+                <p className={ "image-paragraph" }>{ TEXT.MESSAGE }</p>
                 <Link to="/registration">
-                    <button type="button" className="btn btn-primary" id="sign-up-button">{ TEXT.SIGN_UP }</button>
+                    <button type="button" className="btn btn-primary"
+                            id="sign-up-button">{ TEXT.SIGN_UP }</button>
                 </Link>
                 <div className="row">
                     <Link to="/login">
-                        <a className={"image-link"} href="src/pages#">{ TEXT.SIGN_IN }</a>
+                        <a className={ "image-link" }
+                           href="#">{ TEXT.SIGN_IN }</a>
                     </Link>
                 </div>
             </div>

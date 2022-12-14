@@ -1,6 +1,6 @@
+import { useDispatch } from "react-redux";
+import { setMaxMembers } from "../../Store/slices/clubSlice";
 import { SearchBarView } from "./SearchBarView";
-import {useDispatch} from "react-redux";
-import {setClubId, setLanguage, setMaxMembers} from "../../Store/slices/club";
 
 /**
  * Search bar component
@@ -8,12 +8,12 @@ import {setClubId, setLanguage, setMaxMembers} from "../../Store/slices/club";
 export const SearchBar = () => {
     const dispatch = useDispatch();
 
-    function handleClick(event) {
-        dispatch(setMaxMembers(1));
+    function handleClick( event ) {
+        dispatch( setMaxMembers( 1 ) );
     }
 
     return <SearchBarView
-        setSearchText = {(text) => console.log(text)}
-        onSubmit = {handleClick}
+        setSearchText={ ( text ) => console.log( text ) }
+        onSubmit={ handleClick }
     />;
 };

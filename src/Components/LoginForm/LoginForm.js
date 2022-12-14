@@ -5,10 +5,9 @@ import {
     resetAuthenticationStatus,
     selectAuthenticationError,
     selectAuthenticationIsWaiting,
-    selectUser,
 } from "../../Store/slices/userSlice";
+import { validateEmail, validatePassword } from "../../Utils/validationUtil";
 import LoginFormView from "./LoginFormView";
-import {validateEmail, validatePassword} from "../../Utils/validationUtil";
 
 const LoginForm = function() {
     const error = useSelector( selectAuthenticationError );
@@ -27,17 +26,19 @@ const LoginForm = function() {
     };
 
     const validEmail = () => {
-        return validateEmail(error, login);
+        return validateEmail( error, login );
     }
 
     const validPassword = () => {
-        return validatePassword(error, login);
+        return validatePassword( error, login );
     }
 
     return (
         <div>
-            <LoginFormView validEmail={ validEmail } validPassword={ validPassword }
-                           error={ error } waiting={ waiting } onSubmit={ handleSubmit }/>
+            <LoginFormView validEmail={ validEmail }
+                           validPassword={ validPassword }
+                           error={ error } waiting={ waiting }
+                           onSubmit={ handleSubmit }/>
         </div>
     )
 }
