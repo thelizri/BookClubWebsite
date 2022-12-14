@@ -7,7 +7,7 @@ import {
     setMaxMembers,
     setMeetings,
     setMeetingType, setMembers, setReadingList, setVoteDeadline, setVotes
-} from "../../slices/club";
+} from "../../slices/clubSlice";
 import {setData} from "../../../Utils/persistenceUtil";
 import {setClubIds, setDisplayName, setGender, setLanguages, setUserId} from "../../slices/userSlice";
 
