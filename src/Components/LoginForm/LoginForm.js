@@ -6,14 +6,15 @@ import {
     selectAuthenticationError,
     selectAuthenticationIsWaiting,
     selectUser,
-} from "../../Store/slices/authSlice";
+} from "../../Store/slices/userSlice";
 import LoginFormView from "./LoginFormView";
-import {validateEmail, validatePassword} from "../../Utils/validation";
+import {validateEmail, validatePassword} from "../../Utils/validationUtil";
 
 const LoginForm = function() {
     const error = useSelector( selectAuthenticationError );
     const waiting = useSelector( selectAuthenticationIsWaiting );
     const dispatch = useDispatch();
+    const login = true;
 
     useEffect( () => {
         dispatch( resetAuthenticationStatus() );
@@ -26,11 +27,11 @@ const LoginForm = function() {
     };
 
     const validEmail = () => {
-        return validateEmail(error);
+        return validateEmail(error, login);
     }
 
     const validPassword = () => {
-        return validatePassword(error);
+        return validatePassword(error, login);
     }
 
     return (

@@ -17,7 +17,7 @@ export default function ClubPanelView(props) {
     return (
         // https://getbootstrap.com/docs/3.4/components/#panels
         <div className="panel panel-default" id={"panel"}>
-            <div className="panel-header"><h1 id={"panelhead"}>{props.currentClub.name}</h1></div>
+            <div className="panel-header"><h1 id={"panelhead"}>{props.currentClub.clubName}</h1></div>
             <div className="panel-body" id={"panelbody"}>
                 <div className="container">
                     <div className="row">

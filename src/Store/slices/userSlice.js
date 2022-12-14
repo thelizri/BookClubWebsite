@@ -2,33 +2,34 @@ import {
     createAsyncThunk,
     createSelector,
     createSlice,
-    createAction,
 } from "@reduxjs/toolkit";
-import { initializeApp } from "firebase/app";
 import {
+    browserSessionPersistence,
     createUserWithEmailAndPassword,
     getAuth,
     onAuthStateChanged,
+    setPersistence,
     signInWithEmailAndPassword,
     signOut,
+    updateProfile,
 } from "firebase/auth";
-import { firebaseConfig } from "../../Config/firebaseConfig";
 import {
     FULFILLED,
     IDLE,
     PENDING,
     REJECTED
 } from "../../Constants/promiseStatus";
-
-const firebaseApp = initializeApp( firebaseConfig );
+import {firebaseApp} from "../store";
 
 const initialState = {
+    users: [],
     user : {
         uid : null,
         email : null,
-        firstName : null,
-        lastName : null,
+        displayName: null,
+        clubIds : [],
         gender : null,
+        languages : [],
     },
 
     firebaseAuthReady : false,
@@ -38,18 +39,15 @@ const initialState = {
         status : IDLE,
         requestId : null,
         error : "",
-        errorEmail : false,
-        errorPassword : false,
     },
 };
 
 export const authenticate = createAsyncThunk(
     "auth/authenticate",
     async(
-        { email, password, passwordConfirm, signup }
+        { displayName, languages, gender, email, password, passwordConfirm, signup }
     ) => {
-        if( signup && password !== passwordConfirm )
-            throw new Error( "Passwords do not match :-/" );
+        if( signup && password !== passwordConfirm ) throw new Error( "Passwords do not match" );
 
         const auth = getAuth( firebaseApp );
         let userCredential;
@@ -57,30 +55,39 @@ export const authenticate = createAsyncThunk(
         try {
             userCredential = signup ?
                 await createUserWithEmailAndPassword( auth, email, password ) :
-                await signInWithEmailAndPassword( auth, email, password );
+                userCredential = await signInWithEmailAndPassword( auth, email, password );
         } catch(err) {
             throw err;
         }
 
-        /*const userCredential = signup ?
-                               await createUserWithEmailAndPassword( auth,
-                                   email, password ) :
-                               await signInWithEmailAndPassword( auth, email,
-                                   password );*/
+        if(signup) return {
+            uid : userCredential.user.uid,
+            email : userCredential.user.email,
+            displayName,
+            gender,
+            languages,
+            signup
+        }
 
         return {
             uid : userCredential.user.uid,
-            email : userCredential.user.email
+            email : userCredential.user.email,
         };
     }
 );
 
-export const authSlice = createSlice( {
+export const userSlice = createSlice( {
     name : "auth",
     initialState,
     reducers : {
-        resetStatus : ( state ) => {
+        resetAuthenticationStatus : ( state ) => {
             state.authenticate.status = IDLE;
+        },
+        setDisplayName : (state, { payload } ) => {
+            state.user.displayName = payload;
+        },
+        setUserId : ( state, { payload } ) => {
+            state.user.uid = payload;
         },
         setUser : ( state, { payload } ) => {
             state.user.uid = payload.uid;
@@ -91,6 +98,30 @@ export const authSlice = createSlice( {
         },
         setFirebaseReady : ( state ) => {
             state.firebaseReady = true;
+        },
+        setClubIds : ( state, { payload } ) => {
+            state.clubIds = payload;
+        },
+        setGender : ( state, { payload } ) => {
+            state.user.gender = payload;
+        },
+        setLanguages: ( state, { payload } ) => {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    languages: [...state.user.languages, payload]
+                }
+            }
+        },
+        removeLanguage: ( state, { payload } ) => {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    languages: state.languages.filter((language) => language !== payload)
+                }
+            }
         },
     },
     extraReducers : {
@@ -103,6 +134,12 @@ export const authSlice = createSlice( {
 
             state.user.uid = payload.uid;
             state.user.email = payload.email;
+            if(payload.signup) {
+                state.user.displayName = payload.displayName;
+                state.user.gender = payload.gender;
+                state.user.languages = payload.languages
+            }
+            state.user.displayName = payload.displayName;
             state.authenticate.status = FULFILLED;
         },
         [ authenticate.rejected ] : ( state, { meta, error } ) => {
@@ -116,17 +153,19 @@ export const authSlice = createSlice( {
     },
 } );
 
-const setUser = authSlice.actions.setUser;
-const setFirebaseAuthReady = authSlice.actions.setFirebaseAuthReady;
+export const { setClubIds, setDisplayName, setGender, setUserId, setUser, setFirebaseAuthReady, resetAuthenticationStatus,
+    setFirebaseReady, setLanguages, removeLanguage } = userSlice.actions;
 
 export const listenToAuthenticationChanges = () =>
     ( dispatch, _ ) => {
         const auth = getAuth( firebaseApp );
 
         onAuthStateChanged( auth, ( user ) => {
-            if( user ) {
+
+            if( user ) { // if state is fulfilled, update profile, displayName: user.displayName
                 dispatch( setUser( { uid : user.uid, email : user.email } ) );
             }
+            console.log("test");
 
             dispatch( setFirebaseAuthReady() );
         } );
@@ -142,6 +181,11 @@ export const logout = () =>
 // export default authSlice.reducer;
 
 const selectAuth = ( state ) => state.auth;
+
+export const selectAuthenticationSuccess = createSelector(
+    selectAuth,
+    ( data ) => data.authenticate.status === FULFILLED
+);
 
 export const selectAuthenticationIsWaiting = createSelector(
     selectAuth,
@@ -163,6 +207,3 @@ export const selectFirebaseReady = createSelector(
     selectAuth,
     ( data ) => data.firebaseReady
 );
-
-export const resetAuthenticationStatus = authSlice.actions.resetStatus;
-export const setFirebaseReady = authSlice.actions.setFirebaseReady;

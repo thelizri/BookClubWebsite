@@ -3,6 +3,7 @@ import {NavigationBarView} from "../NavigationBar/NavigationBarView";
 import { useRef } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import DropdownMultiselect from "react-multiselect-dropdown-bootstrap";
 
 export const RegistrationFormView = function ({
                                                   error = "",
@@ -30,6 +31,8 @@ export const RegistrationFormView = function ({
         event.preventDefault();
     };
 
+    const data = [{ value:'One', selected:true }, { value: 'Two' }, { value:'Three' }];
+
     return (<>
         <NavigationBarView />
         <div className={"container"}>
@@ -48,11 +51,21 @@ export const RegistrationFormView = function ({
 
                 {/*Gender*/}
                 <Form.Group controlId="formRegGender" className={"m-2"}>
+                    <Form.Label>Gender (optional)</Form.Label>
                     <div key={"inline-radio"} onChange={event => gender.current = event.target.value}>
                         <Form.Check inline name={"gender1"} value="Male" type="radio" label="Male" id={"male-radio"} />
                         <Form.Check inline name={"gender1"} value="Female" type="radio" label="Female" id={"female-radio"} />
                         <Form.Check inline name={"gender1"} value="Other" type="radio" label="Other" id={"other-radio"} />
                     </div>
+                </Form.Group>
+
+                {/*Languages*/}
+                <Form.Group controlId="formRegLanguages" className={"m-2"}>
+                    <Form.Label>Languages</Form.Label>
+                    <DropdownMultiselect
+                        options={["Australia", "Canada", "USA", "Poland", "Spain", "France"]}
+                        name="languages"
+                    />
                 </Form.Group>
 
                 {/*Email*/}
