@@ -22,7 +22,6 @@ import {
 import {firebaseApp} from "../store";
 
 const initialState = {
-    users: [],
     user : {
         uid : null,
         email : null,
@@ -172,7 +171,7 @@ export const listenToAuthenticationChanges = () =>
     };
 
 export const logout = () =>
-    ( dispatch, _, { firebaseApp } ) => {
+    ( dispatch, _ ) => {
         dispatch( { type : "RESET" } );
 
         signOut( getAuth( firebaseApp ) );

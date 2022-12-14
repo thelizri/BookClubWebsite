@@ -15,6 +15,7 @@ export const RegistrationFormView = function ({
     const firstName = useRef();
     const lastName = useRef();
     const gender = useRef();
+    const languages = useRef();
     const email = useRef();
     const password = useRef();
     const passwordConfirm = useRef();
@@ -24,6 +25,7 @@ export const RegistrationFormView = function ({
             firstName.current.value,
             lastName.current.value,
             gender.current,
+            languages.current,
             email.current.value,
             password.current.value,
             passwordConfirm.current.value
@@ -63,8 +65,9 @@ export const RegistrationFormView = function ({
                 <Form.Group controlId="formRegLanguages" className={"m-2"}>
                     <Form.Label>Languages</Form.Label>
                     <DropdownMultiselect
-                        options={["Australia", "Canada", "USA", "Poland", "Spain", "France"]}
+                        options={["Swedish", "English", "Arabic", "Chinese", "German", "Korean", "Japanese", "Spanish", "Urdu"]}
                         name="languages"
+                        ref={languages}
                     />
                 </Form.Group>
 
