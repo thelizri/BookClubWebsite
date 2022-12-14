@@ -4,7 +4,7 @@ import { userSlice, listenToAuthenticationChanges } from "./slices/userSlice";
 import { book } from "./slices/bookSlice";
 import { meeting } from "./slices/meetingSlice";
 import { club } from "./slices/club";
-import { persistClubs } from "./persist/clubPersistence";
+import { persistClubs } from "./persist/firebase";
 import {initializeApp} from "firebase/app";
 import {firebaseConfig} from "../Config/firebaseConfig";
 export const firebaseApp = initializeApp( firebaseConfig );
@@ -23,6 +23,6 @@ const store = configureStore( {
 
 store.dispatch( listenToAuthenticationChanges() );
 
-persistClubs(store, firebaseApp);
+//persistClubs(store, firebaseApp);
 
 export default store;

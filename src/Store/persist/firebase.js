@@ -1,56 +1,48 @@
-import { getDatabase, ref } from "firebase/database"
-import persistClubs from "./persistors/clubsPersistor"
-import firebase from "firebase/compat";
+import {child, get, getDatabase, onValue, ref, set} from "firebase/database";
 import {setFirebaseReady} from "../slices/userSlice";
+import {
+    setClubId,
+    setClubOwnerId,
+    setGenres,
+    setLanguage,
+    setMaxMembers,
+    setMeetings,
+    setMeetingType,
+    setMembers,
+    setReadingList,
+    setVoteDeadline,
+    setVotes
+} from "../slices/club";
 
-const persistors = [
-    ["clubs", persistClubs],
-]
-const persistData = function (store, firebaseApp) {
+
+export const persistClubs = function (store, firebaseApp) {
     let prevState = store.getState();
-    let unsubscribers = [];
+    let unsubscribe;
+    const dispatch = store.dispatch;
+
     const firebaseDb = getDatabase(firebaseApp);
 
     store.subscribe(() => {
-        const REF = `yomubo`;
+        const state = store.getState();
+        const userId = state.auth.user.uid;
         const prevUserId = prevState.auth.user.uid;
-        const userId = store.getState().auth.user.uid;
 
-        if(userId && prevUserId === userId) {
-            for(const [persistor, { toFirebase }] of persistors) {
-                toFirebase(
-                    store.getState,
-                    prevState,
-                    ref(firebaseDb, `${REF}/${userId}/${persistor}`)
-                )
-            }
-        }
+        const clubPath = `clubs/${state.clubId}/`;
+        const clubRef = ref(firebaseDb, clubPath);
 
-        //user logs out
-        if(prevUserId && !userId) unsubscribers.forEach((unsubscriber) => unsubscriber());
+        const userPath = `users/${state.auth.user.uid}/`;
+        const userRef = ref(firebaseDb, userPath);
 
+        if (userId && state.auth.firebaseReady) toFirebase();
+        if (prevUserId && !userId) unsubscribe();
         if (userId && !prevUserId) {
-            (async () => {
-                for (const [persistor, { fromFirebaseOnce }] of persistors) {
-                    await fromFirebaseOnce(
-                        store.getState(),
-                        store.dispatch,
-                        ref(firebaseDb, `${REF}/${userId}/${persistor}`)
-                    )
-                }
-
-                store.dispatch(setFirebaseReady());
-
-                unsubscribers = persistors.flatMap(([persistor, { fromFirebaseSub }]) => {
-                    fromFirebaseSub(
-                        store.getState(),
-                        store.dispatch,
-                        ref(firebaseDb, `${REF}/${userId}/${persistor}`)
-                    )
-                })
-            })();
+            (
+                async () => {
+                    await fromFirebaseOnce();
+                    dispatch(setFirebaseReady());
+                    unsubscribe = fromFirebaseSub();
+                })();
         }
-
         prevState = store.getState();
     })
 }

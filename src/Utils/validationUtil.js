@@ -38,6 +38,8 @@ export const validatePassword = function (err, login = false) {
             break;
         case 'auth/weak-password' : errorMessage = "Please choose a stronger password"
             break;
+        case 'Passwords do not match' : errorMessage = err;
+            break;
         default : return false;
     }
 

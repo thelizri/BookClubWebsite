@@ -30,6 +30,8 @@ export const RegistrationFormView = function ({
         event.preventDefault();
     };
 
+    const data = [{ value:'One', selected:true }, { value: 'Two' }, { value:'Three' }];
+
     return (<>
         <NavigationBarView />
         <div className={"container"}>
@@ -48,12 +50,15 @@ export const RegistrationFormView = function ({
 
                 {/*Gender*/}
                 <Form.Group controlId="formRegGender" className={"m-2"}>
+                    <Form.Label>Gender (optional)</Form.Label>
                     <div key={"inline-radio"} onChange={event => gender.current = event.target.value}>
                         <Form.Check inline name={"gender1"} value="Male" type="radio" label="Male" id={"male-radio"} />
                         <Form.Check inline name={"gender1"} value="Female" type="radio" label="Female" id={"female-radio"} />
                         <Form.Check inline name={"gender1"} value="Other" type="radio" label="Other" id={"other-radio"} />
                     </div>
                 </Form.Group>
+
+
 
                 {/*Email*/}
                 <Form.Group controlId="formRegEmail" className={"m-2"}>

@@ -8,7 +8,7 @@ import {
     selectUser,
 } from "../../Store/slices/userSlice";
 import LoginFormView from "./LoginFormView";
-import {validateEmail, validatePassword} from "../../Utils/validation";
+import {validateEmail, validatePassword} from "../../Utils/validationUtil";
 
 const LoginForm = function() {
     const error = useSelector( selectAuthenticationError );

@@ -11,7 +11,7 @@ import {
 } from "../../Store/slices/userSlice";
 
 import { RegistrationFormView } from "./RegistrationFormView";
-import {validateEmail, validatePassword} from "../../Utils/validation";
+import {validateEmail, validatePassword} from "../../Utils/validationUtil";
 
 export const RegistrationForm = function() {
     const error = useSelector( selectAuthenticationError );
@@ -24,15 +24,11 @@ export const RegistrationForm = function() {
         dispatch( resetAuthenticationStatus() );
     }, [] );
 
-    const handleSubmit = ( firstName, lastName, gender, email, password, passwordConfirm ) => {
-        dispatch(
-            setUser(
-                { ...user, gender, firstName, lastName }
-            )
-        );
+    const handleSubmit = ( firstName, lastName, gender, languages, email, password, passwordConfirm ) => {
+        const displayName = firstName + " " + lastName;
         dispatch(
             authenticate(
-                { signup : signupMode, email, password, passwordConfirm }
+                { signup : signupMode, displayName, gender, languages, email, password, passwordConfirm }
             )
         );
     };
