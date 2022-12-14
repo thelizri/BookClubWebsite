@@ -3,6 +3,7 @@ import {NavigationBarView} from "../NavigationBar/NavigationBarView";
 import { useRef } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import DropdownMultiselect from "react-multiselect-dropdown-bootstrap";
 
 export const RegistrationFormView = function ({
                                                   error = "",
@@ -58,7 +59,14 @@ export const RegistrationFormView = function ({
                     </div>
                 </Form.Group>
 
-
+                {/*Languages*/}
+                <Form.Group controlId="formRegLanguages" className={"m-2"}>
+                    <Form.Label>Languages</Form.Label>
+                    <DropdownMultiselect
+                        options={["Australia", "Canada", "USA", "Poland", "Spain", "France"]}
+                        name="languages"
+                    />
+                </Form.Group>
 
                 {/*Email*/}
                 <Form.Group controlId="formRegEmail" className={"m-2"}>
