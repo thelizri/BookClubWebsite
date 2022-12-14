@@ -19,7 +19,7 @@ import { SearchResultsView } from "./SearchResultsView";
 export const Search = () => {
     const book = useSelector( selectBook );
     // State of query
-    const [ searchQuery, setSearchQuery ] = React.useState( "Harry Potter" );
+    const [ searchQuery, setSearchQuery ] = React.useState( "!#%%c€!!" );
 
     // State of API request
     const { data, isLoading, isFetching, isSuccess, isError, error } =
@@ -37,6 +37,7 @@ export const Search = () => {
     }
 
     const executeQuery = () => {
+        if( preliminaryQuery === "" ) return;
         setSearchQuery( preliminaryQuery )
     }
 
@@ -56,7 +57,9 @@ export const Search = () => {
 
     if( isLoading || isFetching ) {
         content = <LoadingIcon/>
-    } else if( isSuccess && !isEmpty ) {
+    } else if( isSuccess && !isEmpty && searchQuery === "!#%%c€!!" ) {
+        content = null;
+    } else if( isSuccess && !isEmpty && searchQuery !== "!#%%c€!!" ) {
         content = <SearchResultsView
             foundBooks={ data.items }
             error={ errorMsg }
