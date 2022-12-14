@@ -5,13 +5,11 @@ import {
     resetAuthenticationStatus,
     selectAuthenticationError,
     selectAuthenticationIsWaiting,
-    selectAuthenticationSuccess,
     selectUser,
-    setUser,
 } from "../../Store/slices/userSlice";
+import { validateEmail, validatePassword } from "../../Utils/validationUtil";
 
 import { RegistrationFormView } from "./RegistrationFormView";
-import {validateEmail, validatePassword} from "../../Utils/validationUtil";
 
 export const RegistrationForm = function() {
     const error = useSelector( selectAuthenticationError );
@@ -29,23 +27,32 @@ export const RegistrationForm = function() {
         const languages = unprocessedLanguages.state.selected;
         dispatch(
             authenticate(
-                { signup : signupMode, displayName, gender, languages, email, password, passwordConfirm }
+                {
+                    signup : signupMode,
+                    displayName,
+                    gender,
+                    languages,
+                    email,
+                    password,
+                    passwordConfirm
+                }
             )
         );
     };
 
     const validEmail = () => {
-        return validateEmail(error);
+        return validateEmail( error );
     }
 
     const validPassword = () => {
-        return validatePassword(error);
+        return validatePassword( error );
     }
 
     return (
         <div>
             <RegistrationFormView error={ error } waiting={ waiting }
-                                  validEmail={ validEmail } validPassword={ validPassword }
+                                  validEmail={ validEmail }
+                                  validPassword={ validPassword }
                                   onSubmit={ handleSubmit }/>
         </div>
     )

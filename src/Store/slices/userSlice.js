@@ -4,14 +4,11 @@ import {
     createSlice,
 } from "@reduxjs/toolkit";
 import {
-    browserSessionPersistence,
     createUserWithEmailAndPassword,
     getAuth,
     onAuthStateChanged,
-    setPersistence,
     signInWithEmailAndPassword,
     signOut,
-    updateProfile,
 } from "firebase/auth";
 import {
     FULFILLED,
@@ -19,13 +16,13 @@ import {
     PENDING,
     REJECTED
 } from "../../Constants/promiseStatus";
-import {firebaseApp} from "../store";
+import { firebaseApp } from "../store";
 
 const initialState = {
     user : {
         uid : null,
         email : null,
-        displayName: null,
+        displayName : null,
         clubIds : [],
         gender : null,
         languages : [],
@@ -44,22 +41,34 @@ const initialState = {
 export const authenticate = createAsyncThunk(
     "auth/authenticate",
     async(
-        { displayName, languages, gender, email, password, passwordConfirm, signup }
+        {
+            displayName,
+            languages,
+            gender,
+            email,
+            password,
+            passwordConfirm,
+            signup
+        }
     ) => {
-        if( signup && password !== passwordConfirm ) throw new Error( "Passwords do not match" );
+        if( signup && password !== passwordConfirm ) throw new Error(
+            "Passwords do not match" );
 
         const auth = getAuth( firebaseApp );
         let userCredential;
 
         try {
             userCredential = signup ?
-                await createUserWithEmailAndPassword( auth, email, password ) :
-                userCredential = await signInWithEmailAndPassword( auth, email, password );
-        } catch(err) {
+                             await createUserWithEmailAndPassword( auth, email,
+                                 password ) :
+                             userCredential =
+                                 await signInWithEmailAndPassword( auth, email,
+                                     password );
+        } catch( err ) {
             throw err;
         }
 
-        if(signup) return {
+        if( signup ) return {
             uid : userCredential.user.uid,
             email : userCredential.user.email,
             displayName,
@@ -75,14 +84,14 @@ export const authenticate = createAsyncThunk(
     }
 );
 
-export const userSlice = createSlice( {
+export const user = createSlice( {
     name : "auth",
     initialState,
     reducers : {
         resetAuthenticationStatus : ( state ) => {
             state.authenticate.status = IDLE;
         },
-        setDisplayName : (state, { payload } ) => {
+        setDisplayName : ( state, { payload } ) => {
             state.user.displayName = payload;
         },
         setUserId : ( state, { payload } ) => {
@@ -104,21 +113,22 @@ export const userSlice = createSlice( {
         setGender : ( state, { payload } ) => {
             state.user.gender = payload;
         },
-        setLanguages: ( state, { payload } ) => {
+        setLanguages : ( state, { payload } ) => {
             return {
                 ...state,
-                user: {
+                user : {
                     ...state.user,
-                    languages: [...state.user.languages, payload]
+                    languages : [ ...state.user.languages, payload ]
                 }
             }
         },
-        removeLanguage: ( state, { payload } ) => {
+        removeLanguage : ( state, { payload } ) => {
             return {
                 ...state,
-                user: {
+                user : {
                     ...state.user,
-                    languages: state.languages.filter((language) => language !== payload)
+                    languages : state.languages.filter(
+                        ( language ) => language !== payload )
                 }
             }
         },
@@ -133,7 +143,7 @@ export const userSlice = createSlice( {
 
             state.user.uid = payload.uid;
             state.user.email = payload.email;
-            if(payload.signup) {
+            if( payload.signup ) {
                 state.user.displayName = payload.displayName;
                 state.user.gender = payload.gender;
                 state.user.languages = payload.languages
@@ -152,8 +162,18 @@ export const userSlice = createSlice( {
     },
 } );
 
-export const { setClubIds, setDisplayName, setGender, setUserId, setUser, setFirebaseAuthReady, resetAuthenticationStatus,
-    setFirebaseReady, setLanguages, removeLanguage } = userSlice.actions;
+export const {
+    setClubIds,
+    setDisplayName,
+    setGender,
+    setUserId,
+    setUser,
+    setFirebaseAuthReady,
+    resetAuthenticationStatus,
+    setFirebaseReady,
+    setLanguages,
+    removeLanguage
+} = user.actions;
 
 export const listenToAuthenticationChanges = () =>
     ( dispatch, _ ) => {
@@ -164,7 +184,7 @@ export const listenToAuthenticationChanges = () =>
             if( user ) { // if state is fulfilled, update profile, displayName: user.displayName
                 dispatch( setUser( { uid : user.uid, email : user.email } ) );
             }
-            console.log("test");
+            console.log( "test" );
 
             dispatch( setFirebaseAuthReady() );
         } );

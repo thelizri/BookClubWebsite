@@ -1,9 +1,11 @@
-import {RegistrationForm} from "../../Components/RegistrationForm/RegistrationForm"
+import {
+    RegistrationForm
+} from "../../Components/RegistrationForm/RegistrationForm"
 
 export const RegistrationPage = function() {
-    return(
+    return (
         <div>
-            <RegistrationForm />
+            <RegistrationForm/>
         </div>
     )
 }

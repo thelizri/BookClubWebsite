@@ -1,8 +1,8 @@
-import { ReadingList } from "../ReadingList/ReadingList";
-import { NextMeeting } from "../NextMeeting/NextMeeting";
-import {Votes} from "../Votes/Votes";
 import "./ClubPanelStyle.css";
-import SummaryView from "../SummaryCard/SummaryView";
+import { NextMeeting } from "./NextMeeting/NextMeeting";
+import { ReadingList } from "./ReadingList/ReadingList";
+import SummaryView from "./SummaryCard/SummaryView";
+import { Votes } from "./Votes/Votes";
 // DUMMY COMPONENTS
 var BookPanel = () => <div>[Book Panel Dummy]</div>;
 var VotingPanel = () => <div>[Voting Panel Dummy]</div>;
@@ -13,19 +13,20 @@ var MeetingPanel = () => <div>[Meeting Panel Dummy]</div>;
  *
  * @param {Object} props - currentClub: the current club.
  */
-export default function ClubPanelView(props) {
+export default function ClubPanelView( props ) {
     return (
         // https://getbootstrap.com/docs/3.4/components/#panels
-        <div className="panel panel-default" id={"panel"}>
-            <div className="panel-header"><h1 id={"panelhead"}>{props.currentClub.clubName}</h1></div>
-            <div className="panel-body" id={"panelbody"}>
+        <div className="panel panel-default" id={ "panel" }>
+            <div className="panel-header"><h1
+                id={ "panelhead" }>{ props.currentClub.clubName }</h1></div>
+            <div className="panel-body" id={ "panelbody" }>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8">
                             <SummaryView/>
                         </div>
                         <div className="col-md-4">
-                            <Votes />
+                            <Votes/>
                         </div>
                     </div>
                     <div className="row">

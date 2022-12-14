@@ -12,7 +12,7 @@ import {
     setReadingList,
     setVoteDeadline,
     setVotes
-} from "../slices/club";
+} from "../slices/clubSlice";
 import clubsPersistor from "./persistors/clubsPersistor";
 import usersPersistor from "./persistors/usersPersistor";
 
