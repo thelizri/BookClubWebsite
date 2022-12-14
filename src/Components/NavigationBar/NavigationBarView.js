@@ -11,17 +11,15 @@ export const NavigationBarView = ({
     logOut = () => {console.log("logout")}
 }) => {
     // https://react-bootstrap.netlify.app/components/dropdowns/#split-button-dropdowns
-    const PROFILE_BUTTON = () => {
-        return (
-            <Dropdown id="profile-button" as={ButtonGroup}>
-                <Button variant="success">Profile</Button>
-                <Dropdown.Toggle split variant="success" />
-                <Dropdown.Menu>
-                    <Dropdown.Item href="#" onClick={logOut}>Log out</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-        );
-    };
+    const profileButton = (
+        <Dropdown id="profile-button" as={ButtonGroup}>
+            <Button variant="success">Profile</Button>
+            <Dropdown.Toggle split variant="success" />
+            <Dropdown.Menu>
+                <Dropdown.Item href="#" onClick={logOut}>Log out</Dropdown.Item>
+            </Dropdown.Menu>
+        </Dropdown>
+    );
     
     return(<nav className="navbar navbar-light navbar-expand-lg" id={"navigation-bar"}>
         <span id={"hiddenPadding"}>llll</span>
@@ -52,7 +50,7 @@ export const NavigationBarView = ({
                     </Link>
                 </li>
                 <li className="navbar-item">
-                    {PROFILE_BUTTON()}
+                    {profileButton}
                 </li>
             </ul>
         </div>

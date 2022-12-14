@@ -16,3 +16,11 @@
 #react-link{
     text-decoration: none;
 }
+#profile-button .btn {
+    background: rgb(0, 0, 0, 0);
+    border: 0pt;
+    color: #7C4200;
+}
+#profile-button .btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
