@@ -21,7 +21,7 @@ export const Search = () => {
         useGetSearchResultsQuery( searchQuery );
 
     useEffect(() => {
-        if(book.pageCount !== 0) {
+        if(book.pageCount !== -1) {
             dispatch(addBookToReadingList(book));
         }
     }, [ book ])
@@ -45,6 +45,7 @@ export const Search = () => {
     const dispatch = useDispatch();
 
     function addSelectedBookToReadingList(googleBooksId, title, author, pageCount) {
+        if(!pageCount) pageCount = null;
         dispatch(setSelectedBook( { googleBooksId, title, author, pageCount } ));
     }
 

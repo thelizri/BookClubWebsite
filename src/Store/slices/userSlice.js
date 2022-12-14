@@ -4,9 +4,11 @@ import {
     createSlice,
 } from "@reduxjs/toolkit";
 import {
+    browserSessionPersistence,
     createUserWithEmailAndPassword,
     getAuth,
     onAuthStateChanged,
+    setPersistence,
     signInWithEmailAndPassword,
     signOut,
 } from "firebase/auth";
@@ -80,7 +82,7 @@ export const userSlice = createSlice( {
             state.user.gender = payload.gender;
         },
         setIdAndEmail : ( state, { payload } ) => {
-            state.user.uid = payload.id;
+            state.user.uid = payload.uid;
             state.user.email = payload.email;
         },
         setFirebaseAuthReady : ( state ) => {

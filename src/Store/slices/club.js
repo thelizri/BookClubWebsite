@@ -4,7 +4,7 @@ import { createSlice, createSelector } from "@reduxjs/toolkit";
 const initialState = {
     clubs: [],
 
-    id: 1,
+    clubId: 1,
     clubOwnerId: "irsPW5zlE4SPq5KwvnT3Snq10w63",
     clubName: "KTH deckarklubb",
     genres: ["Western", "Mystery"],
@@ -41,7 +41,7 @@ export const club = createSlice({
             }
         },
         setClubId: ( state, { payload } ) => {
-            state.id = payload;
+            state.clubId = payload;
         },
         setClubName: ( state, { payload } ) => {
             state.clubName = payload;

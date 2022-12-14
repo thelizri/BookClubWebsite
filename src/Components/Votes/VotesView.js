@@ -38,7 +38,7 @@ function VotesView(props){
             <thead id={"headNextMeeting"}>
             <tr>
                 <th>Member</th>
-                <th>Progress</th>
+                <th>Has Voted</th>
             </tr>
             </thead>
             <tbody>
