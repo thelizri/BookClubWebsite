@@ -1,12 +1,14 @@
+import {selectMaxMembers} from "../../Store/slices/club";
+import {useSelector} from "react-redux";
+
 /**
  * Search bar component
  *
- * @param {function} setSearchText - callback that receives a search text
- *     parameter.
+ * @param {function} setSearchText - callback that receives a search text parameter.
  * @param {function} onSubmit - callback that initiates the search.
  */
 export const SearchBarView = function( { inputQuery, onSubmit } ) {
-    function handleSubmit( e ) {
+    function handleSubmit(e) {
         onSubmit();
         e.preventDefault();
     }
@@ -20,12 +22,12 @@ export const SearchBarView = function( { inputQuery, onSubmit } ) {
                 placeholder="Search..."
                 aria-label="Search"
                 aria-describedby="search-addon"
-                onChange={ ( event ) => inputQuery( event.target.value ) }
+                onChange={(event) => inputQuery(event.target.value)}
             />
             <button
                 type="button"
                 className="btn btn-outline-dark"
-                onClick={ handleSubmit }
+                onClick={handleSubmit}
             >
                 Search
             </button>

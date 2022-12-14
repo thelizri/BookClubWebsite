@@ -1,8 +1,7 @@
 import React from "react";
 import "./ReadingListStyle.css";
-import {
-    SearchModalView
-} from "../SearchModal/SearchModalView";
+import SearchModalView from "../SearchModal/SearchModalView";
+//import {BookSearch} from "../BookSearch/Search";
 
 function displayBooksCB(book){
     return (<tr>
@@ -16,6 +15,10 @@ function displayBooksCB(book){
 }
 
 const ReadingListView = function({readingList = []}) {
+    const book1 = {title:"Harry Potter",author:"Rowling",pages:500, isbn:"9780747542155"};
+    const book2 = {title:"Stormlight Archive",author:"Sandersson",pages:900, isbn:"9780575097360"};
+    const books = [book1, book2];
+
     return <div className={"container"}>
         <div><h1 id={"header24ClubPanelView"}>Reading List</h1></div>
         <table className="table table-sm bg-white table-borderless" id={"table"}>

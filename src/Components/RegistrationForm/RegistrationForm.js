@@ -24,11 +24,11 @@ export const RegistrationForm = function() {
         dispatch( resetAuthenticationStatus() );
     }, [] );
 
-    const handleSubmit = ( firstName, lastName, gender, languages, email, password, passwordConfirm ) => {
+    const handleSubmit = ( firstName, lastName, gender, email, password, passwordConfirm ) => {
         const displayName = firstName + " " + lastName;
         dispatch(
             authenticate(
-                { signup : signupMode, displayName, gender, languages, email, password, passwordConfirm }
+                { signup : signupMode, displayName, gender, email, password, passwordConfirm }
             )
         );
     };
