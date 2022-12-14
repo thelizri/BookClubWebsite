@@ -13,11 +13,17 @@ import {
     setVoteDeadline,
     setVotes
 } from "../slices/club";
+import clubsPersistor from "./persistors/clubsPersistor";
+import usersPersistor from "./persistors/usersPersistor";
 
+const persistors = [
+    ["clubs", clubsPersistor],
+    ["users", usersPersistor]
+]
 
-export const persistClubs = function (store, firebaseApp) {
+export const persistence = function (store, firebaseApp) {
     let prevState = store.getState();
-    let unsubscribe;
+    let unsubscriptions = [];
     const dispatch = store.dispatch;
 
     const firebaseDb = getDatabase(firebaseApp);
@@ -33,14 +39,43 @@ export const persistClubs = function (store, firebaseApp) {
         const userPath = `users/${state.auth.user.uid}/`;
         const userRef = ref(firebaseDb, userPath);
 
-        if (userId && state.auth.firebaseReady) toFirebase();
-        if (prevUserId && !userId) unsubscribe();
+        if (userId && state.auth.firebaseReady) {
+            clubsPersistor.toFirebase(
+                clubRef,
+                state,
+                prevState
+            )
+
+            usersPersistor.toFirebase(
+                userRef,
+                state,
+                prevState
+            )
+        }
+        if (prevUserId && !userId) unsubscriptions.forEach(unsubscription => unsubscription());
         if (userId && !prevUserId) {
             (
                 async () => {
-                    await fromFirebaseOnce();
+                    await clubsPersistor.fromFirebaseOnce(
+                        clubRef,
+                        dispatch
+                    );
+                    await usersPersistor.fromFirebaseOnce(
+                        userRef,
+                        dispatch
+                    )
                     dispatch(setFirebaseReady());
-                    unsubscribe = fromFirebaseSub();
+                    unsubscriptions = [
+                        clubsPersistor.fromFirebaseSub(
+                            clubRef,
+                            dispatch
+                        ),
+                        usersPersistor.fromFirebaseSub(
+                            clubRef,
+                            dispatch
+                        )
+                    ]
+
                 })();
         }
         prevState = store.getState();

@@ -7,6 +7,7 @@ const initialState = {
     clubId: 1,
     clubOwnerId: "irsPW5zlE4SPq5KwvnT3Snq10w63",
     clubName: "KTH deckarklubb",
+    currentlyReadingId: null,
     genres: ["Western", "Mystery"],
     language: "Korean",
     maxMemberCount: 3,
@@ -48,6 +49,9 @@ export const club = createSlice({
         },
         setClubOwnerId: ( state, { payload } ) => {
             state.clubOwnerId = payload;
+        },
+        setCurrentlyReadingId: ( state, { payload } ) => {
+            state.currentlyReadingId = payload;
         },
         setGenres: ( state, { payload } ) => {
             return {
@@ -112,7 +116,7 @@ export const club = createSlice({
     }
 });
 
-export const { addBookToReadingList, addGenre, addMember, setClubId, setClubName, setClubOwnerId, setGenres, setLanguage, setMeetings,
+export const { addBookToReadingList, addGenre, addMember, setClubId, setClubName, setClubOwnerId, setCurrentlyReadingId, setGenres, setLanguage, setMeetings,
     setMaxMembers, setMembers, setMeetingType, setReadingList, setVoteDeadline, setVotes,
     removeBookFromReadingList, removeGenre, removeMember } = club.actions;
 

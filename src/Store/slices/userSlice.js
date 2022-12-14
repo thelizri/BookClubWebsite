@@ -83,6 +83,12 @@ export const userSlice = createSlice( {
         resetAuthenticationStatus : ( state ) => {
             state.authenticate.status = IDLE;
         },
+        setDisplayName : (state, { payload } ) => {
+            state.user.displayName = payload;
+        },
+        setUserId : ( state, { payload } ) => {
+            state.user.uid = payload;
+        },
         setUser : ( state, { payload } ) => {
             state.user.uid = payload.uid;
             state.user.email = payload.email;
@@ -93,18 +99,11 @@ export const userSlice = createSlice( {
         setFirebaseReady : ( state ) => {
             state.firebaseReady = true;
         },
-        setExtraInfoAtRegistration: ( state, { payload } ) => {
-            return {
-                ...state,
-                user: {
-                    ...state.user,
-                    gender: payload.gender,
-                    languages: [...state.user.languages, payload]
-                }
-            }
+        setClubIds : ( state, { payload } ) => {
+            state.clubIds = payload;
         },
         setGender : ( state, { payload } ) => {
-            state.user.gender = payload.gender;
+            state.user.gender = payload;
         },
         setLanguages: ( state, { payload } ) => {
             return {
@@ -154,7 +153,7 @@ export const userSlice = createSlice( {
     },
 } );
 
-export const { setUser, setFirebaseAuthReady, resetAuthenticationStatus,
+export const { setClubIds, setDisplayName, setGender, setUserId, setUser, setFirebaseAuthReady, resetAuthenticationStatus,
     setFirebaseReady, setLanguages, removeLanguage } = userSlice.actions;
 
 export const listenToAuthenticationChanges = () =>

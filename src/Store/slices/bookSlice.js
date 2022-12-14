@@ -6,7 +6,6 @@ const initialState = {
     author: "",
     title: "",
     currentPage: 1,
-    currentlyReading: null,
     googleBooksId: null,
     pageCount: 0,
 }
@@ -20,9 +19,6 @@ export const book = createSlice({
         },
         setGoogleBooksId: ( state, { payload } ) => {
             state.googleBooksId = payload;
-        },
-        setCurrentlyReading: ( state, { payload } ) => {
-            state.currentlyReading = payload;
         },
         setSelectedBook: ( state, { payload } ) => {
             return {

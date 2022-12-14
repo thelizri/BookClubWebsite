@@ -9,12 +9,8 @@ import {
     setMeetingType, setMembers, setReadingList, setVoteDeadline, setVotes
 } from "../../slices/club";
 import {setData} from "../../../Utils/persistenceUtil";
+import {setClubIds, setDisplayName, setGender, setLanguages, setUserId} from "../../slices/userSlice";
 
-const persistClubs = {
-    toFirebase,
-    fromFirebaseOnce,
-    fromFirebaseSub
-}
 const toFirebase = (clubRef, state, prevState) => {
     const club = state.club;
     const prevClub = prevState.club;
@@ -27,6 +23,11 @@ const toFirebase = (clubRef, state, prevState) => {
     const clubOwnerId = club.clubOwnerId;
     if (clubOwnerId !== prevClub.clubOwnerId) {
         setData({clubOwnerId}, clubRef);
+    }
+
+    const currentlyReadingId = club.currentlyReadingId;
+    if (currentlyReadingId !== prevClub.currentlyReadingId) {
+        setData({currentlyReadingId}, clubRef)
     }
 
     const genres = club.genres;
@@ -46,7 +47,7 @@ const toFirebase = (clubRef, state, prevState) => {
 
     const meetings = club.meetings;
     if (meetings !== prevClub.meetings) {
-        setData({meetings});
+        setData({meetings}, clubRef);
     }
 
     const meetingType = club.meetingType;
@@ -75,10 +76,7 @@ const toFirebase = (clubRef, state, prevState) => {
     }
 };
 
-const fromFirebaseOnce = async (clubRef, dispatch) => {
-    const clubSnapshot = await get(clubRef);
-    const clubData = clubSnapshot.val();
-
+const fromFirebase = (clubData, dispatch) => {
     if (clubData?.clubId) dispatch(setClubId(clubData.clubId));
     if (clubData?.clubOwnerId) dispatch(setClubOwnerId(clubData.clubOwnerId));
     if (clubData?.genres) dispatch(setGenres(clubData.genres));
@@ -92,22 +90,25 @@ const fromFirebaseOnce = async (clubRef, dispatch) => {
     if (clubData?.votes) dispatch(setVotes(clubData.votes));
 }
 
+const fromFirebaseOnce = async (clubRef, dispatch) => {
+    const clubSnapshot = await get(clubRef);
+    const clubData = clubSnapshot.val();
+
+    fromFirebase(clubData, dispatch);
+}
+
 const fromFirebaseSub = (clubRef, dispatch) => {
     return onValue(clubRef, (snapshot) => {
         const clubData = snapshot.val();
 
-        if (clubData?.clubId) dispatch(setClubId(clubData.clubId));
-        if (clubData?.clubOwnerId) dispatch(setClubOwnerId(clubData.clubOwnerId));
-        if (clubData?.genres) dispatch(setGenres(clubData.genres));
-        if (clubData?.language) dispatch(setLanguage(clubData.language));
-        if (clubData?.maxMemberCount) dispatch(setMaxMembers(clubData.maxMemberCount));
-        if (clubData?.meetings) dispatch(setMeetings(clubData.meetings));
-        if (clubData?.meetingType) dispatch(setMeetingType(clubData.meetings));
-        if (clubData?.memberIds) dispatch(setMembers(clubData.memberIds));
-        if (clubData?.readingList) dispatch(setReadingList(clubData.readingList));
-        if (clubData?.voteDeadline) dispatch(setVoteDeadline(clubData.voteDeadline));
-        if (clubData?.votes) dispatch(setVotes(clubData.votes));
+        fromFirebase(clubData, dispatch);
     })
+}
+
+const persistClubs = {
+    toFirebase,
+    fromFirebaseOnce,
+    fromFirebaseSub
 }
 
 export default persistClubs
