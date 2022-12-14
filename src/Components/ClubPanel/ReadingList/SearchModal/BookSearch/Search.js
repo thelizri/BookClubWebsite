@@ -7,8 +7,10 @@ import {
     setSelectedBook
 } from "../../../../../Store/slices/bookSlice";
 import { addBookToReadingList } from "../../../../../Store/slices/clubSlice";
+import { LoadingIcon } from "../../../../LoadingIcon/LoadingIcon";
 import { SearchBarView } from "../../../../SearchBar/SearchBarView";
 import { SearchResultsView } from "./SearchResultsView";
+
 
 /**
  * Presenter for SearchResultsView.
@@ -47,13 +49,13 @@ export const Search = () => {
     let content = null;
     const dispatch = useDispatch();
 
-    function addSelectedBookToReadingList( googleBooksId, title, author, pageCount ) {
+    const addSelectedBookToReadingList = ( googleBooksId, title, author, pageCount ) => {
         dispatch(
             setSelectedBook( { googleBooksId, title, author, pageCount } ) );
     }
 
     if( isLoading || isFetching ) {
-        // content = <LoadingImage /> or similar
+        content = <LoadingIcon/>
     } else if( isSuccess && !isEmpty ) {
         content = <SearchResultsView
             foundBooks={ data.items }
