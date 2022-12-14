@@ -50,9 +50,17 @@ export const Search = () => {
     let content = null;
     const dispatch = useDispatch();
 
-    const addSelectedBookToReadingList = ( googleBooksId, title, author, pageCount ) => {
+    const addSelectedBookToReadingList = ( book ) => {
+        const googleBooksId = book.id;
+        const title = book.volumeInfo.title;
+        const author = book.volumeInfo.authors ?
+                       book.volumeInfo.authors[ 0 ] : null;
+        const pageCount = book.volumeInfo.pageCount ?
+                          book.volumeInfo.pageCount : null;
+
         dispatch(
-            setSelectedBook( { googleBooksId, title, author, pageCount } ) );
+            setSelectedBook(
+                { googleBooksId, title, author, pageCount } ) );
     }
 
     if( isLoading || isFetching ) {
