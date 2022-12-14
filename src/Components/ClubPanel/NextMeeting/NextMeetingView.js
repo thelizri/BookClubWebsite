@@ -2,8 +2,8 @@ import React from "react";
 import "./NextMeetingStyle.css";
 
 function NextMeetingView( props ) {
-    let currentDate = new Date().toJSON().slice( 0, 10 );
-    console.log( currentDate ); // "2022-06-17"
+    // let currentDate = new Date().toJSON().slice( 0, 10 );
+    // console.log( currentDate ); // "2022-06-17"
 
     return ( <div className={ "container" }>
         <div><h1 id={ "header24ClubPanelView" }>Next Meeting</h1></div>
