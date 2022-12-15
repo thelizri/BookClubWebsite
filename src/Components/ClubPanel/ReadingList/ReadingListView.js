@@ -29,11 +29,11 @@ const ReadingListView = function( { readingList = [] } ) {
                 <th>Title</th>
                 <th>Author</th>
                 <th>Pages</th>
-                { <th><SearchModalView/></th> }
+                {<th><SearchModalView/></th>}
             </tr>
             </thead>
-            <tbody id={ "bodyReadingList" }>
-            { readingList.map( displayBooksCB ) }
+            <tbody id={"bodyReadingList"}>
+            { readingList.map( displayBooksCB) }
             </tbody>
         </table>
     </div>

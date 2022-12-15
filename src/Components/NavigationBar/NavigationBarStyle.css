@@ -17,9 +17,10 @@
     text-decoration: none;
 }
 #profile-button .btn {
-    background: rgb(0, 0, 0, 0);
-    border: 0pt;
+    background: transparent;
     color: #7C4200;
+    border: transparent;
+    margin-top: 2px;
 }
 #profile-button .btn:hover {
     background-color: rgba(0, 0, 0, 0.1);
