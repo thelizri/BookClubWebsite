@@ -9,18 +9,21 @@ function ClubSearch() {
     let results = [
         {
             clubName: "Club A",
-            id: 1,
+            clubId: 1,
         },
         {
             clubName: "Club B",
-            id: 2,
+            clubId: 2,
         }
     ];
     
     return (
         <div>
             <SearchBarView/>
-            <ClubSearchResultsView foundClubs={results}/>
+            <ClubSearchResultsView
+                foundClubs={results}
+                // joinClub={() => {}}
+            />
         </div>
     );
 }
