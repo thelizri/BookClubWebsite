@@ -25,14 +25,20 @@ export default function CreateClubModalView() {
                     <div className="modal-body">
                         <Form>
                             <Form.Group className={ "m-2" }
-                                        controlId="formText">
+                                        controlId="formClub">
                                 <Form.Label>Club name</Form.Label>
                                 <Form.Control type="text"
                                               placeholder="Enter club name"/>
                             </Form.Group>
                             <Form.Group className={ "m-2" }
+                                        controlId="formLanguage">
+                                <Form.Label>Language</Form.Label>
+                                <Form.Control type="text"
+                                              placeholder="Enter language"/>
+                            </Form.Group>
+                            <Form.Group className={ "m-2" }
                                         controlId="formText">
-                                <Form.Label>Password</Form.Label>
+                                <Form.Label>Group Size</Form.Label>
                                 <Form.Control type="text"
                                               placeholder="Enter max capacity"/>
                             </Form.Group>

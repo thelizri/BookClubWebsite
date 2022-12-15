@@ -7,7 +7,7 @@ function SearchModalView() {
         {/*Button trigger modal*/ }
         <button type="button" className="btn" id="search-modal-button"
                 data-bs-toggle="modal" data-bs-target="#searchModal">
-            Search for new Books
+            Add Book
         </button>
 
         {/*Modal*/ }
