@@ -8,6 +8,7 @@ const initialState = {
     clubOwnerId : "irsPW5zlE4SPq5KwvnT3Snq10w63",
     clubName : "KTH deckarklubb",
     currentlyReadingId : null,
+    gender : null,
     genres : [ "Western", "Mystery" ],
     language : "Korean",
     maxMemberCount : 3,
@@ -53,6 +54,9 @@ export const club = createSlice( {
         },
         setCurrentlyReadingId : ( state, { payload } ) => {
             state.currentlyReadingId = payload;
+        },
+        setGender : ( state, { payload } ) => {
+            state.gender = payload;
         },
         setGenres : ( state, { payload } ) => {
             return {
@@ -127,6 +131,7 @@ export const {
     setClubName,
     setClubOwnerId,
     setCurrentlyReadingId,
+    setGender,
     setGenres,
     setLanguage,
     setMeetings,

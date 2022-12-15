@@ -24,7 +24,7 @@ const initialState = {
         email : null,
         displayName : null,
         clubIds : [],
-        gender : null,
+        gender : "Male",
         languages : [],
     },
 

@@ -5,7 +5,6 @@ import {
     resetAuthenticationStatus,
     selectAuthenticationError,
     selectAuthenticationIsWaiting,
-    selectUser,
 } from "../../Store/slices/userSlice";
 import { validateEmail, validatePassword } from "../../Utils/validationUtil";
 
@@ -14,7 +13,6 @@ import { RegistrationFormView } from "./RegistrationFormView";
 export const RegistrationForm = function() {
     const error = useSelector( selectAuthenticationError );
     const waiting = useSelector( selectAuthenticationIsWaiting );
-    const user = useSelector( selectUser )
     const dispatch = useDispatch();
     const signupMode = true;
 

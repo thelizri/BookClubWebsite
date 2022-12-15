@@ -1,3 +1,8 @@
+const setValidationMessage = (parentElementId, childElementClass, message) => {
+    const parentElement = document.querySelector( `#${parentElementId}` );
+    parentElement.querySelector( `.${childElementClass}` ).innerHTML = message;
+}
+
 export const validateEmail = function( err, login = false ) {
     if( !err ) return false;
     let errorMessage;
@@ -66,4 +71,37 @@ export const validatePassword = function( err, login = false ) {
             errorMessage;
     }
     return true;
+}
+
+export const validateUniqueClubName = function( clubName, existentClubNames ) {
+    if(!existentClubNames.hasOwnProperty(clubName)) return;
+
+    setValidationMessage(
+        '#clubCreation',
+        '.clubNameFeedback',
+        'Club name is already taken'
+    );
+
+    throw new Error("clubname");
+}
+
+export const validateStringLength = function( str, maxLength, parentElementId, childElementClass ) {
+    if( str.length < maxLength ) return;
+
+    setValidationMessage(
+        parentElementId,
+        childElementClass,
+        `Club name must be less than ${maxLength} characters`
+    )
+    throw new Error("clubname");
+}
+
+export const validateGender = function( clubGender, creatorGender, parentElementId, childElementClass ) {
+    if(clubGender === "All" || clubGender === creatorGender) return;
+    setValidationMessage(
+        parentElementId,
+        childElementClass,
+        "Selected gender is not matching your own"
+    )
+    throw new Error("gender");
 }

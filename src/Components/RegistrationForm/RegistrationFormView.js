@@ -74,7 +74,7 @@ export const RegistrationFormView = function( {
                     <Form.Label>Languages</Form.Label>
                     <DropdownMultiselect
                         options={ [ "Swedish", "English", "Arabic", "Chinese",
-                            "German", "Korean", "Japanese", "Spanish",
+                            "German", "Japanese", "Korean", "Polish", "Spanish",
                             "Urdu" ] }
                         name="languages"
                         ref={ languages }
