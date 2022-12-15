@@ -1,5 +1,5 @@
 import {SearchBarView} from "../../SearchBar/SearchBarView";
-import SearchResultsView from "../../SearchResults/SearchResultsView";
+import ClubSearchResultsView from "./ClubSearchResultsView";
 
 /**
  * Presenter for searching for clubs.
@@ -7,22 +7,20 @@ import SearchResultsView from "../../SearchResults/SearchResultsView";
 function ClubSearch() {
     // DUMMY
     let results = [
-        {clubName: "Club A"}
+        {
+            clubName: "Club A",
+            id: 1,
+        },
+        {
+            clubName: "Club B",
+            id: 2,
+        }
     ];
-
-    // Render a single search result.
-    function renderResult(club) {
-        return (
-            <div> {
-                club.clubName
-            } </div>
-        );
-    }
     
     return (
         <div>
             <SearchBarView/>
-            <SearchResultsView items={results.map(renderResult)}/>
+            <ClubSearchResultsView foundClubs={results}/>
         </div>
     );
 }
