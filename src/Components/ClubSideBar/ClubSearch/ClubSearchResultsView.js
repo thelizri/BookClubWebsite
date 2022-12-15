@@ -1,6 +1,3 @@
-// https://react-bootstrap.netlify.app/components/list-group
-import ListGroup from 'react-bootstrap/ListGroup';
-
 const ClubSearchResultsView = ({
    foundClubs,
    onSubmit = (club) => {console.log(club)},
@@ -8,21 +5,22 @@ const ClubSearchResultsView = ({
 }) => {
     function renderListItem(club) {
         return (
-            <ListGroup.Item
-                className={ "list-group-item list-group-item-action h4 lead" }
-                action onClick={ () => onSubmit(club) }
+            <li
+                className="list-group-item list-group-item-action h4 lead"
+                href="#"
+                onClick={ () => onSubmit(club) }
                 eventKey={ club.id }
                 id={ club.id }
             > {
                 club.clubName
-            } </ListGroup.Item>
+            } </li>
         );
     }
 
     return (
-        <ListGroup>
-            { foundClubs.map( renderListItem ) }
-        </ListGroup>
+        <ul className="list-group"> {
+            foundClubs.map(renderListItem)
+        } </ul>
     );
 }
 
