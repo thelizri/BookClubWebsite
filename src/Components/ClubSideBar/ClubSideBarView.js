@@ -1,4 +1,4 @@
-import { SearchBar } from "../SearchBar/SearchBar";
+import ClubSearch from "./ClubSearch/ClubSearch";
 import "./ClubSidebarStyle.css"
 import CreateClubModalView from "./CreateClubModal/CreateClubModalView";
 
@@ -36,7 +36,7 @@ export default function ClubSideBarView( props ) {
             <div className="panel panel-default mt-2" id={ "sidebarbottom" }>
                 <div className="panel-heading"><h1>Find Clubs</h1></div>
                 <div className="panel-body">
-                    <SearchBar/>
+                    <ClubSearch/>
                 </div>
             </div>
         </div>

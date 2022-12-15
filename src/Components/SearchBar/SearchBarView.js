@@ -5,7 +5,10 @@
  *     parameter.
  * @param {function} onSubmit - callback that initiates the search.
  */
-export const SearchBarView = function( { inputQuery, onSubmit } ) {
+export const SearchBarView = function({
+    inputQuery = (query) => console.log(query),
+    onSubmit = () => console.log("search")
+}) {
     const handleSubmit = ( e ) => {
         onSubmit();
         e.preventDefault();
