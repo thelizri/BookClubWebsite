@@ -15,7 +15,7 @@
 #table{
     /* Change these properties */
     --border: 1px transparent;
-    border-radius: 10px;
+    border-radius: 15px;
 
     /* Don't change these properties */
     border-spacing: 0;
