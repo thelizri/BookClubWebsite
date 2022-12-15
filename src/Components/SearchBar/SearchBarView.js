@@ -5,11 +5,21 @@
  *     parameter.
  * @param {function} onSubmit - callback that initiates the search.
  */
-export const SearchBarView = function( { inputQuery, onSubmit } ) {
-    function handleSubmit( e ) {
+export const SearchBarView = function({
+    inputQuery = (query) => console.log(query),
+    onSubmit = () => console.log("search")
+}) {
+    const handleSubmit = ( e ) => {
         onSubmit();
         e.preventDefault();
     }
+
+    const handleKeyDown = ( e ) => {
+        if( e.key === 'Enter' ) {
+            onSubmit();
+            e.preventDefault();
+        }
+    };
 
     // https://getbootstrap.com/docs/3.4/components/#input-groups
     return (
@@ -21,6 +31,7 @@ export const SearchBarView = function( { inputQuery, onSubmit } ) {
                 aria-label="Search"
                 aria-describedby="search-addon"
                 onChange={ ( event ) => inputQuery( event.target.value ) }
+                onKeyDown={ handleKeyDown }
             />
             <button
                 type="button"

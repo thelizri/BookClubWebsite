@@ -7,8 +7,10 @@ import {
     setSelectedBook
 } from "../../../../../Store/slices/bookSlice";
 import { addBookToReadingList } from "../../../../../Store/slices/clubSlice";
+import { LoadingIcon } from "../../../../LoadingIcon/LoadingIcon";
 import { SearchBarView } from "../../../../SearchBar/SearchBarView";
 import { SearchResultsView } from "./SearchResultsView";
+
 
 /**
  * Presenter for SearchResultsView.
@@ -17,7 +19,7 @@ import { SearchResultsView } from "./SearchResultsView";
 export const Search = () => {
     const book = useSelector( selectBook );
     // State of query
-    const [ searchQuery, setSearchQuery ] = React.useState( "Harry Potter" );
+    const [ searchQuery, setSearchQuery ] = React.useState( "!#%%c€!!" );
 
     // State of API request
     const { data, isLoading, isFetching, isSuccess, isError, error } =
@@ -35,6 +37,7 @@ export const Search = () => {
     }
 
     const executeQuery = () => {
+        if( preliminaryQuery === "" ) return;
         setSearchQuery( preliminaryQuery )
     }
 
@@ -47,14 +50,24 @@ export const Search = () => {
     let content = null;
     const dispatch = useDispatch();
 
-    function addSelectedBookToReadingList( googleBooksId, title, author, pageCount ) {
+    const addSelectedBookToReadingList = ( book ) => {
+        const googleBooksId = book.id;
+        const title = book.volumeInfo.title;
+        const author = book.volumeInfo.authors ?
+                       book.volumeInfo.authors[ 0 ] : null;
+        const pageCount = book.volumeInfo.pageCount ?
+                          book.volumeInfo.pageCount : null;
+
         dispatch(
-            setSelectedBook( { googleBooksId, title, author, pageCount } ) );
+            setSelectedBook(
+                { googleBooksId, title, author, pageCount } ) );
     }
 
     if( isLoading || isFetching ) {
-        // content = <LoadingImage /> or similar
-    } else if( isSuccess && !isEmpty ) {
+        content = <LoadingIcon/>
+    } else if( isSuccess && !isEmpty && searchQuery === "!#%%c€!!" ) {
+        content = null;
+    } else if( isSuccess && !isEmpty && searchQuery !== "!#%%c€!!" ) {
         content = <SearchResultsView
             foundBooks={ data.items }
             error={ errorMsg }

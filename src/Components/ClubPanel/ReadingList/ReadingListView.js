@@ -19,20 +19,6 @@ function displayBooksCB( book ) {
 }
 
 const ReadingListView = function( { readingList = [] } ) {
-    const book1 = {
-        title : "Harry Potter",
-        author : "Rowling",
-        pages : 500,
-        isbn : "9780747542155"
-    };
-    const book2 = {
-        title : "Stormlight Archive",
-        author : "Sandersson",
-        pages : 900,
-        isbn : "9780575097360"
-    };
-    const books = [ book1, book2 ];
-
     return <div className={ "container" }>
         <div><h1 id={ "header24ClubPanelView" }>Reading List</h1></div>
         <table className="table table-sm bg-white table-borderless"
@@ -43,11 +29,11 @@ const ReadingListView = function( { readingList = [] } ) {
                 <th>Title</th>
                 <th>Author</th>
                 <th>Pages</th>
-                { <th><SearchModalView/></th> }
+                {<th><SearchModalView/></th>}
             </tr>
             </thead>
-            <tbody id={ "bodyReadingList" }>
-            { readingList.map( displayBooksCB ) }
+            <tbody id={"bodyReadingList"}>
+            { readingList.map( displayBooksCB) }
             </tbody>
         </table>
     </div>

@@ -184,7 +184,6 @@ export const listenToAuthenticationChanges = () =>
             if( user ) { // if state is fulfilled, update profile, displayName: user.displayName
                 dispatch( setUser( { uid : user.uid, email : user.email } ) );
             }
-            console.log( "test" );
 
             dispatch( setFirebaseAuthReady() );
         } );

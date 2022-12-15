@@ -1,15 +1,31 @@
+import ClubListView from "./ClubListView";
 
-
-export const ClubList = function() {
-    const ClubListView = require( "./ClubList/ClubListView" ).default;
-    const CURRENT_CLUB = { name : "Club A" };
-
-    return <ClubListView
-        clubs={ [
-            CURRENT_CLUB,
-            { name : "Club B" }
-        ] }
-        currentClub={ CURRENT_CLUB }
-        setCurrentClub={ ( club ) => console.log( "setCurrentClub", club ) }
-    />;
+const CLUB_DUMMY = {
+    //clubs : [],
+    clubId : 1,
+    //clubOwnerId : "irsPW5zlE4SPq5KwvnT3Snq10w63",
+    clubName : "KTH deckarklubb",
+    //currentlyReadingId : null,
+    genres : [ "Western", "Mystery" ],
+    language : "Korean",
+    maxMemberCount : 3,
+    //meetings : [],
+    meetingType : "Physical",
+    memberIds : [ "irsPW5zlE4SPq5KwvnT3Snq10w63",
+        "cdWAiHj65ya8M5JdTQJguZYouZU2" ],
+    //readingList : [],
+    //voteDeadline : null,
+    //votes : [],
 }
+
+function ClubList() {
+    return (
+        <ClubListView
+            clubs={[CLUB_DUMMY]}
+            currentClub={CLUB_DUMMY}
+            setCurrentClub={(club) => console.log("setCurrentClub", club)}
+        />
+    );
+}
+
+export default ClubList;

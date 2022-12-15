@@ -1,22 +1,8 @@
-import { SearchBar } from "../SearchBar/SearchBar";
+import ClubList from "./ClubList/ClubList";
+import ClubSearch from "./ClubSearch/ClubSearch";
 import "./ClubSidebarStyle.css"
 import { CreateClubModalView } from "./CreateClubModal/CreateClubModalView";
 import {CreateClubModal} from "./CreateClubModal/CreateClubModal";
-
-// DUMMY PRESENTERS
-var ClubList = ( props ) => {
-    const ClubListView = require( "./ClubList/ClubListView" ).default;
-    const CURRENT_CLUB = { name : "Club A" };
-
-    return <ClubListView
-        clubs={ [
-            CURRENT_CLUB,
-            { name : "Club B" }
-        ] }
-        currentClub={ CURRENT_CLUB }
-        setCurrentClub={ ( club ) => console.log( "setCurrentClub", club ) }
-    />;
-};
 
 /**
  * Displays a list of user clubs and a club search bar.
@@ -37,7 +23,7 @@ export default function ClubSideBarView( props ) {
             <div className="panel panel-default mt-2" id={ "sidebarbottom" }>
                 <div className="panel-heading"><h1>Find Clubs</h1></div>
                 <div className="panel-body">
-                    <SearchBar/>
+                    <ClubSearch/>
                 </div>
             </div>
         </div>

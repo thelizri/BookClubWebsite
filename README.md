@@ -9,7 +9,7 @@ Find readers with similar book tastes to co-read books with. Propose and vote fo
 - [x] User registration and login
 - [ ] Book club creation and administration
 - [ ] Search and join book clubs
-- [ ] Add books to read in the book club
+- [X] Add books to read in the book club
 - [ ] Vote for books to read in the book club
 - [ ] View relevant information about the book
 - [ ] Coordinate meeting (digial or physical)

@@ -10,15 +10,15 @@ export const SearchResultsView = ( {
     function renderListItem( book ) {
         return (
             <a className={ "list-group-item list-group-item-action h4 lead" }
-               onClick={ () => onSubmit( book.id, book.volumeInfo.title,
-                   book.volumeInfo?.authors[ 0 ], book.volumeInfo?.pageCount ) }
-               value={ book.id } href="#"
+               onClick={ () => onSubmit( book ) }
+               href="#"
                key={ book.id }
-               id={ "searchResultsList" }>{ book.volumeInfo.title }</a>
+               data-bs-dismiss="modal"
+               id={ "searchResultsList" }>{ book.volumeInfo.title }
+            </a>
         );
     }
 
-    console.log( foundBooks )
     return (
         <div className={ "list-group col-10" }>
             { foundBooks.map( renderListItem ) }

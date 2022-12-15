@@ -4,7 +4,6 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { Link } from "react-router-dom";
 import "./NavigationBarStyle.css";
 
 export const NavigationBarView = ( {
@@ -16,8 +15,7 @@ export const NavigationBarView = ( {
             <Button variant="success">Profile</Button>
             <Dropdown.Toggle split variant="success"/>
             <Dropdown.Menu>
-                <Dropdown.Item href="#" onClick={ logOut }>Log
-                    out</Dropdown.Item>
+                <Dropdown.Item href="#" onClick={ logOut }>Log out</Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
     );
@@ -35,28 +33,20 @@ export const NavigationBarView = ( {
         <div className="collapse navbar-collapse" id={ "navbarCollapse" }>
             <ul className="navbar-nav ms-auto">
                 <li className="navbar-item">
-                    <Link to="/" id={ "react-link" }>
-                        <a className="nav-link" href="#"
-                           id={ "navigation" }>Home</a>
-                    </Link>
+                    <a className="nav-link" href="/"
+                       id={ "navigation" }>Home</a>
                 </li>
                 <li className="navbar-item">
-                    <Link to="/club" id={ "react-link" }>
-                        <a className="nav-link" href="#"
-                           id={ "navigation" }>Clubs</a>
-                    </Link>
+                    <a className="nav-link" href="/club"
+                       id={ "navigation" }>Clubs</a>
                 </li>
                 <li className="navbar-item">
-                    <Link to="/error" id={ "react-link" }>
-                        <a className="nav-link" href="#"
-                           id={ "navigation" }>Books</a>
-                    </Link>
+                    <a className="nav-link" href="/error"
+                       id={ "navigation" }>Books</a>
                 </li>
                 <li className="navbar-item">
-                    <Link to={ "/error" } id={ "react-link" }>
-                        <a className="nav-link" href={ "#" }
-                           id={ "navigation" }>About Us</a>
-                    </Link>
+                    <a className="nav-link" href={ "/error" }
+                       id={ "navigation" }>About Us</a>
                 </li>
                 <li className="navbar-item">
                     { profileButton }

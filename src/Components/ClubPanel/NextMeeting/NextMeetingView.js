@@ -1,9 +1,10 @@
 import React from "react";
 import "./NextMeetingStyle.css";
+import Form from "react-bootstrap/Form";
 
 function NextMeetingView( props ) {
-    let currentDate = new Date().toJSON().slice( 0, 10 );
-    console.log( currentDate ); // "2022-06-17"
+    // let currentDate = new Date().toJSON().slice( 0, 10 );
+    // console.log( currentDate ); // "2022-06-17"
 
     return ( <div className={ "container" }>
         <div><h1 id={ "header24ClubPanelView" }>Next Meeting</h1></div>
@@ -11,7 +12,7 @@ function NextMeetingView( props ) {
                id={ "table" }>
             <thead id={ "headNextMeeting" }>
             <tr>
-                <th>Meeting #23</th>
+                <th contentEditable={props.isAdmin}>Meeting #23</th>
             </tr>
             </thead>
             <tbody>
@@ -19,22 +20,22 @@ function NextMeetingView( props ) {
                 <td>Type</td>
             </tr>
             <tr>
-                <td className={ "text-muted" }>physical</td>
+                <td className={ "text-muted" } contentEditable={props.isAdmin}>physical</td>
             </tr>
             <tr>
                 <td>Time & Date</td>
             </tr>
             <tr>
-                <td className={ "text-muted" }>2022/06/26 15:00</td>
+                <td className={ "text-muted" } contentEditable={props.isAdmin}>2022/06/26 15:00</td>
             </tr>
             <tr>
                 <td>Location</td>
             </tr>
             <tr>
-                <td className={ "text-muted" }>Cafe blåbär</td>
+                <td className={ "text-muted" } contentEditable={props.isAdmin}>Cafe blåbär</td>
             </tr>
             <tr>
-                <td className={ "text-muted" }>Fleminggatan 53, 112 32
+                <td className={ "text-muted" } contentEditable={props.isAdmin}>Fleminggatan 53, 112 32
                     Stockholm
                 </td>
             </tr>

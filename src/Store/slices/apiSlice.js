@@ -16,7 +16,7 @@ export const googleBooksApi = createApi( {
 
         getSearchResults : builder.query( {
             query : ( searchQuery ) =>
-                `?q=${ searchQuery }&orderBy=relevance&maxResults=10&key=${ apiKey }`
+                `?q=${ searchQuery }&printType=books&orderBy=relevance&maxResults=10&key=${ apiKey }`
         } ),
 
         getBookDetails : builder.query( {
