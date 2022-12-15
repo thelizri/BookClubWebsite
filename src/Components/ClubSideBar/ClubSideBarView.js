@@ -1,21 +1,7 @@
+import ClubList from "./ClubList/ClubList";
 import ClubSearch from "./ClubSearch/ClubSearch";
 import "./ClubSidebarStyle.css"
 import CreateClubModalView from "./CreateClubModal/CreateClubModalView";
-
-// DUMMY PRESENTERS
-var ClubList = ( props ) => {
-    const ClubListView = require( "./ClubList/ClubListView" ).default;
-    const CURRENT_CLUB = { name : "Club A" };
-
-    return <ClubListView
-        clubs={ [
-            CURRENT_CLUB,
-            { name : "Club B" }
-        ] }
-        currentClub={ CURRENT_CLUB }
-        setCurrentClub={ ( club ) => console.log( "setCurrentClub", club ) }
-    />;
-};
 
 /**
  * Displays a list of user clubs and a club search bar.
