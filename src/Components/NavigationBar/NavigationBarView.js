@@ -15,8 +15,7 @@ export const NavigationBarView = ( {
             <Button variant="success">Profile</Button>
             <Dropdown.Toggle split variant="success"/>
             <Dropdown.Menu>
-                <Dropdown.Item href="#" onClick={ logOut }>Log
-                    out</Dropdown.Item>
+                <Dropdown.Item href="#" onClick={ logOut }>Log out</Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
     );
