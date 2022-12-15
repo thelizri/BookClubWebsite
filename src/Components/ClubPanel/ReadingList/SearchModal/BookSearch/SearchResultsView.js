@@ -10,8 +10,7 @@ export const SearchResultsView = ( {
     function renderListItem( book ) {
         return (
             <a className={ "list-group-item list-group-item-action h4 lead" }
-               onClick={ () => onSubmit( book.id, book.volumeInfo.title,
-                   book.volumeInfo?.authors[ 0 ], book.volumeInfo?.pageCount ) }
+               onClick={ () => onSubmit( book ) }
                href="#"
                key={ book.id }
                data-bs-dismiss="modal"
