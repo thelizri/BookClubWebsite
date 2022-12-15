@@ -21,4 +21,36 @@
 .CircularProgressbar-trail {
     stroke: #FEF2E0;
 }
+.mytabs {
+    display: flex;
+    flex-wrap: wrap;
+}
+.mytabs input[type="radio"] {
+    display: none;
+}
+.mytabs label {
+    padding: 5px;
+    background: #E9E8E8;
+    font-weight: bold;
+    border-radius: 10px 10px 0px 0px;
+}
 
+.mytabs .tab {
+    width: 100%;
+    padding: 20px;
+    background: white;
+    order: 1;
+    display: none;
+}
+
+.mytabs input[type='radio']:checked + label + .tab {
+    display: block;
+}
+
+.mytabs input[type="radio"]:checked + label {
+    background: white;
+}
+
+.tab{
+    border-radius: 0px 20px 20px 20px;
+}
