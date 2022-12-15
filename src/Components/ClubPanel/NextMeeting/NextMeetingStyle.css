@@ -1,3 +1,13 @@
 #headNextMeeting{
     background-color: #fdeacd;
 }
+.text-muted:focus{
+    outline: none;
+    background-color: #f3eadc;
+    border-radius: 10px;
+}
+#meetingNumber:focus{
+    outline-style:solid;
+    outline-color: black;
+    background-color: white;
+}
