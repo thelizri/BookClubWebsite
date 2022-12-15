@@ -1,4 +1,12 @@
-#listForClubs > a:focus{
-    background-color: #b66f46;
-    color: whitesmoke;
+/* #listForClubs > a:focus{ */
+    /* background-color: #b66f46; */
+    /* color: whitesmoke; */
+/* } */
+
+.table .label {
+    color: rgb(0, 0, 0, 0.5);
+}
+
+.table .info {
+    text-align: right;
 }
