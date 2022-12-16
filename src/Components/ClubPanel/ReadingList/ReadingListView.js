@@ -2,12 +2,12 @@ import React from "react";
 import "./ReadingListStyle.css";
 import SearchModalView from "./SearchModal/SearchModalView";
 
-function displayBooksCB( book ) {
-    return ( <tr>
+function displayBooksCB( book, index ) {
+    return ( <tr key={index}>
         <td>
-            <div className="form-check ms-2">
+            <div className="form-check ms-2" >
                 <input className="form-check-input" type="radio"
-                       name="flexRadioDefault" id={ book.isbn }/>
+                       name="flexRadioDefault" id={ book.id }/>
             </div>
         </td>
         <td>{ book.title }</td>

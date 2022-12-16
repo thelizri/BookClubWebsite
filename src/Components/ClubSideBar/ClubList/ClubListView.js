@@ -26,7 +26,7 @@ export default function ClubListView({
     currentClub = null,
     setCurrentClub = (club) => console.log({setCurrentClub: club}),
 }) {
-    function renderListItem( club ) {
+    function renderListItem( club, index ) {
         function renderInfo() {
             const rows = [
                 [membersIcon, "Members", `${club.memberIds.length}/${club.maxMemberCount}`],
@@ -39,9 +39,9 @@ export default function ClubListView({
                 [genderIcon, "Gender", club.gender],
             ];
             
-            function renderInfoRow(icon, label, info) {
+            function renderInfoRow(icon, label, info, i) {
                 return (
-                    <tr>
+                    <tr key={i}>
                         <td className="label">
                             <img
                                 src={icon}
@@ -57,20 +57,15 @@ export default function ClubListView({
             return (
                 <table className="table">
                     <tbody>
-                        { rows.map((row) => renderInfoRow(row[0], row[1], row[2])) }
+                        { rows.map((row,i) => renderInfoRow(row[0], row[1], row[2],i)) }
                     </tbody>
                 </table>
             );
         }     
         
         return (
-//            <Accordion.Item eventKey={club.clubId}>
-//                <Accordion.Header onClick={e => setCurrentClub(club)}>
-//                    { club.clubName }
-//                </Accordion.Header>
-//                <Accordion.Body>{renderInfo()}</Accordion.Body>
-//            </Accordion.Item>
             <CustomAccordionItem
+                index={index}
                 header={club.clubName}
                 body={renderInfo()}
                 eventKey={club.clubId}
@@ -96,9 +91,10 @@ function CustomAccordionItem({
     eventKey,
     callback = () => console.log("toggle"),
     isActive = false,
-}) {   
+    index
+}) {
     return (
-        <Card bsPrefix={isActive ? "active-card" : "card"}>
+        <Card bsPrefix={isActive ? "active-card" : "card"} key={index}>
             <Card.Header
                 as="button"
                 onClick={useAccordionButton(eventKey, callback)}

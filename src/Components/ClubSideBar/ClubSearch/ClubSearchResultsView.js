@@ -9,13 +9,13 @@ const ClubSearchResultsView = ({
    foundClubs = [],
    joinClub = (id) => console.log({joinClub: id}),
 }) => {
-    function renderListItem(club) {
+    function renderListItem(club, index) {
         const ID = `club-search-results-${club.clubId}`;
         const ModalID = ID + "-modal";
         const ModalLabelID = ModalID + "-label";
         
         return (
-            <div>
+            <div key={index}>
                 <li
                     className="list-group-item list-group-item-action"
                     id={ID}

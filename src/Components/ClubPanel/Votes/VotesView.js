@@ -1,9 +1,9 @@
 import React from "react";
 import "./VotesStyle.css";
 
-function renderVotesCB( member ) {
+function renderVotesCB( member, index ) {
     if( member.voted ) {
-        return ( <tr>
+        return ( <tr key={index}>
             <td>{ member.name }</td>
             <td style={ { color : 'green' } }>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -17,7 +17,7 @@ function renderVotesCB( member ) {
             </td>
         </tr> );
     }
-    return ( <tr>
+    return ( <tr key={index}>
         <td>{ member.name }</td>
         <td style={ { color : 'gray', opacity : 0.5 } }>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
