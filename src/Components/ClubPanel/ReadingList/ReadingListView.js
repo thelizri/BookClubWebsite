@@ -6,15 +6,15 @@ import SearchModalView from "./SearchModal/SearchModalView";
 
 function displayBooksCB( book, index ) {
     return ( <tr key={index}>
-        <td key={index+"FirstColumn"}>
-            <div className="form-check ms-2" key={index+"FirstColumnDiv"}>
-                <input className="form-check-input" type="radio" key={index+"FirstColumnInput"}
+        <td>
+            <div className="form-check ms-2" >
+                <input className="form-check-input" type="radio"
                        name="flexRadioDefault" id={ book.id }/>
             </div>
         </td>
-        <td key={index+"SecondColumn"}>{ book.title }</td>
-        <td key={index+"ThirdColumn"}>{ book.author }</td>
-        <td key={index+"FourthColumn"}>{ book.pageCount }</td>
+        <td>{ book.title }</td>
+        <td>{ book.author }</td>
+        <td>{ book.pageCount }</td>
     </tr> );
 }
 
