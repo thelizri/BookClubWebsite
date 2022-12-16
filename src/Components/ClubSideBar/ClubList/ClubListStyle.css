@@ -10,3 +10,8 @@
 .table .info {
     text-align: right;
 }
+
+img.icon {
+    width: 32pt;
+    opacity: 0.2;
+}
