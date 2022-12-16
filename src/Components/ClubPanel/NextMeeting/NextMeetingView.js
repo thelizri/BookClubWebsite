@@ -1,8 +1,61 @@
 import React from "react";
 import "./NextMeetingStyle.css";
 
-function NextMeetingView( props ) {
-    // let currentDate = new Date().toJSON().slice( 0, 10 );
+const NextMeetingView = function( {
+                                      isAdmin, meetingAddress,
+                                      meetingDate, meetingTime,
+                                      meetingDescription, isOnline,
+                                      onlineOrPhysical, newDescription,
+                                      newAddress, newTime,
+                                      newDate } ) {
+
+    const onSwitch = ( event ) => {
+        onlineOrPhysical( event.target.value );
+    }
+    const descriptionInput = event => {
+        if(event.key === 'Enter') {
+            event.preventDefault()
+            newDescription( event.target.textContent );
+        }
+    }
+    const addressInput = event => {
+        if(event.key === 'Enter') {
+            event.preventDefault()
+            newAddress( event.target.textContent )
+        }
+    };
+    const dateInput = event => {
+        if(event.key === 'Enter') {
+            event.preventDefault()
+            newDate( event.target.textContent )
+        }
+    };
+
+    const timeInput = event => {
+        if(event.key === 'Enter') {
+            event.preventDefault()
+            newTime( event.target.textContent )
+        }
+    };
+
+    function radioOrText(isAdmin){
+        if(!isAdmin){
+            return (<td className={ "text-muted" }>physical</td>);
+        }
+        return(<td>
+            <div className="form-check form-check-inline">
+                <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioTypeMeetingPhysical"
+                       value="physical" onChange={onSwitch}/>
+                <label className="form-check-label" htmlFor="inlineRadioTypeMeetingPhysical1">Physical</label>
+            </div>
+            <div className="form-check form-check-inline">
+                <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioTypeMeetingOnline"
+                       value="online" onChange={onSwitch}/>
+                <label className="form-check-label" htmlFor="inlineRadioTypeMeetingOnline1">Online</label>
+            </div>
+        </td>);
+    }
+
 
     return ( <div className={ "container" }>
         <div><h1 id={ "header24ClubPanelView" }>Next Meeting</h1></div>
@@ -10,7 +63,7 @@ function NextMeetingView( props ) {
                id={ "table" }>
             <thead id={ "headNextMeeting" }>
             <tr>
-                <th><span>Meeting #</span><span contentEditable={props.isAdmin} id={"meetingNumber"}>23</span></th>
+                <th><span>Meeting</span><span contentEditable={isAdmin} id={"meetingNumber"}></span></th>
             </tr>
             </thead>
             <tbody>
@@ -18,46 +71,29 @@ function NextMeetingView( props ) {
                 <td>Type</td>
             </tr>
             <tr>
-                {radioOrText(props.isAdmin)}
+                {radioOrText(isAdmin)}
             </tr>
             <tr>
                 <td>Time & Date</td>
             </tr>
             <tr>
-                <td className={ "text-muted" } contentEditable={props.isAdmin}>2022/06/26 15:00</td>
+                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={dateInput}>{ meetingDate }</td>
             </tr>
             <tr>
-                <td>{props.isOnline ? 'Link' : 'Location'}</td>
+                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={timeInput}>{ meetingTime }</td>
             </tr>
             <tr>
-                <td className={ "text-muted" } contentEditable={props.isAdmin}>Cafe blåbär</td>
+                <td>{isOnline ? 'Link' : 'Location'}</td>
             </tr>
             <tr>
-                <td className={ "text-muted" } contentEditable={props.isAdmin}>Fleminggatan 53, 112 32
-                    Stockholm
-                </td>
+                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={descriptionInput}>{ meetingDescription }</td>
+            </tr>
+            <tr>
+                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={addressInput}>{ meetingAddress }</td>
             </tr>
             </tbody>
         </table>
     </div> );
-}
-
-function radioOrText(isAdmin){
-    if(!isAdmin){
-        return (<td className={ "text-muted" }>physical</td>);
-    }
-    return(<td>
-        <div className="form-check form-check-inline">
-            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioTypeMeetingPhysical"
-                   value="physical"/>
-                <label className="form-check-label" htmlFor="inlineRadioTypeMeetingPhysical1">Physical</label>
-        </div>
-        <div className="form-check form-check-inline">
-            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioTypeMeetingOnline"
-                   value="online"/>
-            <label className="form-check-label" htmlFor="inlineRadioTypeMeetingOnline1">Online</label>
-        </div>
-    </td>);
 }
 
 export default NextMeetingView;
