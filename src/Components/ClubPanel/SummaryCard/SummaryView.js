@@ -5,7 +5,7 @@ import "./SummaryStyle.css";
 function SummaryView( props ) {
     return (
         <div className="mytabs m-2">
-            <input type="radio" id="tabfree" name="mytabs" checked="checked" />
+            <input type="radio" id="tabfree" name="mytabs" checked="checked" onChange={()=>{}}/>
             <label htmlFor="tabfree">Progress</label>
             <div className="tab">
                 {progressTab}
