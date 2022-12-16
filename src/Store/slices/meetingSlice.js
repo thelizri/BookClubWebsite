@@ -2,28 +2,32 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    id : null,
-    address : null,
-    currentMeeting : null,
-    meetingLink : "",
-    meetingTime : null,
+    description : "KTH Bibliotek",
+    address : "Kistagången 16, 164 40 Kista",
+    online : false,
+    meetingLink : "https://kth-se.zoom.us/j/3446757312312435",
+    meetingDate : "2022-12-21",
+    meetingTime : "19:00",
 }
 
 export const meeting = createSlice( {
     name : "meeting",
     initialState,
     reducers : {
-        setMeetingId : ( state, { payload } ) => {
-            state.id = payload;
+        setOnline : ( state, { payload } ) => {
+            state.online = payload;
+        },
+        setDescription : ( state, { payload } ) => {
+            state.description = payload;
         },
         setAddress : ( state, { payload } ) => {
             state.address = payload;
         },
-        setCurrentMeeting : ( state, { payload } ) => {
-            state.currentMeeting = payload;
-        },
         setMeetingLink : ( state, { payload } ) => {
             state.meetingLink = payload;
+        },
+        setMeetingDate : ( state, { payload } ) => {
+            state.meetingDate = payload;
         },
         setMeetingTime : ( state, { payload } ) => {
             state.meetingTime = payload;
@@ -32,10 +36,12 @@ export const meeting = createSlice( {
 } )
 
 export const {
-    setMeetingId,
     setAddress,
+    setDescription,
+    setOnline,
     setCurrentMeeting,
     setMeetingLink,
-    setMeetingTime
+    setMeetingTime,
+    setMeetingDate
 } = meeting.actions;
 
