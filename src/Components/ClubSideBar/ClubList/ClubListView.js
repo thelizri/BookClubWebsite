@@ -1,15 +1,19 @@
 import "./ClubListStyle.css"
 import Accordion from 'react-bootstrap/Accordion';
+import {useContext} from "react";
+import {AccordionContext, useAccordionButton} from "react-bootstrap";
+
 import membersIcon from "../../../Images/members-icon.png";
 import languageIcon from "../../../Images/language-icon.png";
 import meetingIcon from "../../../Images/meeting-icon.png";
-import {useContext} from "react";
-import {AccordionContext, useAccordionButton} from "react-bootstrap";
+import genreIcon from "../../../Images/genre-icon.png";
+import paceIcon from "../../../Images/pace-icon.png";
+import genderIcon from "../../../Images/gender-icon.png";
 
 /**
  * Displays a list of clubs.
  *
- * https://getbootstrap.com/docs/3.4/javascript/#collapse
+ * https://react-bootstrap.github.io/components/accordion/
  *
  * @param {Object} props -
  *      clubs: a list of clubs
@@ -26,15 +30,23 @@ export default function ClubListView({
         function renderInfo() {
             const rows = [
                 [membersIcon, "Members", `${club.memberIds.length}/${club.maxMemberCount}`],
+                // FOR GENRES UNCOMMENT BELOW AND REPLACE WITH THE ONE BELOW IT.
+                // [genreIcon, "Genres", clubs.genres.reduce((genres, genre) => `${genres}, ${genre}`)],
+                [genreIcon, "Genres", ["Abc", "Def"].reduce((genres, genre) => `${genres}, ${genre}`)],
                 [languageIcon, "Language", club.language],
-                [meetingIcon, "Meetings", club.meetingType]
+                [meetingIcon, "Meetings", club.meetingType],
+                [paceIcon, "Pace", "<Pace placeholder>"],
+                [genderIcon, "Gender", club.gender],
             ];
             
             function renderInfoRow(icon, label, info) {
                 return (
                     <tr>
                         <td className="label">
-                            <img src={icon}/>
+                            <img
+                                src={icon}
+                                className="icon"
+                            />
                             {label}
                         </td>
                         <td className="info">{info}</td>
