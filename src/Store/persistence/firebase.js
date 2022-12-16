@@ -1,5 +1,5 @@
 import {child, get, getDatabase, onValue, ref, set} from "firebase/database";
-import {setFirebaseReady} from "../slices/userSlice";
+import {setFirebaseReady, setRegistrationStatus} from "../slices/userSlice";
 import {
     setClubId,
     setClubOwnerId,
@@ -27,6 +27,7 @@ export const persistence = function (store, firebaseApp) {
         const state = store.getState();
         const userId = state.auth.user.uid;
         const prevUserId = prevState.auth.user.uid;
+        const registrationCompleted = state.auth.registrationCompleted;
 
         if (userId && state.auth.firebaseReady) {
             clubsPersistor.toFirebase(
@@ -42,7 +43,15 @@ export const persistence = function (store, firebaseApp) {
             )
         }
         if (prevUserId && !userId) unsubscriptions.forEach(unsubscription => unsubscription());
-        if (userId && !prevUserId) {
+        if (registrationCompleted) {
+            usersPersistor.toFirebase(
+                firebaseDb,
+                state,
+                prevState
+            )
+            dispatch(setRegistrationStatus(false));
+        }
+        if (userId && !prevUserId && !state.auth.registrationCompleted) {
             (
                 async () => {
                     await clubsPersistor.fromFirebaseOnce(

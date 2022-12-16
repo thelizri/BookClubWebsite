@@ -30,6 +30,7 @@ const initialState = {
 
     firebaseAuthReady : false,
     firebaseReady : false,
+    registrationCompleted : false,
 
     authenticate : {
         status : IDLE,
@@ -137,6 +138,9 @@ export const user = createSlice( {
                 }
             }
         },
+        setRegistrationStatus : ( state, { payload } ) => {
+            state.registrationCompleted = payload;
+        },
         removeLanguage : ( state, { payload } ) => {
             return {
                 ...state,
@@ -161,7 +165,8 @@ export const user = createSlice( {
             if( payload.signup ) {
                 state.user.displayName = payload.displayName;
                 state.user.gender = payload.gender;
-                state.user.languages = payload.languages
+                state.user.languages = payload.languages;
+                state.registrationCompleted = payload.signup;
             }
             state.user.displayName = payload.displayName;
             state.authenticate.status = FULFILLED;
@@ -188,6 +193,7 @@ export const {
     resetAuthenticationStatus,
     setFirebaseReady,
     setLanguages,
+    setRegistrationStatus,
     removeLanguage
 } = user.actions;
 
