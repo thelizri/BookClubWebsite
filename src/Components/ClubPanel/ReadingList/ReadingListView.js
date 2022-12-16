@@ -4,17 +4,17 @@ import SearchModalView from "./SearchModal/SearchModalView";
 
 //import {BookSearch} from "../BookSearch/Search";
 
-function displayBooksCB( book ) {
-    return ( <tr>
-        <td>
-            <div className="form-check ms-2">
-                <input className="form-check-input" type="radio"
-                       name="flexRadioDefault" id={ book.isbn }/>
+function displayBooksCB( book, index ) {
+    return ( <tr key={index}>
+        <td key={index+"FirstColumn"}>
+            <div className="form-check ms-2" key={index+"FirstColumnDiv"}>
+                <input className="form-check-input" type="radio" key={index+"FirstColumnInput"}
+                       name="flexRadioDefault" id={ book.id }/>
             </div>
         </td>
-        <td>{ book.title }</td>
-        <td>{ book.author }</td>
-        <td>{ book.pageCount }</td>
+        <td key={index+"SecondColumn"}>{ book.title }</td>
+        <td key={index+"ThirdColumn"}>{ book.author }</td>
+        <td key={index+"FourthColumn"}>{ book.pageCount }</td>
     </tr> );
 }
 
