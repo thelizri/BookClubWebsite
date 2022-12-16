@@ -1,4 +1,4 @@
-import {child, get, onValue, set} from "firebase/database";
+import {child, get, onValue, ref, set} from "firebase/database";
 import {
     setClubId,
     setClubOwnerId,
@@ -8,36 +8,45 @@ import {
     setMeetings,
     setMeetingType, setMembers, setReadingList, setVoteDeadline, setVotes
 } from "../../slices/clubSlice";
-import {setData} from "../../../Utils/persistenceUtil";
+import {setChildData} from "../../../Utils/persistenceUtil";
 import {setClubIds, setDisplayName, setGender, setLanguages, setUserId} from "../../slices/userSlice";
 
-const toFirebase = (userRef, state, prevState) => {
+const getRefs = (firebaseDb, state) => {
+    const userPath = `users/${state.auth.user.uid}/`;
+    const userRef = ref(firebaseDb, userPath);
+
+    return userRef;
+}
+
+const toFirebase = (firebaseDb, state, prevState) => {
+    const userRef = getRefs(firebaseDb, state);
+
     const user = state.auth.user;
     const prevUser = prevState.auth.user;
 
     const userId = user.uid;
     if (userId !== prevUser.uid) {
-        setData({userId}, userRef);
+        setChildData({userId}, userRef);
     }
 
     const clubIds = user.clubIds;
     if (clubIds !== prevUser.clubIds) {
-        setData({clubIds}, userRef);
+        setChildData({clubIds}, userRef);
     }
 
     const displayName = user.displayName;
     if (displayName !== prevUser.displayName /*&& !arrayEquals(genres, prevClub.genres*/) {
-        setData({displayName}, userRef);
+        setChildData({displayName}, userRef);
     }
 
     const gender = user.gender;
     if (gender !== prevUser.gender) {
-        setData({gender}, userRef);
+        setChildData({gender}, userRef);
     }
 
     const languages = user.languages;
     if (languages !== prevUser.maxMemberCount) {
-        setData({languages}, userRef);
+        setChildData({languages}, userRef);
     }
 };
 
@@ -49,14 +58,17 @@ const fromFirebase = (userData, dispatch) => {
     if (userData?.languages) dispatch(setLanguages(userData.languages));
 }
 
-const fromFirebaseOnce = async (clubRef, dispatch) => {
-    const userSnapshot = await get(clubRef);
+const fromFirebaseOnce = async (firebaseDb, state, dispatch) => {
+    const userRef = getRefs(firebaseDb, state);
+    const userSnapshot = await get(userRef);
     const userData = userSnapshot.val();
 
     fromFirebase(userData, dispatch);
 }
 
-const fromFirebaseSub = (userRef, dispatch) => {
+const fromFirebaseSub = (firebaseDb, state, dispatch) => {
+    const userRef = getRefs(firebaseDb, state);
+
     return onValue(userRef, async (snapshot) => {
         const userData = snapshot.val();
 

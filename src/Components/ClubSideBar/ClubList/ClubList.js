@@ -1,4 +1,8 @@
 import ClubListView from "./ClubListView";
+import {useDispatch, useSelector} from "react-redux";
+import {setClub} from "../../../Store/slices/clubSlice";
+import {useEffect} from "react";
+import {loadClubs} from "../../../Store/slices/userClubsStorageSlice";
 
 const CLUB_DUMMY = {
     //clubs : [],
@@ -19,11 +23,24 @@ const CLUB_DUMMY = {
 }
 
 function ClubList() {
+    const dispatch = useDispatch();
+    let userClubsInfo = useSelector(state => state.userClubsStorage.userClubs);
+    const clubIds = useSelector(state => state.auth.user.clubIds);
+    const currentClub = useSelector(state => state.club);
+
+    useEffect( () => {
+        dispatch(loadClubs(clubIds));
+    }, [clubIds])
+
+    function setCurrentClub(newCurrentClub) {
+        dispatch(setClub(newCurrentClub));
+    }
+
     return (
         <ClubListView
-            clubs={[CLUB_DUMMY]}
-            currentClub={CLUB_DUMMY}
-            setCurrentClub={(club) => console.log("setCurrentClub", club)}
+            clubs={userClubsInfo}
+            currentClub={currentClub}
+            setCurrentClub={setCurrentClub}
         />
     );
 }

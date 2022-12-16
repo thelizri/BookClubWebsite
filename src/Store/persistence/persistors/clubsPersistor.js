@@ -8,75 +8,119 @@ import {
     setMeetings,
     setMeetingType, setMembers, setReadingList, setVoteDeadline, setVotes
 } from "../../slices/clubSlice";
-import {setData} from "../../../Utils/persistenceUtil";
+import {setParentData, setChildData} from "../../../Utils/persistenceUtil";
 import {setClubIds, setDisplayName, setGender, setLanguages, setUserId} from "../../slices/userSlice";
+import {setLatestCreatedClubId} from "../../slices/clubCreationSlice";
 
-const toFirebase = (clubRef, state, prevState) => {
+const getRefs = (firebaseDb, state) => {
+    const clubPath = `clubs/${state.club.clubId}/`;
+    const clubRef = ref(firebaseDb, clubPath);
+
+    const createdClubPath = `clubs/${state.clubCreation.latestCreatedClubId}`;
+    const createdClubRef = ref(firebaseDb, createdClubPath);
+
+    const clubMetaDataPath = "clubMetaData/";
+    const clubMetaDataRef = ref(firebaseDb, clubMetaDataPath);
+    const clubNamesRef = ref(firebaseDb, clubMetaDataPath + "/clubNames");
+
+    return {
+        clubRef,
+        createdClubRef,
+        clubMetaDataRef,
+        clubNamesRef
+    }
+}
+
+const toFirebase = (firebaseDb, state, prevState) => {
+    const {
+        clubRef,
+        createdClubRef,
+        clubMetaDataRef,
+        clubNamesRef } = getRefs(firebaseDb, state);
+
     const club = state.club;
     const prevClub = prevState.club;
 
+    const createdClub = state.clubCreation.clubToBeCreated;
+    const prevCreatedClub = prevState.clubCreation.clubToBeCreated;
+
+    const latestCreatedClubId = state.clubCreation.latestCreatedClubId;
+    let clubName = state.clubCreation.clubToBeCreated.clubName;
+
+    if( createdClub !== prevCreatedClub ) {
+        setParentData(createdClub, createdClubRef);
+        setChildData({latestCreatedClubId}, clubMetaDataRef);
+        setChildData(clubName, clubNamesRef);
+    }
+
     const clubId = club.clubId;
     if (clubId !== prevClub.clubId) {
-        setData({clubId}, clubRef);
+        setChildData({clubId}, clubRef);
+    }
+
+    clubName = club.clubName;
+    if(clubName !== prevClub.clubName) {
+        setChildData({clubName}, clubRef);
     }
 
     const clubOwnerId = club.clubOwnerId;
     if (clubOwnerId !== prevClub.clubOwnerId) {
-        setData({clubOwnerId}, clubRef);
+        setChildData({clubOwnerId}, clubRef);
     }
 
     const currentlyReadingId = club.currentlyReadingId;
     if (currentlyReadingId !== prevClub.currentlyReadingId) {
-        setData({currentlyReadingId}, clubRef)
+        setChildData({currentlyReadingId}, clubRef)
     }
 
     const genres = club.genres;
     if (genres !== prevClub.genres /*&& !arrayEquals(genres, prevClub.genres*/) {
-        setData({genres}, clubRef);
+        setChildData({genres}, clubRef);
     }
 
     const language = club.language;
     if (language !== prevClub.language) {
-        setData({language}, clubRef);
+        setChildData({language}, clubRef);
     }
 
     const maxMemberCount = club.maxMemberCount;
     if (maxMemberCount !== prevClub.maxMemberCount) {
-        setData({maxMemberCount}, clubRef);
+        setChildData({maxMemberCount}, clubRef);
     }
 
     const meetings = club.meetings;
     if (meetings !== prevClub.meetings) {
-        setData({meetings}, clubRef);
+        setChildData({meetings}, clubRef);
     }
 
     const meetingType = club.meetingType;
     if (meetingType !== prevClub.meetingType) {
-        setData({meetingType}, clubRef);
+        setChildData({meetingType}, clubRef);
     }
 
     const memberIds = club.memberIds;
     if (memberIds !== prevClub.memberIds /*&& !arrayEquals(memberIds, prevClub.memberIds*/) {
-        setData({memberIds}, clubRef);
+        setChildData({memberIds}, clubRef);
     }
 
     const readingList = club.readingList;
     if (readingList !== prevClub.readingList) {
-        setData({readingList}, clubRef)
+        setChildData({readingList}, clubRef)
     }
 
     const voteDeadline = club.voteDeadline;
     if (voteDeadline !== prevClub.voteDeadline) {
-        setData({voteDeadline}, clubRef);
+        setChildData({voteDeadline}, clubRef);
     }
 
     const votes = club.votes;
     if (votes !== prevClub.votes) {
-        setData({votes}, clubRef);
+        setChildData({votes}, clubRef);
     }
 };
 
-const fromFirebase = (clubData, dispatch) => {
+const fromFirebase = (dispatch, clubData, createdClubData) => {
+    if (createdClubData?.latestCreatedClubId) dispatch(setLatestCreatedClubId(createdClubData.latestCreatedClubId));
     if (clubData?.clubId) dispatch(setClubId(clubData.clubId));
     if (clubData?.clubOwnerId) dispatch(setClubOwnerId(clubData.clubOwnerId));
     if (clubData?.genres) dispatch(setGenres(clubData.genres));
@@ -90,19 +134,34 @@ const fromFirebase = (clubData, dispatch) => {
     if (clubData?.votes) dispatch(setVotes(clubData.votes));
 }
 
-const fromFirebaseOnce = async (clubRef, dispatch) => {
+const fromFirebaseOnce = async (firebaseDb, state, dispatch) => {
+    const { clubRef, createdClubRef } = getRefs(firebaseDb, state);
+
     const clubSnapshot = await get(clubRef);
     const clubData = clubSnapshot.val();
+    const createdClubSnapshot = await get(createdClubRef);
+    const createdClubData = createdClubSnapshot.val();
 
-    fromFirebase(clubData, dispatch);
+    fromFirebase(dispatch, clubData, createdClubData);
 }
 
-const fromFirebaseSub = (clubRef, dispatch) => {
-    return onValue(clubRef, (snapshot) => {
+const fromFirebaseSub = (firebaseDb, state, dispatch) => {
+    const { clubRef, createdClubRef } = getRefs(firebaseDb, state);
+
+    const clubUnsub = onValue(clubRef, snapshot => {
         const clubData = snapshot.val();
 
-        fromFirebase(clubData, dispatch);
+        fromFirebase(dispatch, clubData);
     })
+
+    const createdClubUnsub = onValue(createdClubRef, snapshot => {
+        const createdClubData = snapshot.val();
+
+        if (createdClubData?.latestCreatedClubId)
+            dispatch(setLatestCreatedClubId(createdClubData.latestCreatedClubId));
+    })
+
+    return [clubUnsub, createdClubUnsub]
 }
 
 const persistClubs = {

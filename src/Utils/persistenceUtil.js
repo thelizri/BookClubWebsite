@@ -1,6 +1,18 @@
 import { child, set } from "firebase/database";
 
-export const setData = ( payload, dbRef ) => {
-    const attributePath = `${ Object.keys( payload )[ 0 ] }`;
-    set( child( dbRef, attributePath ), payload[ attributePath ] );
+export const setChildData = (payload, dbRef ) => {
+    let path = payload;
+    let value = payload;
+
+    if(typeof payload === 'object') {
+        path = `${ Object.keys( payload )[ 0 ] }`;
+        value = payload[ path ];
+    }
+
+    set( child( dbRef, path ), value );
+}
+
+export const setParentData = (payload, dbRef ) => {
+    const attributePath = `/${ payload.clubId }`;
+    set( dbRef , payload );
 }

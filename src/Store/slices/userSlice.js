@@ -23,8 +23,8 @@ const initialState = {
         uid : null,
         email : null,
         displayName : null,
-        clubIds : [],
-        gender : null,
+        clubIds : [2, 3],
+        gender : "Male",
         languages : [],
     },
 
@@ -88,6 +88,15 @@ export const user = createSlice( {
     name : "auth",
     initialState,
     reducers : {
+        addClubId : ( state, { payload } ) => {
+            return {
+                ...state,
+                user: {
+                    ...state,
+                    clubIds: [ ...state.user.clubIds, payload ]
+                }
+            }
+        },
         resetAuthenticationStatus : ( state ) => {
             state.authenticate.status = IDLE;
         },
@@ -106,6 +115,12 @@ export const user = createSlice( {
         },
         setFirebaseReady : ( state ) => {
             state.firebaseReady = true;
+        },
+        setClubs : ( state, { payload } ) => {
+            return {
+                ...state,
+                clubs: [ ...payload ]
+            }
         },
         setClubIds : ( state, { payload } ) => {
             state.clubIds = payload;
@@ -163,6 +178,7 @@ export const user = createSlice( {
 } );
 
 export const {
+    addClubId,
     setClubIds,
     setDisplayName,
     setGender,
@@ -225,3 +241,4 @@ export const selectFirebaseReady = createSelector(
     selectAuth,
     ( data ) => data.firebaseReady
 );
+

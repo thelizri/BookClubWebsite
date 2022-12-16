@@ -2,12 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    clubs : [],
-
     clubId : 1,
     clubOwnerId : "irsPW5zlE4SPq5KwvnT3Snq10w63",
     clubName : "KTH deckarklubb",
     currentlyReadingId : null,
+    gender : null,
     genres : [ "Western", "Mystery" ],
     language : "Korean",
     maxMemberCount : 3,
@@ -42,6 +41,9 @@ export const club = createSlice( {
                 members : [ ...state.members, payload ],
             }
         },
+        setClub : ( state, { payload } ) => {
+            return { payload }
+        },
         setClubId : ( state, { payload } ) => {
             state.clubId = payload;
         },
@@ -53,6 +55,9 @@ export const club = createSlice( {
         },
         setCurrentlyReadingId : ( state, { payload } ) => {
             state.currentlyReadingId = payload;
+        },
+        setGender : ( state, { payload } ) => {
+            state.gender = payload;
         },
         setGenres : ( state, { payload } ) => {
             return {
@@ -123,10 +128,12 @@ export const {
     addBookToReadingList,
     addGenre,
     addMember,
+    setClub,
     setClubId,
     setClubName,
     setClubOwnerId,
     setCurrentlyReadingId,
+    setGender,
     setGenres,
     setLanguage,
     setMeetings,

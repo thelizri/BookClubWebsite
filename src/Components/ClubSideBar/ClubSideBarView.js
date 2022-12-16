@@ -1,7 +1,8 @@
 import ClubList from "./ClubList/ClubList";
 import ClubSearch from "./ClubSearch/ClubSearch";
 import "./ClubSidebarStyle.css"
-import CreateClubModalView from "./CreateClubModal/CreateClubModalView";
+import { CreateClubModalView } from "./CreateClubModal/CreateClubModalView";
+import {CreateClubModal} from "./CreateClubModal/CreateClubModal";
 
 /**
  * Displays a list of user clubs and a club search bar.
@@ -18,7 +19,7 @@ export default function ClubSideBarView( props ) {
                     <ClubList/>
                 </div>
             </div>
-            <CreateClubModalView/>
+            <CreateClubModal/>
             <div className="panel panel-default mt-2" id={ "sidebarbottom" }>
                 <div className="panel-heading"><h1>Find Clubs</h1></div>
                 <div className="panel-body">
