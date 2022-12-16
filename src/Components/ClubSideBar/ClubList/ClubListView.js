@@ -56,7 +56,9 @@ export default function ClubListView({
             
             return (
                 <table className="table">
-                    { rows.map((row) => renderInfoRow(row[0], row[1], row[2])) }
+                    <tbody>
+                        { rows.map((row) => renderInfoRow(row[0], row[1], row[2])) }
+                    </tbody>
                 </table>
             );
         }     
@@ -97,8 +99,11 @@ function CustomAccordionItem({
 }) {   
     return (
         <Card bsPrefix={isActive ? "active-card" : "card"}>
-            <Card.Header onClick={useAccordionButton(eventKey, callback)}>
-                <strong>{header}</strong>
+            <Card.Header
+                as="button"
+                onClick={useAccordionButton(eventKey, callback)}
+            >
+                {header}
             </Card.Header>
             <Accordion.Collapse eventKey={eventKey}>
                 <Card.Body>

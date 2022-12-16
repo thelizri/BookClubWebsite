@@ -20,6 +20,15 @@ img.icon {
     border: 0;
 }
 
+.card-header {
+    text-align: left;
+    font-weight: bold;
+}
+
 .active-card .card-header {
-    background-color: rgb(0, 0, 0, 0.1);
+    background-color: rgb(255, 127, 0, 0.2);
+}
+
+.card .card-header {
+    background-color: rgb(0, 0, 0, 0.0);
 }

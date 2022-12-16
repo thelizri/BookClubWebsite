@@ -28,25 +28,25 @@ export const CreateClubModalView = function ({  invalidClubName,
 
     return ( <>
         {/*Button trigger modal*/ }
-        <button type="button" class="btn btn-primary create-club-button"
+        <button type="button" className="btn btn-primary create-club-button"
                 id="create-club-button" data-bs-toggle="modal"
                 data-bs-target="#createClubModal">
             Create new club
         </button>
 
         {/*Modal*/ }
-        <div class="modal fade" id="createClubModal" tabindex="-1"
+        <div className="modal fade" id="createClubModal" tabIndex="-1"
              aria-labelledby="createClubModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header head-footer-modal">
-                        <h5 class="modal-title" id="createClubModalLabel">Create
+            <div className="modal-dialog">
+                <div className="modal-content">
+                    <div className="modal-header head-footer-modal">
+                        <h5 className="modal-title" id="createClubModalLabel">Create
                             club</h5>
-                        <button type="button" class="btn-close"
+                        <button type="button" className="btn-close"
                                 data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div className="modal-body">
                         <Form id={ "clubCreation" }>
                             <Form.Group className={ "m-2" }
                                         controlId="formText">
@@ -140,13 +140,13 @@ export const CreateClubModalView = function ({  invalidClubName,
                             </Form.Group>
                         </Form>
                     </div>
-                    <div class="modal-footer head-footer-modal">
+                    <div className="modal-footer head-footer-modal">
                         <button type="button"
-                                class="btn btn-secondary close-modal"
+                                className="btn btn-secondary close-modal"
                                 data-bs-dismiss="modal">Close
                         </button>
                         <button type="button"
-                                class="btn btn-primary create-club-button"
+                                className="btn btn-primary create-club-button"
                                 onClick={handleSubmit}>
                             Create club
                         </button>
