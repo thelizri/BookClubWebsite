@@ -2,9 +2,12 @@ import React from "react";
 import "./NextMeetingStyle.css";
 import Form from "react-bootstrap/Form";
 
+
+
 function NextMeetingView( props ) {
     // let currentDate = new Date().toJSON().slice( 0, 10 );
     // console.log( currentDate ); // "2022-06-17"
+
 
     return ( <div className={ "container" }>
         <div><h1 id={ "header24ClubPanelView" }>Next Meeting</h1></div>
@@ -12,7 +15,7 @@ function NextMeetingView( props ) {
                id={ "table" }>
             <thead id={ "headNextMeeting" }>
             <tr>
-                <th contentEditable={props.isAdmin}>Meeting #23</th>
+                <th><span>Meeting #</span><span contentEditable={props.isAdmin} id={"meetingNumber"}>23</span></th>
             </tr>
             </thead>
             <tbody>
@@ -20,7 +23,7 @@ function NextMeetingView( props ) {
                 <td>Type</td>
             </tr>
             <tr>
-                <td className={ "text-muted" } contentEditable={props.isAdmin}>physical</td>
+                {radioOrText(props.isAdmin)}
             </tr>
             <tr>
                 <td>Time & Date</td>
@@ -29,7 +32,7 @@ function NextMeetingView( props ) {
                 <td className={ "text-muted" } contentEditable={props.isAdmin}>2022/06/26 15:00</td>
             </tr>
             <tr>
-                <td>Location</td>
+                <td>{props.isOnline ? 'Link' : 'Location'}</td>
             </tr>
             <tr>
                 <td className={ "text-muted" } contentEditable={props.isAdmin}>Cafe blåbär</td>
@@ -42,6 +45,24 @@ function NextMeetingView( props ) {
             </tbody>
         </table>
     </div> );
+}
+
+function radioOrText(isAdmin){
+    if(!isAdmin){
+        return (<td className={ "text-muted" }>physical</td>);
+    }
+    return(<td>
+        <div className="form-check form-check-inline">
+            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioTypeMeetingPhysical"
+                   value="physical"/>
+                <label className="form-check-label" htmlFor="inlineRadioTypeMeetingPhysical1">Physical</label>
+        </div>
+        <div className="form-check form-check-inline">
+            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioTypeMeetingOnline"
+                   value="online"/>
+            <label className="form-check-label" htmlFor="inlineRadioTypeMeetingOnline1">Online</label>
+        </div>
+    </td>);
 }
 
 export default NextMeetingView;

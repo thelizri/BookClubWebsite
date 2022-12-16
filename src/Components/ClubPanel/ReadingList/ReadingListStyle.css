@@ -4,3 +4,20 @@
 .form-check-input:checked{
     background-color: #008000;
 }
+
+#tableReadingList tr th {
+    text-align: center;
+}
+
+#tableReadingList{
+    /* Change these properties */
+    --border: 1px transparent;
+    border-radius: 15px;
+
+    /* Don't change these properties */
+    border-spacing: 0;
+    border-collapse: separate;
+    border: var(--border);
+    overflow: hidden;
+    text-align: center;
+}

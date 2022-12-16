@@ -12,7 +12,7 @@ Find readers with similar book tastes to co-read books with. Propose and vote fo
 - [X] Add books to read in the book club
 - [ ] Vote for books to read in the book club
 - [ ] View relevant information about the book
-- [ ] Coordinate meeting (digial or physical)
+- [ ] Coordinate meeting (digital or physical)
 
 ## Folder Structure
 
