@@ -77,19 +77,19 @@ const NextMeetingView = function( {
                 <td>Time & Date</td>
             </tr>
             <tr>
-                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={dateInput}>{ meetingDate }</td>
+                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={dateInput} suppressContentEditableWarning={true}>{ meetingDate }</td>
             </tr>
             <tr>
-                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={timeInput}>{ meetingTime }</td>
+                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={timeInput} suppressContentEditableWarning={true}>{ meetingTime }</td>
             </tr>
             <tr>
                 <td>{isOnline ? 'Link' : 'Location'}</td>
             </tr>
             <tr>
-                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={descriptionInput}>{ meetingDescription }</td>
+                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={descriptionInput} suppressContentEditableWarning={true}>{ meetingDescription }</td>
             </tr>
             <tr>
-                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={addressInput}>{ meetingAddress }</td>
+                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={addressInput}>{ meetingAddress } suppressContentEditableWarning={true}</td>
             </tr>
             </tbody>
         </table>
