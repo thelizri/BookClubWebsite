@@ -98,8 +98,11 @@ function CustomAccordionItem({
 }) {   
     return (
         <Card bsPrefix={isActive ? "active-card" : "card"}>
-            <Card.Header onClick={useAccordionButton(eventKey, callback)}>
-                <strong>{header}</strong>
+            <Card.Header
+                as="button"
+                onClick={useAccordionButton(eventKey, callback)}
+            >
+                {header}
             </Card.Header>
             <Accordion.Collapse eventKey={eventKey}>
                 <Card.Body>
