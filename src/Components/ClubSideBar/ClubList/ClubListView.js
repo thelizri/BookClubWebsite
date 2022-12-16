@@ -1,7 +1,6 @@
 import "./ClubListStyle.css"
 import Accordion from 'react-bootstrap/Accordion';
-import {useContext} from "react";
-import {AccordionContext, useAccordionButton} from "react-bootstrap";
+import {useAccordionButton} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 
 import membersIcon from "../../../Images/members-icon.png";

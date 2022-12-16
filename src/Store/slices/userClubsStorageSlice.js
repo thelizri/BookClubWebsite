@@ -1,10 +1,7 @@
 import {firebaseApp} from "../store";
 import { getDatabase, ref, get } from "firebase/database";
 import {FULFILLED, IDLE, PENDING, REJECTED} from "../../Constants/promiseStatus";
-import {createClub} from "./clubCreationSlice";
-import {validateGender, validateStringLength, validateUniqueClubName} from "../../Utils/validationUtil";
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-
 
 const initialState = {
     userClubs: [],

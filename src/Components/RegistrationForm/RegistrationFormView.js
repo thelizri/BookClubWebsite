@@ -32,9 +32,6 @@ export const RegistrationFormView = function( {
         event.preventDefault();
     };
 
-    const data = [ { value : 'One', selected : true }, { value : 'Two' },
-        { value : 'Three' } ];
-
     return ( <>
         <NavigationBarView/>
         <div className={ "container" }>
