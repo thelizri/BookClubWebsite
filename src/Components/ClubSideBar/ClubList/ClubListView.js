@@ -3,6 +3,8 @@ import Accordion from 'react-bootstrap/Accordion';
 import membersIcon from "../../../Images/members-icon.png";
 import languageIcon from "../../../Images/language-icon.png";
 import meetingIcon from "../../../Images/meeting-icon.png";
+import {useContext} from "react";
+import {AccordionContext, useAccordionButton} from "react-bootstrap";
 
 /**
  * Displays a list of clubs.
@@ -14,6 +16,7 @@ import meetingIcon from "../../../Images/meeting-icon.png";
  *      currentClub: the currently selected club
  *      setCurrentClub: callback for setting the currently selected club
  */
+
 export default function ClubListView({
     clubs = [],
     currentClub = null,

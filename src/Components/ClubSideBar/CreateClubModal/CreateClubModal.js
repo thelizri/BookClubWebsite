@@ -11,7 +11,7 @@ import {useEffect} from "react";
 
 export const CreateClubModal = function() {
     const dispatch = useDispatch();
-    const clubCreator = useSelector( selectUser );
+    const clubAdmin = useSelector( selectUser );
     const clubCreationError = useSelector( selectClubCreationError );
     const createdClubId = useSelector(state => state.clubCreation.clubToBeCreated.clubId)
     let invalidClubName = false;
@@ -40,8 +40,8 @@ export const CreateClubModal = function() {
             gender,
             genres,
             meetingType,
-            userId: clubCreator.uid,
-            userGender: clubCreator.gender}))
+            userId: clubAdmin.uid,
+            userGender: clubAdmin.gender}))
     }
 
     return <CreateClubModalView invalidClubName={invalidClubName} mismatchingGender={mismatchingGender} onSubmit={validateAndCreateClub} />
