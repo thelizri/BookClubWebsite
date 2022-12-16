@@ -15,3 +15,11 @@ img.icon {
     width: 32pt;
     opacity: 0.2;
 }
+
+.accordion * {
+    border: 0;
+}
+
+.active-card .card-header {
+    background-color: rgb(0, 0, 0, 0.1);
+}
