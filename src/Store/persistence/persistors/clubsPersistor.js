@@ -1,4 +1,4 @@
-import {child, get, onValue, ref, set} from "firebase/database";
+import {get, onValue, ref} from "firebase/database";
 import {
     setClubId,
     setClubOwnerId,
@@ -9,7 +9,6 @@ import {
     setMeetingType, setMembers, setReadingList, setVoteDeadline, setVotes
 } from "../../slices/clubSlice";
 import {setParentData, setChildData} from "../../../Utils/persistenceUtil";
-import {setClubIds, setDisplayName, setGender, setLanguages, setUserId} from "../../slices/userSlice";
 import {setLatestCreatedClubId} from "../../slices/clubCreationSlice";
 
 const getRefs = (firebaseDb, state) => {

@@ -1,8 +1,5 @@
 import "./ClubListStyle.css"
 import Accordion from 'react-bootstrap/Accordion';
-import {useContext} from "react";
-import {AccordionContext, useAccordionButton} from "react-bootstrap";
-
 import membersIcon from "../../../Images/members-icon.png";
 import languageIcon from "../../../Images/language-icon.png";
 import meetingIcon from "../../../Images/meeting-icon.png";

@@ -1,15 +1,13 @@
-import {createAsyncThunk, createSelector, createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {validateGender, validateStringLength, validateUniqueClubName} from "../../Utils/validationUtil";
 import { firebaseApp } from "../store";
-import {getDatabase, ref, query, orderByKey, limitToLast, get} from "firebase/database";
-import firebase from 'firebase/compat/app';
+import {getDatabase, ref, get} from "firebase/database";
 import {
     FULFILLED,
     IDLE,
     PENDING,
     REJECTED
 } from "../../Constants/promiseStatus";
-import {authenticate} from "./userSlice";
 
 
 const initialState = {

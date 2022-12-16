@@ -62,9 +62,8 @@ export const authenticate = createAsyncThunk(
             userCredential = signup ?
                              await createUserWithEmailAndPassword( auth, email,
                                  password ) :
-                             userCredential =
-                                 await signInWithEmailAndPassword( auth, email,
-                                     password );
+                             await signInWithEmailAndPassword( auth, email,
+                                 password );
         } catch( err ) {
             throw err;
         }
@@ -217,8 +216,6 @@ export const logout = () =>
 
         signOut( getAuth( firebaseApp ) );
     };
-
-// export default authSlice.reducer;
 
 const selectAuth = ( state ) => state.auth;
 
