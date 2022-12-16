@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
-import { selectClub } from "../../Store/slices/clubSlice";
+import { selectClubName } from "../../Store/slices/clubSlice";
 import ClubPanelView from "./ClubPanelView";
 
 export const ClubPanel = () => {
-    const club = useSelector( selectClub );
+    const clubName = useSelector( selectClubName );
 
     return (
-        <ClubPanelView currentClub={ club }/>
+        <ClubPanelView clubName={ clubName }/>
     );
 }
