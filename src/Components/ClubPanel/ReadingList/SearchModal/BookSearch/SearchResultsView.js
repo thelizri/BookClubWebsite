@@ -12,9 +12,9 @@ export const SearchResultsView = ( {
             <a className={ "list-group-item list-group-item-action h4 lead" }
                onClick={ () => onSubmit( book ) }
                href="#"
-               key={ book.id }
+               key={ book?.id }
                data-bs-dismiss="modal"
-               id={ "searchResultsList" }>{ book.volumeInfo.title }
+               id={ "searchResultsList" }>{ book?.volumeInfo?.title }
             </a>
         );
     }
