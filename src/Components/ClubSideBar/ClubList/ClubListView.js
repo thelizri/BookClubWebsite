@@ -57,7 +57,9 @@ export default function ClubListView({
             
             return (
                 <table className="table">
-                    { rows.map((row) => renderInfoRow(row[0], row[1], row[2])) }
+                    <tbody>
+                        { rows.map((row) => renderInfoRow(row[0], row[1], row[2])) }
+                    </tbody>
                 </table>
             );
         }     
