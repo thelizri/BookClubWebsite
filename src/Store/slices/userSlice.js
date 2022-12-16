@@ -71,10 +71,10 @@ export const authenticate = createAsyncThunk(
         if( signup ) return {
             uid : userCredential.user.uid,
             email : userCredential.user.email,
-            displayName,
-            gender,
-            languages,
-            signup
+            displayName: displayName,
+            gender: gender,
+            languages: languages,
+            signup: signup
         }
 
         return {
@@ -133,7 +133,7 @@ export const user = createSlice( {
                 ...state,
                 user : {
                     ...state.user,
-                    languages : [ ...state.user.languages, payload ]
+                    languages : [ ...payload ]
                 }
             }
         },

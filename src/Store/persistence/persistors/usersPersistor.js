@@ -45,7 +45,7 @@ const toFirebase = (firebaseDb, state, prevState) => {
     }
 
     const languages = user.languages;
-    if (languages !== prevUser.maxMemberCount) {
+    if (languages !== prevUser.languages) {
         setChildData({languages}, userRef);
     }
 };
