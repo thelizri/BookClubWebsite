@@ -23,8 +23,8 @@ const initialState = {
         uid : null,
         email : null,
         displayName : null,
-        clubIds : [2, 3],
-        gender : "Male",
+        clubIds : [],
+        gender : "",
         languages : [],
     },
 
