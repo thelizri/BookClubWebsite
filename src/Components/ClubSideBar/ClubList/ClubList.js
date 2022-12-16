@@ -14,6 +14,10 @@ function ClubList() {
         dispatch(loadClubs(clubIds));
     }, [clubIds])
 
+    useEffect( () => {
+        dispatch(setClub(userClubsInfo[0]));
+    }, [userClubsInfo])
+
     function setCurrentClub(newCurrentClub) {
         dispatch(setClub(newCurrentClub));
     }
