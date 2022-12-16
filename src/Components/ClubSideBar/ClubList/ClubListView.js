@@ -48,7 +48,7 @@ export default function ClubListView({
         
         return (
             <Accordion.Item eventKey={club.clubId}>
-                <Accordion.Header>
+                <Accordion.Header onClick={e => setCurrentClub(club)}>
                     { club.clubName }
                 </Accordion.Header>
                 <Accordion.Body>{renderInfo()}</Accordion.Body>

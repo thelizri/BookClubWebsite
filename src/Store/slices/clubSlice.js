@@ -2,8 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    clubs : [],
-
     clubId : 1,
     clubOwnerId : "irsPW5zlE4SPq5KwvnT3Snq10w63",
     clubName : "KTH deckarklubb",
@@ -42,6 +40,9 @@ export const club = createSlice( {
                 ...state,
                 members : [ ...state.members, payload ],
             }
+        },
+        setClub : ( state, { payload } ) => {
+            return { payload }
         },
         setClubId : ( state, { payload } ) => {
             state.clubId = payload;
@@ -127,6 +128,7 @@ export const {
     addBookToReadingList,
     addGenre,
     addMember,
+    setClub,
     setClubId,
     setClubName,
     setClubOwnerId,

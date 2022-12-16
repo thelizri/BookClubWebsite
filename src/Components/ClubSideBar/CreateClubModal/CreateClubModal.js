@@ -5,7 +5,7 @@ import {
     selectClubCreationError, selectClubCreationSuccess,
     selectInvalidClubName
 } from "../../../Store/slices/clubCreationSlice";
-import {selectUser} from "../../../Store/slices/userSlice";
+import {addClubId, selectUser} from "../../../Store/slices/userSlice";
 import {useEffect} from "react";
 
 
@@ -13,7 +13,7 @@ export const CreateClubModal = function() {
     const dispatch = useDispatch();
     const clubCreator = useSelector( selectUser );
     const clubCreationError = useSelector( selectClubCreationError );
-    const clubCreationSuccess = useSelector( selectClubCreationSuccess );
+    const createdClubId = useSelector(state => state.clubCreation.clubToBeCreated.clubId)
     let invalidClubName = false;
     let mismatchingGender = false;
 
@@ -25,8 +25,11 @@ export const CreateClubModal = function() {
     }
 
     useEffect(() => {
+        if(createdClubId) {
+            dispatch(addClubId(createdClubId));
+        }
         dispatch(resetClubCreateStatus());
-    }, [clubCreationSuccess])
+    }, [createdClubId])
 
     const validateAndCreateClub = (clubName, language, maxMemberCount, gender, unprocessedGenres, meetingType) => {
         const genres = unprocessedGenres.state.selected;
