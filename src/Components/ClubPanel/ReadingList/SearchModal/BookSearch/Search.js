@@ -44,7 +44,7 @@ export const Search = () => {
     // Optional chaining
     const isEmpty = !data?.items || data?.items.length === 0;
 
-    const noResultsMsg = isEmpty ? 'No books found :-/' : null;
+    const noResultsMsg = [ { volumeInfo: { title: 'No books found :-/' } } ];
     const errorMsg = isError ? 'Search failed :-(' : null;
 
     let content = null;
