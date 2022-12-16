@@ -13,6 +13,5 @@ export const setChildData = (payload, dbRef ) => {
 }
 
 export const setParentData = (payload, dbRef ) => {
-    const attributePath = `/${ payload.clubId }`;
     set( dbRef , payload );
 }

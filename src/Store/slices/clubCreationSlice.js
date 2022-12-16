@@ -85,14 +85,14 @@ export const createClub = createAsyncThunk(
 
         return {
             clubId: newClubId,
-            clubName,
-            language,
-            maxMemberCount,
-            gender,
-            genres,
-            meetingType,
-            userId,
-            userGender
+            clubName: clubName,
+            language: language,
+            maxMemberCount: maxMemberCount,
+            gender: gender,
+            genres: genres,
+            meetingType: meetingType,
+            userId: userId,
+            userGender: userGender
         }
     }
 )

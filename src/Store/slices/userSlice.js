@@ -93,7 +93,7 @@ export const user = createSlice( {
             return {
                 ...state,
                 user: {
-                    ...state,
+                    ...state.user,
                     clubIds: [ ...state.user.clubIds, payload ]
                 }
             }
@@ -124,7 +124,7 @@ export const user = createSlice( {
             }
         },
         setClubIds : ( state, { payload } ) => {
-            state.clubIds = payload;
+            state.user.clubIds = payload;
         },
         setGender : ( state, { payload } ) => {
             state.user.gender = payload;
