@@ -2,6 +2,7 @@ import "./ClubListStyle.css"
 import Accordion from 'react-bootstrap/Accordion';
 import {useContext} from "react";
 import {AccordionContext, useAccordionButton} from "react-bootstrap";
+import Card from "react-bootstrap/Card";
 
 import membersIcon from "../../../Images/members-icon.png";
 import languageIcon from "../../../Images/language-icon.png";
@@ -62,21 +63,49 @@ export default function ClubListView({
         }     
         
         return (
-            <Accordion.Item eventKey={club.clubId}>
-                <Accordion.Header onClick={e => setCurrentClub(club)}>
-                    { club.clubName }
-                </Accordion.Header>
-                <Accordion.Body>{renderInfo()}</Accordion.Body>
-            </Accordion.Item>
+//            <Accordion.Item eventKey={club.clubId}>
+//                <Accordion.Header onClick={e => setCurrentClub(club)}>
+//                    { club.clubName }
+//                </Accordion.Header>
+//                <Accordion.Body>{renderInfo()}</Accordion.Body>
+//            </Accordion.Item>
+            <CustomAccordionItem
+                header={club.clubName}
+                body={renderInfo()}
+                eventKey={club.clubId}
+                callback={() => setCurrentClub(club)}
+                isActive={currentClub.clubId === club.clubId}
+            />
         );
     }
 
     return (
         <Accordion
             defaultActiveKey={currentClub.clubId}
-            flush
+            //flush
         >
             { clubs.map( renderListItem ) }
         </Accordion>
+    );
+}
+
+function CustomAccordionItem({
+    header,
+    body,
+    eventKey,
+    callback = () => console.log("toggle"),
+    isActive = false,
+}) {   
+    return (
+        <Card bsPrefix={isActive ? "active-card" : "card"}>
+            <Card.Header onClick={useAccordionButton(eventKey, callback)}>
+                <strong>{header}</strong>
+            </Card.Header>
+            <Accordion.Collapse eventKey={eventKey}>
+                <Card.Body>
+                    {body}
+                </Card.Body>
+            </Accordion.Collapse>
+        </Card>
     );
 }
