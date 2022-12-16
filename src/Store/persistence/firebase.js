@@ -1,18 +1,5 @@
-import {child, get, getDatabase, onValue, ref, set} from "firebase/database";
+import {getDatabase } from "firebase/database";
 import {setFirebaseReady, setRegistrationStatus} from "../slices/userSlice";
-import {
-    setClubId,
-    setClubOwnerId,
-    setGenres,
-    setLanguage,
-    setMaxMembers,
-    setMeetings,
-    setMeetingType,
-    setMembers,
-    setReadingList,
-    setVoteDeadline,
-    setVotes
-} from "../slices/clubSlice";
 import clubsPersistor from "./persistors/clubsPersistor";
 import usersPersistor from "./persistors/usersPersistor";
 

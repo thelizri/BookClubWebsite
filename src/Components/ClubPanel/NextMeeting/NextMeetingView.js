@@ -1,12 +1,60 @@
 import React from "react";
 import "./NextMeetingStyle.css";
-import Form from "react-bootstrap/Form";
 
+const NextMeetingView = function( {
+                                      isAdmin, meetingAddress,
+                                      meetingDate, meetingTime,
+                                      meetingDescription, isOnline,
+                                      onlineOrPhysical, newDescription,
+                                      newAddress, newTime,
+                                      newDate } ) {
 
+    const onSwitch = ( event ) => {
+        onlineOrPhysical( event.target.value );
+    }
+    const descriptionInput = event => {
+        if(event.key === 'Enter') {
+            event.preventDefault()
+            newDescription( event.target.textContent );
+        }
+    }
+    const addressInput = event => {
+        if(event.key === 'Enter') {
+            event.preventDefault()
+            newAddress( event.target.textContent )
+        }
+    };
+    const dateInput = event => {
+        if(event.key === 'Enter') {
+            event.preventDefault()
+            newDate( event.target.textContent )
+        }
+    };
 
-function NextMeetingView( props ) {
-    // let currentDate = new Date().toJSON().slice( 0, 10 );
-    // console.log( currentDate ); // "2022-06-17"
+    const timeInput = event => {
+        if(event.key === 'Enter') {
+            event.preventDefault()
+            newTime( event.target.textContent )
+        }
+    };
+
+    function radioOrText(isAdmin){
+        if(!isAdmin){
+            return (<td className={ "text-muted" }>physical</td>);
+        }
+        return(<td>
+            <div className="form-check form-check-inline">
+                <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioTypeMeetingPhysical"
+                       value="physical" onChange={onSwitch}/>
+                <label className="form-check-label" htmlFor="inlineRadioTypeMeetingPhysical1">Physical</label>
+            </div>
+            <div className="form-check form-check-inline">
+                <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioTypeMeetingOnline"
+                       value="online" onChange={onSwitch}/>
+                <label className="form-check-label" htmlFor="inlineRadioTypeMeetingOnline1">Online</label>
+            </div>
+        </td>);
+    }
 
 
     return ( <div className={ "container" }>
@@ -15,7 +63,7 @@ function NextMeetingView( props ) {
                id={ "table" }>
             <thead id={ "headNextMeeting" }>
             <tr>
-                <th><span>Meeting #</span><span contentEditable={props.isAdmin} id={"meetingNumber"} suppressContentEditableWarning={true}>23</span></th>
+                <th><span>Meeting</span><span contentEditable={isAdmin} id={"meetingNumber"}></span></th>
             </tr>
             </thead>
             <tbody>
@@ -23,46 +71,29 @@ function NextMeetingView( props ) {
                 <td>Type</td>
             </tr>
             <tr>
-                {radioOrText(props.isAdmin)}
+                {radioOrText(isAdmin)}
             </tr>
             <tr>
                 <td>Time & Date</td>
             </tr>
             <tr>
-                <td className={ "text-muted" } contentEditable={props.isAdmin} suppressContentEditableWarning={true}>2022/06/26 15:00</td>
+                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={dateInput} suppressContentEditableWarning={true}>{ meetingDate }</td>
             </tr>
             <tr>
-                <td>{props.isOnline ? 'Link' : 'Location'}</td>
+                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={timeInput} suppressContentEditableWarning={true}>{ meetingTime }</td>
             </tr>
             <tr>
-                <td className={ "text-muted" } contentEditable={props.isAdmin} suppressContentEditableWarning={true}>Cafe blåbär</td>
+                <td>{isOnline ? 'Link' : 'Location'}</td>
             </tr>
             <tr>
-                <td className={ "text-muted" } contentEditable={props.isAdmin} suppressContentEditableWarning={true}>Fleminggatan 53, 112 32
-                    Stockholm
-                </td>
+                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={descriptionInput} suppressContentEditableWarning={true}>{ meetingDescription }</td>
+            </tr>
+            <tr>
+                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={addressInput}>{ meetingAddress } suppressContentEditableWarning={true}</td>
             </tr>
             </tbody>
         </table>
     </div> );
-}
-
-function radioOrText(isAdmin){
-    if(!isAdmin){
-        return (<td className={ "text-muted" }>physical</td>);
-    }
-    return(<td>
-        <div className="form-check form-check-inline">
-            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioTypeMeetingPhysical"
-                   value="physical"/>
-                <label className="form-check-label" htmlFor="inlineRadioTypeMeetingPhysical1">Physical</label>
-        </div>
-        <div className="form-check form-check-inline">
-            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioTypeMeetingOnline"
-                   value="online"/>
-            <label className="form-check-label" htmlFor="inlineRadioTypeMeetingOnline1">Online</label>
-        </div>
-    </td>);
 }
 
 export default NextMeetingView;

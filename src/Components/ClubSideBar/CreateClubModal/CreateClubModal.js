@@ -2,8 +2,7 @@ import {CreateClubModalView} from "./CreateClubModalView";
 import {useDispatch, useSelector} from "react-redux";
 import {
     createClub, resetClubCreateStatus,
-    selectClubCreationError, selectClubCreationSuccess,
-    selectInvalidClubName
+    selectClubCreationError
 } from "../../../Store/slices/clubCreationSlice";
 import {addClubId, selectUser} from "../../../Store/slices/userSlice";
 import {useEffect} from "react";

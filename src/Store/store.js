@@ -1,6 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { initializeApp } from "firebase/app";
-import firebase from 'firebase/compat/app';
 import { firebaseConfig } from "../Config/firebaseConfig";
 import { persistence } from "./persistence/firebase";
 import { googleBooksApi } from "./slices/apiSlice";

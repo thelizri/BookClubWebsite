@@ -2,18 +2,17 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    clubId : 1,
-    clubOwnerId : "irsPW5zlE4SPq5KwvnT3Snq10w63",
-    clubName : "KTH deckarklubb",
+    clubId : null,
+    clubOwnerId : null,
+    clubName : null,
     currentlyReadingId : null,
     gender : null,
-    genres : [ "Western", "Mystery" ],
-    language : "Korean",
-    maxMemberCount : 3,
+    genres : [],
+    language : null,
+    maxMemberCount : null,
     meetings : [],
-    meetingType : "Physical",
-    memberIds : [ "irsPW5zlE4SPq5KwvnT3Snq10w63",
-        "cdWAiHj65ya8M5JdTQJguZYouZU2" ],
+    meetingType : null,
+    memberIds : [],
     readingList : [],
     voteDeadline : null,
     votes : [],
@@ -24,9 +23,13 @@ export const club = createSlice( {
     initialState,
     reducers : {
         addBookToReadingList : ( state, { payload } ) => {
-            return {
-                ...state,
-                readingList : [ ...state.readingList, payload ],
+            if( !state.readingList )
+                state.readingList = [ payload ]
+            else {
+                return {
+                    ...state,
+                    readingList : [ ...state.readingList, payload ],
+                }
             }
         },
         addGenre : ( state, { payload } ) => {
@@ -42,7 +45,7 @@ export const club = createSlice( {
             }
         },
         setClub : ( state, { payload } ) => {
-            return { payload }
+            return payload
         },
         setClubId : ( state, { payload } ) => {
             state.clubId = payload;

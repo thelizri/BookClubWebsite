@@ -3,22 +3,18 @@ import { NextMeeting } from "./NextMeeting/NextMeeting";
 import { ReadingList } from "./ReadingList/ReadingList";
 import SummaryView from "./SummaryCard/SummaryView";
 import { Votes } from "./Votes/Votes";
-// DUMMY COMPONENTS
-var BookPanel = () => <div>[Book Panel Dummy]</div>;
-var VotingPanel = () => <div>[Voting Panel Dummy]</div>;
-var MeetingPanel = () => <div>[Meeting Panel Dummy]</div>;
 
 /**
  * Displays the club panel, containing the book panel, reading list, etc.
  *
  * @param {Object} props - currentClub: the current club.
  */
-export default function ClubPanelView( props ) {
+const ClubPanelView = function ( { clubName } ) {
     return (
         // https://getbootstrap.com/docs/3.4/components/#panels
         <div className="panel panel-default" id={ "panel" }>
             <div className="panel-header"><h1
-                id={ "panelhead" }>{ props.currentClub.clubName }</h1></div>
+                id={ "panelhead" }>{ clubName }</h1></div>
             <div className="panel-body" id={ "panelbody" }>
                 <div className="container">
                     <div className="row">
@@ -42,3 +38,5 @@ export default function ClubPanelView( props ) {
         </div>
     );
 }
+
+export default ClubPanelView;

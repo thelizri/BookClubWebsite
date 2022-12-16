@@ -1,4 +1,4 @@
-import {child, get, onValue, ref, set} from "firebase/database";
+import {get, onValue, ref} from "firebase/database";
 import {
     setClubId,
     setClubOwnerId,
@@ -9,7 +9,6 @@ import {
     setMeetingType, setMembers, setReadingList, setVoteDeadline, setVotes
 } from "../../slices/clubSlice";
 import {setParentData, setChildData} from "../../../Utils/persistenceUtil";
-import {setClubIds, setDisplayName, setGender, setLanguages, setUserId} from "../../slices/userSlice";
 import {setLatestCreatedClubId} from "../../slices/clubCreationSlice";
 
 const getRefs = (firebaseDb, state) => {
@@ -68,19 +67,25 @@ const toFirebase = (firebaseDb, state, prevState) => {
         setChildData({clubOwnerId}, clubRef);
     }
 
-    const currentlyReadingId = club.currentlyReadingId;
-    if (currentlyReadingId !== prevClub.currentlyReadingId) {
-        setChildData({currentlyReadingId}, clubRef)
+    if( club.currentlyReadingId ) {
+        const currentlyReadingId = club.currentlyReadingId;
+        if( currentlyReadingId !== prevClub.currentlyReadingId ) {
+            setChildData( { currentlyReadingId }, clubRef )
+        }
     }
 
-    const genres = club.genres;
-    if (genres !== prevClub.genres /*&& !arrayEquals(genres, prevClub.genres*/) {
-        setChildData({genres}, clubRef);
+    if( club.genres ) {
+        const genres = club.genres;
+        if( genres !== prevClub.genres ) {
+            setChildData( { genres }, clubRef );
+        }
     }
 
-    const language = club.language;
-    if (language !== prevClub.language) {
-        setChildData({language}, clubRef);
+    if( club.language ) {
+        const language = club.language;
+        if( language !== prevClub.language ) {
+            setChildData( { language }, clubRef );
+        }
     }
 
     const maxMemberCount = club.maxMemberCount;
@@ -88,9 +93,11 @@ const toFirebase = (firebaseDb, state, prevState) => {
         setChildData({maxMemberCount}, clubRef);
     }
 
-    const meetings = club.meetings;
-    if (meetings !== prevClub.meetings) {
-        setChildData({meetings}, clubRef);
+    if( club.meetings ) {
+        const meetings = club.meetings;
+        if( meetings !== prevClub.meetings ) {
+            setChildData( { meetings }, clubRef );
+        }
     }
 
     const meetingType = club.meetingType;
@@ -99,23 +106,29 @@ const toFirebase = (firebaseDb, state, prevState) => {
     }
 
     const memberIds = club.memberIds;
-    if (memberIds !== prevClub.memberIds /*&& !arrayEquals(memberIds, prevClub.memberIds*/) {
+    if (memberIds !== prevClub.memberIds) {
         setChildData({memberIds}, clubRef);
     }
 
-    const readingList = club.readingList;
-    if (readingList !== prevClub.readingList) {
-        setChildData({readingList}, clubRef)
+    if( club.readingList ) {
+        const readingList = club.readingList;
+        if( readingList !== prevClub.readingList ) {
+            setChildData( { readingList }, clubRef )
+        }
     }
 
-    const voteDeadline = club.voteDeadline;
-    if (voteDeadline !== prevClub.voteDeadline) {
-        setChildData({voteDeadline}, clubRef);
+    if( club.voteDeadline ) {
+        const voteDeadline = club.voteDeadline;
+        if( voteDeadline !== prevClub.voteDeadline ) {
+            setChildData( { voteDeadline }, clubRef );
+        }
     }
 
-    const votes = club.votes;
-    if (votes !== prevClub.votes) {
-        setChildData({votes}, clubRef);
+    if( club.votes ) {
+        const votes = club.votes;
+        if( votes !== prevClub.votes ) {
+            setChildData( { votes }, clubRef );
+        }
     }
 };
 

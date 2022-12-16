@@ -1,21 +1,10 @@
-import {child, get, onValue, ref, set} from "firebase/database";
-import {
-    setClubId,
-    setClubOwnerId,
-    setGenres,
-    setLanguage,
-    setMaxMembers,
-    setMeetings,
-    setMeetingType, setMembers, setReadingList, setVoteDeadline, setVotes
-} from "../../slices/clubSlice";
+import {get, onValue, ref} from "firebase/database";
 import {setChildData} from "../../../Utils/persistenceUtil";
 import {setClubIds, setDisplayName, setGender, setLanguages, setUserId} from "../../slices/userSlice";
 
 const getRefs = (firebaseDb, state) => {
     const userPath = `users/${state.auth.user.uid}/`;
-    const userRef = ref(firebaseDb, userPath);
-
-    return userRef;
+    return ref(firebaseDb, userPath);
 }
 
 const toFirebase = (firebaseDb, state, prevState) => {

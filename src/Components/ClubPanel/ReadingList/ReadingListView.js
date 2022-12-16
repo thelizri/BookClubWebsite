@@ -2,8 +2,6 @@ import React from "react";
 import "./ReadingListStyle.css";
 import SearchModalView from "./SearchModal/SearchModalView";
 
-//import {BookSearch} from "../BookSearch/Search";
-
 function displayBooksCB( book, index ) {
     return ( <tr key={index}>
         <td>

@@ -1,7 +1,6 @@
 import ClubList from "./ClubList/ClubList";
 import ClubSearch from "./ClubSearch/ClubSearch";
 import "./ClubSidebarStyle.css"
-import { CreateClubModalView } from "./CreateClubModal/CreateClubModalView";
 import {CreateClubModal} from "./CreateClubModal/CreateClubModal";
 
 /**

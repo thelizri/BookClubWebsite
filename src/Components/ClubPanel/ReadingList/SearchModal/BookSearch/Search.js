@@ -65,8 +65,6 @@ export const Search = () => {
 
     if( isLoading || isFetching ) {
         content = <LoadingIcon/>
-    } else if( isSuccess && !isEmpty && searchQuery === "!#%%c€!!" ) {
-        content = null;
     } else if( isSuccess && !isEmpty && searchQuery !== "!#%%c€!!" ) {
         content = <SearchResultsView
             foundBooks={ data.items }
