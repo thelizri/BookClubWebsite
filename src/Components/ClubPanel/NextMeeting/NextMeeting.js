@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
     setAddress,
-    setDescription, setMeetingDate, setMeetingLink, setMeetingTime,
+    setDescription, setMeetingDate, setMeetingLink,
     setOnline
 } from "../../../Store/slices/meetingSlice";
 import NextMeetingView from "./NextMeetingView";
@@ -35,12 +35,9 @@ export const NextMeeting = () => {
         dispatch(setMeetingLink( newLink ));
     }
 
-    const setNewDate = ( newDate ) => {
+    const setNewDate = ( unprocessedNewDate ) => {
+        const newDate = unprocessedNewDate.toLocaleString([], {year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'});
         dispatch(setMeetingDate( newDate ));
-    }
-
-    const setNewTime = ( newTime ) => {
-        dispatch(setMeetingTime( newTime ));
     }
 
 
@@ -58,9 +55,5 @@ export const NextMeeting = () => {
                             newAddress={setNewAddress}
                             newLink={setNewLink}
                             newDate={setNewDate}
-                            newTime={setNewTime}
-
-
-
     />;
 }

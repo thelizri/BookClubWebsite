@@ -6,7 +6,7 @@ const initialState = {
     address : "Kistagången 16, 164 40 Kista",
     online : false,
     meetingLink : "https://kth-se.zoom.us/j/3446757312312435",
-    meetingDate : "2022-12-21",
+    meetingDate : new Date().toISOString().slice(0, 16),
     meetingTime : "19:00",
 }
 
@@ -29,9 +29,6 @@ export const meeting = createSlice( {
         setMeetingDate : ( state, { payload } ) => {
             state.meetingDate = payload;
         },
-        setMeetingTime : ( state, { payload } ) => {
-            state.meetingTime = payload;
-        },
     }
 } )
 
@@ -41,7 +38,6 @@ export const {
     setOnline,
     setCurrentMeeting,
     setMeetingLink,
-    setMeetingTime,
     setMeetingDate
 } = meeting.actions;
 

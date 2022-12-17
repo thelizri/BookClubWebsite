@@ -68,14 +68,14 @@ export const createClub = createAsyncThunk(
             validateStringLength(
                 clubName,
                 30,
-                "#clubCreation",
-                ".clubNameFeedback"
+                "clubCreation",
+                "clubNameFeedback"
             );
             validateGender(
                 gender,
                 userGender,
-                "#clubCreation",
-                ".clubNameFeedback"
+                "clubCreation",
+                "clubNameFeedback"
             );
         } catch(err) {
             throw err;
