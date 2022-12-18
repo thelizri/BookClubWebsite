@@ -1,3 +1,5 @@
+import {useRef} from "react";
+
 /**
  * Search bar component
  *
@@ -6,11 +8,13 @@
  * @param {function} onSubmit - callback that initiates the search.
  */
 export const SearchBarView = function({
-    inputQuery = (query) => console.log(query),
     onSubmit = () => console.log("search")
 }) {
+
+    const inputtedQuery = useRef();
+
     const handleSubmit = ( e ) => {
-        onSubmit();
+        onSubmit(inputtedQuery.current.value);
         e.preventDefault();
     }
 
@@ -30,7 +34,7 @@ export const SearchBarView = function({
                 placeholder="Search..."
                 aria-label="Search"
                 aria-describedby="search-addon"
-                onChange={ ( event ) => inputQuery( event.target.value ) }
+                ref={inputtedQuery}
                 onKeyDown={ handleKeyDown }
             />
             <button
