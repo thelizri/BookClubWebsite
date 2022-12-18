@@ -23,6 +23,7 @@ img.icon {
 .card-header {
     text-align: left;
     font-weight: bold;
+    padding: 0px 0px 0px 0px;
 }
 
 .active-card .card-header {
