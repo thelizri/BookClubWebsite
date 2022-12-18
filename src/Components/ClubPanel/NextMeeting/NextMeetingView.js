@@ -1,41 +1,28 @@
 import React from "react";
 import "./NextMeetingStyle.css";
+import ContentEditable from 'react-contenteditable';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const NextMeetingView = function( {
                                       isAdmin, meetingAddress,
-                                      meetingDate, meetingTime,
+                                      meetingDate,
                                       meetingDescription, isOnline,
                                       onlineOrPhysical, newDescription,
-                                      newAddress, newTime,
+                                      newAddress,
                                       newDate } ) {
 
     const onSwitch = ( event ) => {
         onlineOrPhysical( event.target.value );
     }
     const descriptionInput = event => {
-        if(event.key === 'Enter') {
-            event.preventDefault()
-            newDescription( event.target.textContent );
-        }
+        newDescription( event.target.value );
     }
     const addressInput = event => {
-        if(event.key === 'Enter') {
-            event.preventDefault()
-            newAddress( event.target.textContent )
-        }
+        newAddress( event.target.value )
     };
     const dateInput = event => {
-        if(event.key === 'Enter') {
-            event.preventDefault()
-            newDate( event.target.textContent )
-        }
-    };
-
-    const timeInput = event => {
-        if(event.key === 'Enter') {
-            event.preventDefault()
-            newTime( event.target.textContent )
-        }
+        newDate( event )
     };
 
     function radioOrText(isAdmin){
@@ -66,7 +53,7 @@ const NextMeetingView = function( {
                 <th><span>Meeting</span><span contentEditable={isAdmin} id={"meetingNumber"}></span></th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id={ "bodyNextMeeting" }>
             <tr>
                 <td>Type</td>
             </tr>
@@ -77,19 +64,22 @@ const NextMeetingView = function( {
                 <td>Time & Date</td>
             </tr>
             <tr>
-                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={dateInput} suppressContentEditableWarning={true}>{ meetingDate }</td>
-            </tr>
-            <tr>
-                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={timeInput} suppressContentEditableWarning={true}>{ meetingTime }</td>
+                <DatePicker
+                    selected={new Date(meetingDate)}
+                    onChange={(date) => dateInput(date)}
+                    showTimeInput
+                    dateFormat="MM/dd/yyyy h:mm aa"
+                />
             </tr>
             <tr>
                 <td>{isOnline ? 'Link' : 'Location'}</td>
             </tr>
             <tr>
-                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={descriptionInput} suppressContentEditableWarning={true}>{ meetingDescription }</td>
+                <ContentEditable html={meetingDescription} disabled={!isAdmin} onChange={descriptionInput} className={"text-muted"} />
             </tr>
             <tr>
-                <td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={addressInput}>{ meetingAddress } suppressContentEditableWarning={true}</td>
+                <ContentEditable html={meetingAddress} disabled={!isAdmin} onChange={addressInput} className={"text-muted"} />
+                {/*<td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={addressInput} suppressContentEditableWarning={true}>{ meetingAddress }</td>*/}
             </tr>
             </tbody>
         </table>
