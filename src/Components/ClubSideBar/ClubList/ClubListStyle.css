@@ -3,6 +3,10 @@
     /* color: whitesmoke; */
 /* } */
 
+:root {
+    --underline: #e6a0fa;
+}
+
 .table .label {
     color: rgb(0, 0, 0, 0.5);
 }
@@ -24,7 +28,16 @@ img.icon {
     text-align: left;
     font-weight: bold;
     padding: 0px 0px 0px 0px;
+    transition: all 200ms ease-out;
+
 }
+
+.active-card .card-header {
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: all 200ms ease-out;
+}
+
 
 .card .card-header {
     background-color: transparent;

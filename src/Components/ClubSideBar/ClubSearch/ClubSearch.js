@@ -12,7 +12,7 @@ function ClubSearch() {
     const results = useSelector(state => state.clubSearch.searchResults);
 
     function joinClub(club) {
-        dispatch(addClubId(club.clubId));
+        dispatch(addClubId(club));
     }
 
     function searchClubsWithQuery(query) {
