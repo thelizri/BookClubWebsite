@@ -26,10 +26,6 @@ img.icon {
     padding: 0px 0px 0px 0px;
 }
 
-.active-card .card-header {
-    background-color: rgb(255, 127, 0, 0.2);
-}
-
 .card .card-header {
-    background-color: rgb(0, 0, 0, 0.0);
+    background-color: transparent;
 }
