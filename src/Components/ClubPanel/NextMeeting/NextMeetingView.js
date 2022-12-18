@@ -80,7 +80,6 @@ const NextMeetingView = function( {
                 </tr>
                 <tr>
                     <ContentEditable html={meetingAddress} disabled={!isAdmin} onChange={addressInput} className={"text-muted"} />
-                    {/*<td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={addressInput} suppressContentEditableWarning={true}>{ meetingAddress }</td>*/}
                 </tr>
             </tbody>
         </table>
