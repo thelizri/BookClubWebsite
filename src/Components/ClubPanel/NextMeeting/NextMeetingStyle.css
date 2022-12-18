@@ -11,3 +11,8 @@
     outline-color: black;
     background-color: white;
 }
+#datePickerMeeting{
+    border:none;
+    outline-style: none;
+    color: #6C757D;
+}
