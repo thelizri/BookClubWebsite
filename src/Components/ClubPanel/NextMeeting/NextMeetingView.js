@@ -69,6 +69,7 @@ const NextMeetingView = function( {
                     onChange={(date) => dateInput(date)}
                     showTimeInput
                     dateFormat="MM/dd/yyyy h:mm aa"
+                    id={"datePickerMeeting"}
                 />
             </tr>
             <tr>
