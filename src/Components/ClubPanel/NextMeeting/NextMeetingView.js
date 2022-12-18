@@ -64,22 +64,28 @@ const NextMeetingView = function( {
                     <td>Time & Date</td>
                 </tr>
                 <tr>
-                    <DatePicker
-                        selected={new Date(meetingDate)}
-                        onChange={(date) => dateInput(date)}
-                        showTimeInput
-                        dateFormat="MM/dd/yyyy h:mm aa"
-                        id={"datePickerMeeting"}
-                    />
+                    <td>
+                        <DatePicker
+                            selected={new Date(meetingDate)}
+                            onChange={(date) => dateInput(date)}
+                            showTimeInput
+                            dateFormat="MM/dd/yyyy h:mm aa"
+                            id={"datePickerMeeting"}
+                        />
+                    </td>
                 </tr>
                 <tr>
                     <td>{isOnline ? 'Link' : 'Location'}</td>
                 </tr>
                 <tr>
-                    <ContentEditable html={meetingDescription} disabled={!isAdmin} onChange={descriptionInput} className={"text-muted"} />
+                    <td>
+                        <ContentEditable html={meetingDescription} disabled={!isAdmin} onChange={descriptionInput} className={"text-muted"} />
+                    </td>
                 </tr>
                 <tr>
-                    <ContentEditable html={meetingAddress} disabled={!isAdmin} onChange={addressInput} className={"text-muted"} />
+                    <td>
+                        <ContentEditable html={meetingAddress} disabled={!isAdmin} onChange={addressInput} className={"text-muted"} />
+                    </td>
                 </tr>
             </tbody>
         </table>

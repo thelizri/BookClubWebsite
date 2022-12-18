@@ -88,7 +88,7 @@ function renderInfo(club) {
 
     function renderInfoRow(icon, label, info, i) {
         return (
-            <tr key={i}>
+            <tr key={i+1000}>
                 <td className="label">
                     <img
                         src={icon}
