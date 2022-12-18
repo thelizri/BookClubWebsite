@@ -49,39 +49,39 @@ const NextMeetingView = function( {
         <table className="table table-sm bg-white table-borderless"
                id={ "table" }>
             <thead id={ "headNextMeeting" }>
-            <tr>
-                <th><span>Meeting</span><span contentEditable={isAdmin} id={"meetingNumber"}></span></th>
-            </tr>
+                <tr>
+                    <th><span>Meeting</span><span contentEditable={isAdmin} id={"meetingNumber"}></span></th>
+                </tr>
             </thead>
             <tbody id={ "bodyNextMeeting" }>
-            <tr>
-                <td>Type</td>
-            </tr>
-            <tr>
-                {radioOrText(isAdmin)}
-            </tr>
-            <tr>
-                <td>Time & Date</td>
-            </tr>
-            <tr>
-                <DatePicker
-                    selected={new Date(meetingDate)}
-                    onChange={(date) => dateInput(date)}
-                    showTimeInput
-                    dateFormat="MM/dd/yyyy h:mm aa"
-                    id={"datePickerMeeting"}
-                />
-            </tr>
-            <tr>
-                <td>{isOnline ? 'Link' : 'Location'}</td>
-            </tr>
-            <tr>
-                <ContentEditable html={meetingDescription} disabled={!isAdmin} onChange={descriptionInput} className={"text-muted"} />
-            </tr>
-            <tr>
-                <ContentEditable html={meetingAddress} disabled={!isAdmin} onChange={addressInput} className={"text-muted"} />
-                {/*<td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={addressInput} suppressContentEditableWarning={true}>{ meetingAddress }</td>*/}
-            </tr>
+                <tr>
+                    <td>Type</td>
+                </tr>
+                <tr>
+                    {radioOrText(isAdmin)}
+                </tr>
+                <tr>
+                    <td>Time & Date</td>
+                </tr>
+                <tr>
+                    <DatePicker
+                        selected={new Date(meetingDate)}
+                        onChange={(date) => dateInput(date)}
+                        showTimeInput
+                        dateFormat="MM/dd/yyyy h:mm aa"
+                        id={"datePickerMeeting"}
+                    />
+                </tr>
+                <tr>
+                    <td>{isOnline ? 'Link' : 'Location'}</td>
+                </tr>
+                <tr>
+                    <ContentEditable html={meetingDescription} disabled={!isAdmin} onChange={descriptionInput} className={"text-muted"} />
+                </tr>
+                <tr>
+                    <ContentEditable html={meetingAddress} disabled={!isAdmin} onChange={addressInput} className={"text-muted"} />
+                    {/*<td className={ "text-muted" } contentEditable={isAdmin} onKeyDown={addressInput} suppressContentEditableWarning={true}>{ meetingAddress }</td>*/}
+                </tr>
             </tbody>
         </table>
     </div> );
