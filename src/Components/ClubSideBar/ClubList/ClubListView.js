@@ -26,55 +26,6 @@ export default function ClubListView({
     currentClub = null,
     setCurrentClub = (club) => console.log({setCurrentClub: club}),
 }) {
-    function renderListItem( club, index ) {
-        function renderInfo() {
-            const rows = [
-                [membersIcon, "Members", `${club.memberIds.length}/${club.maxMemberCount}`],
-                // FOR GENRES UNCOMMENT BELOW AND REPLACE WITH THE ONE BELOW IT.
-                // [genreIcon, "Genres", clubs.genres.reduce((genres, genre) => `${genres}, ${genre}`)],
-                [genreIcon, "Genres", ["Abc", "Def"].reduce((genres, genre) => `${genres}, ${genre}`)],
-                [languageIcon, "Language", club.language],
-                [meetingIcon, "Meetings", club.meetingType],
-                [paceIcon, "Pace", "<Pace placeholder>"],
-                [genderIcon, "Gender", club.gender],
-            ];
-            
-            function renderInfoRow(icon, label, info, i) {
-                return (
-                    <tr key={i}>
-                        <td className="label">
-                            <img
-                                src={icon}
-                                className="icon"
-                            />
-                            {label}
-                        </td>
-                        <td className="info">{info}</td>
-                    </tr>
-                );
-            }
-            
-            return (
-                <table className="table">
-                    <tbody>
-                        { rows.map((row,i) => renderInfoRow(row[0], row[1], row[2],i)) }
-                    </tbody>
-                </table>
-            );
-        }     
-        
-        return (
-            <CustomAccordionItem
-                index={index}
-                header={club.clubName}
-                body={renderInfo()}
-                eventKey={club.clubId}
-                callback={() => setCurrentClub(club)}
-                isActive={currentClub.clubId === club.clubId}
-            />
-        );
-    }
-
     return (
         <Accordion
             defaultActiveKey={currentClub.clubId}
@@ -83,6 +34,19 @@ export default function ClubListView({
             { clubs.map( renderListItem ) }
         </Accordion>
     );
+
+    function renderListItem( club, index ) {
+        return (
+            <CustomAccordionItem
+                index={index}
+                header={club.clubName}
+                body={renderInfo(club)}
+                eventKey={club.clubId}
+                callback={() => setCurrentClub(club)}
+                isActive={currentClub.clubId === club.clubId}
+            />
+        );
+    }
 }
 
 function CustomAccordionItem({
@@ -107,5 +71,41 @@ function CustomAccordionItem({
                 </Card.Body>
             </Accordion.Collapse>
         </Card>
+    );
+}
+
+function renderInfo(club) {
+    const rows = [
+        [membersIcon, "Members", `${club.memberIds.length}/${club.maxMemberCount}`],
+        // FOR GENRES UNCOMMENT BELOW AND REPLACE WITH THE ONE BELOW IT.
+        // [genreIcon, "Genres", clubs.genres.reduce((genres, genre) => `${genres}, ${genre}`)],
+        [genreIcon, "Genres", ["Abc", "Def"].reduce((genres, genre) => `${genres}, ${genre}`)],
+        [languageIcon, "Language", club.language],
+        [meetingIcon, "Meetings", club.meetingType],
+        [paceIcon, "Pace", "<Pace placeholder>"],
+        [genderIcon, "Gender", club.gender],
+    ];
+
+    function renderInfoRow(icon, label, info, i) {
+        return (
+            <tr key={i+1000}>
+                <td className="label">
+                    <img
+                        src={icon}
+                        className="icon"
+                    />
+                    {label}
+                </td>
+                <td className="info">{info}</td>
+            </tr>
+        );
+    }
+
+    return (
+        <table className="table">
+            <tbody>
+            { rows.map((row,i) => renderInfoRow(row[0], row[1], row[2],i)) }
+            </tbody>
+        </table>
     );
 }

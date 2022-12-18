@@ -23,12 +23,9 @@ img.icon {
 .card-header {
     text-align: left;
     font-weight: bold;
-}
-
-.active-card .card-header {
-    background-color: rgb(255, 127, 0, 0.2);
+    padding: 0px 0px 0px 0px;
 }
 
 .card .card-header {
-    background-color: rgb(0, 0, 0, 0.0);
+    background-color: transparent;
 }
