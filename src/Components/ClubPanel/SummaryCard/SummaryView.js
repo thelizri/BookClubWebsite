@@ -5,13 +5,13 @@ import "./SummaryStyle.css";
 function SummaryView( props ) {
     return (
         <div className="mytabs m-2">
-            <input type="radio" id="tabfree" name="mytabs" checked="checked" onChange={()=>{}}/>
+            <input type="radio" id="tabfree" name="mytabs" onChange={()=>{}}/>
             <label htmlFor="tabfree">Progress</label>
             <div className="tab">
                 {progressTab}
             </div>
 
-            <input type="radio" id="tabsilver" name="mytabs"/>
+            <input type="radio" id="tabsilver" name="mytabs" checked={"checked"}/>
             <label htmlFor="tabsilver">Synopsis</label>
             <div className="tab">
                 {synopsisTab}
