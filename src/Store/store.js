@@ -8,8 +8,10 @@ import { club } from "./slices/clubSlice";
 import { meeting } from "./slices/meetingSlice";
 import { listenToAuthenticationChanges, user } from "./slices/userSlice";
 import { clubCreation } from "./slices/clubCreationSlice";
-import { userClubsStorage } from "./slices/userClubsStorageSlice";
+import { storageForUserClubs } from "./slices/storageForUserClubsSlice";
 import {clubSearch} from "./slices/clubSearchSlice";
+import {clubJoin} from "./slices/clubJoinSlice";
+import {storageForMembers} from "./slices/storageForMembersSlice";
 
 
 export const firebaseApp = initializeApp( firebaseConfig );
@@ -21,8 +23,10 @@ const store = configureStore( {
         book : book.reducer,
         club : club.reducer,
         clubCreation : clubCreation.reducer,
+        clubJoin : clubJoin.reducer,
         clubSearch : clubSearch.reducer,
-        userClubsStorage : userClubsStorage.reducer,
+        storageForMembers : storageForMembers.reducer,
+        storageForUserClubs : storageForUserClubs.reducer,
         meeting : meeting.reducer,
         [ googleBooksApi.reducerPath ] : googleBooksApi.reducer, // api reducer,
     },

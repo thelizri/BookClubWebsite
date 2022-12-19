@@ -6,6 +6,7 @@ import {
 } from "../../../Store/slices/clubCreationSlice";
 import {addClubId, selectUser} from "../../../Store/slices/userSlice";
 import {useEffect} from "react";
+import {addMember} from "../../../Store/slices/clubSlice";
 
 
 export const CreateClubModal = function() {

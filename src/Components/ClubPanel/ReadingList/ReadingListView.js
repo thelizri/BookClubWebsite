@@ -2,21 +2,29 @@ import React from "react";
 import "./ReadingListStyle.css";
 import SearchModalView from "./SearchModal/SearchModalView";
 
-function displayBooksCB( book, index ) {
-    return ( <tr key={index}>
-        <td>
-            <div className="form-check ms-2" >
-                <input className="form-check-input" type="radio"
-                       name="flexRadioDefault" id={ book.id }/>
-            </div>
-        </td>
-        <td>{ book.title }</td>
-        <td>{ book.author }</td>
-        <td>{ book.pageCount }</td>
-    </tr> );
-}
+const ReadingListView = function( { currentVote, readingList = [], handleVote} ) {
+    function displayBooksCB( book, index ) {
+        function submitVote(event) {
+            handleVote(event.target.id);
+        }
 
-const ReadingListView = function( { readingList = [] } ) {
+        return ( <tr key={index}>
+            <td>
+                <div className="form-check ms-2" >
+                    <input className="form-check-input" type="radio"
+                           name="flexRadioDefault" id={ book.googleBooksId }
+                           onClick={submitVote}
+                           onChange={()=>{}}
+                           checked={currentVote === book.googleBooksId}
+                    />
+                </div>
+            </td>
+            <td>{ book.title }</td>
+            <td>{ book.author }</td>
+            <td>{ book.pageCount }</td>
+        </tr> );
+    }
+
     return <div className={ "container" }>
         <div><h1 id={ "header24ClubPanelView" }>Reading List</h1></div>
         <table className="table table-sm bg-white table-borderless"

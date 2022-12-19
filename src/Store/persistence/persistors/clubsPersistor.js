@@ -22,11 +22,15 @@ const getRefs = (firebaseDb, state) => {
     const clubMetaDataRef = ref(firebaseDb, clubMetaDataPath);
     const clubNamesRef = ref(firebaseDb, clubMetaDataPath + "/clubNames");
 
+    const clubToBeJoinedPath = `clubs/${state.clubJoin.clubToBeJoined.clubId}`
+    const clubToBeJoinedRef = ref(firebaseDb, clubToBeJoinedPath);
+
     return {
         clubRef,
         createdClubRef,
         clubMetaDataRef,
-        clubNamesRef
+        clubNamesRef,
+        clubToBeJoinedRef
     }
 }
 
@@ -35,10 +39,8 @@ const toFirebase = (firebaseDb, state, prevState) => {
         clubRef,
         createdClubRef,
         clubMetaDataRef,
-        clubNamesRef } = getRefs(firebaseDb, state);
-
-    const club = state.club;
-    const prevClub = prevState.club;
+        clubNamesRef,
+        clubToBeJoinedRef} = getRefs(firebaseDb, state);
 
     const createdClub = state.clubCreation.clubToBeCreated;
     const prevCreatedClub = prevState.clubCreation.clubToBeCreated;
@@ -51,6 +53,14 @@ const toFirebase = (firebaseDb, state, prevState) => {
         setChildData({latestCreatedClubId}, clubMetaDataRef);
         setChildData(clubName, clubNamesRef);
     }
+
+    let memberIds = state.clubJoin.clubToBeJoined.memberIds;
+    if( memberIds !== prevState.clubJoin.clubToBeJoined.memberIds) {
+        setChildData({memberIds}, clubToBeJoinedRef)
+    }
+
+    const club = state.club;
+    const prevClub = prevState.club;
 
     const clubId = club.clubId;
     if (clubId !== prevClub.clubId) {
@@ -105,7 +115,7 @@ const toFirebase = (firebaseDb, state, prevState) => {
         setChildData({meetingType}, clubRef);
     }
 
-    const memberIds = club.memberIds;
+    memberIds = club.memberIds;
     if (memberIds !== prevClub.memberIds) {
         setChildData({memberIds}, clubRef);
     }

@@ -32,10 +32,12 @@ function renderVotesCB( member, index ) {
     </tr> );
 }
 
-function VotesView( props ) {
+const VotesView = function (
+    {
+        clubMembers = [ {name : test, voted: false} ]
+    } ) {
     //Example
-    const clubMembers = [ { name : "Daniel", voted : true },
-        { name : "Azmeer", voted : false } ];
+
 
     return ( <div className={ "container" } id={ "container" }>
         <div><h1 id={ "header24ClubPanelView" }>Votes</h1></div>

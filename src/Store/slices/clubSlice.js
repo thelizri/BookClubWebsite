@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 
 const initialState = {
@@ -41,11 +41,19 @@ export const club = createSlice( {
         addMember : ( state, { payload } ) => {
             return {
                 ...state,
-                members : [ ...state.members, payload ],
+                memberIds : [ ...state.memberIds, payload ],
+            }
+        },
+        addVote : ( state, { payload } ) => {
+            if(!state.votes) state.votes = [];
+            let currentVotes = state.votes;
+
+            if(currentVotes[payload.userId] !== payload.votedBookId) {
+                currentVotes[payload.userId] = payload.votedBookId;
             }
         },
         setClub : ( state, { payload } ) => {
-            return payload
+            return { ...payload }
         },
         setClubId : ( state, { payload } ) => {
             state.clubId = payload;
@@ -131,6 +139,7 @@ export const {
     addBookToReadingList,
     addGenre,
     addMember,
+    addVote,
     setClub,
     setClubId,
     setClubName,
