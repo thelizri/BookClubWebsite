@@ -32,8 +32,7 @@ export const LandingPage = function() {
                 </Link>
                 <div className="row">
                     <Link to="/login">
-                        <a className={ "image-link" }
-                           href="#">{ TEXT.SIGN_IN }</a>
+                        <p>{ TEXT.SIGN_IN }</p>
                     </Link>
                 </div>
             </div>
