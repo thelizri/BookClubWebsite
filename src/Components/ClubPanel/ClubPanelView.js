@@ -1,7 +1,7 @@
 import "./ClubPanelStyle.css";
 import { NextMeeting } from "./NextMeeting/NextMeeting";
 import { ReadingList } from "./ReadingList/ReadingList";
-import SummaryView from "./SummaryCard/SummaryView";
+import { Summary } from "./SummaryCard/Summary";
 import { Votes } from "./Votes/Votes";
 
 /**
@@ -19,7 +19,7 @@ const ClubPanelView = function ( { clubName } ) {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8">
-                            <SummaryView/>
+                            <Summary/>
                         </div>
                         <div className="col-md-4">
                             <Votes/>

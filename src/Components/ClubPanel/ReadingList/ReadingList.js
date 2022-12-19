@@ -1,6 +1,10 @@
 import * as React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {addVote, selectReadingList} from "../../../Store/slices/clubSlice";
+import {
+    addVote,
+    selectReadingList,
+    setCurrentlySelectedId
+} from "../../../Store/slices/clubSlice";
 import ReadingListView from "./ReadingListView";
 
 export const ReadingList = () => {
@@ -14,5 +18,12 @@ export const ReadingList = () => {
         dispatch(addVote( { votedBookId, userId } ));
     }
 
-    return <ReadingListView currentVote={currentVote} handleVote={handleVote} readingList={ readingList }/>;
+    function handleSelect( book ) {
+        dispatch(setCurrentlySelectedId( book.googleBooksId ));
+    }
+
+    return <ReadingListView currentVote={currentVote}
+                            handleVote={handleVote}
+                            selectBook={handleSelect}
+                            readingList={ readingList }/>;
 };

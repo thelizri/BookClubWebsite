@@ -2,10 +2,14 @@ import React from "react";
 import "./ReadingListStyle.css";
 import SearchModalView from "./SearchModal/SearchModalView";
 
-const ReadingListView = function( { currentVote, readingList = [], handleVote} ) {
+const ReadingListView = function( { currentVote, readingList = [], handleVote, selectBook} ) {
     function displayBooksCB( book, index ) {
         function submitVote(event) {
             handleVote(event.target.id);
+        }
+
+        function submitSelectedBook( ) {
+            selectBook( book );
         }
 
         return ( <tr key={index}>
@@ -19,7 +23,7 @@ const ReadingListView = function( { currentVote, readingList = [], handleVote} )
                     />
                 </div>
             </td>
-            <td>{ book.title }</td>
+            <td onClick={submitSelectedBook}>{ book.title }</td>
             <td>{ book.author }</td>
             <td>{ book.pageCount }</td>
         </tr> );

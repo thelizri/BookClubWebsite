@@ -1,7 +1,7 @@
 import {get, onValue, ref} from "firebase/database";
 import {
     setClubId,
-    setClubOwnerId,
+    setClubOwnerId, setCurrentlyReadingId,
     setGenres,
     setLanguage,
     setMaxMembers,
@@ -147,6 +147,7 @@ const fromFirebase = (dispatch, clubData, createdClubData) => {
     if (clubData?.memberIds) dispatch(setMembers(clubData.memberIds));
     if (clubData?.readingList) dispatch(setReadingList(clubData.readingList));
     if (clubData?.votes) dispatch(setVotes(clubData.votes));
+    if (clubData?.currentlyReadingId) dispatch(setCurrentlyReadingId(clubData.currentlyReadingId));
 }
 
 const fromFirebaseOnce = async (firebaseDb, state, dispatch) => {
