@@ -13,6 +13,11 @@ const ClubSearchResultsView = ({
         const ID = `club-search-results-${club.clubId}`;
         const ModalID = ID + "-modal";
         const ModalLabelID = ModalID + "-label";
+
+        function handleSubmit(event) {
+            joinClub(club.clubId);
+            event.preventDefault();
+        }
         
         return (
             <div key={index}>
@@ -46,7 +51,7 @@ const ClubSearchResultsView = ({
                                 </button>
                                 <button type="button"
                                         className="btn btn-primary"
-                                        onClick={() => joinClub(club.clubId)}
+                                        onClick={handleSubmit}
                                 >
                                     Join Club
                                 </button>

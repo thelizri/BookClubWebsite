@@ -14,7 +14,7 @@ const initialState = {
 }
 
 export const loadClubs = createAsyncThunk(
-    "userClubsStorage/loadClubs",
+    "storageForUserClubs/loadClubs",
     async(clubIds) => {
         const firebaseDb = getDatabase( firebaseApp );
         const clubsRef = ref(firebaseDb, 'clubs');
@@ -30,8 +30,8 @@ export const loadClubs = createAsyncThunk(
     }
 )
 
-export const userClubsStorage = createSlice( {
-    name: 'userClubsStorage',
+export const storageForUserClubs = createSlice( {
+    name: 'storageForUserClubs',
     initialState,
     reducers: {},
     extraReducers : {

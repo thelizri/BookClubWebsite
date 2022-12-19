@@ -4,11 +4,20 @@ import {setClubIds, setDisplayName, setGender, setLanguages, setUserId} from "..
 
 const getRefs = (firebaseDb, state) => {
     const userPath = `users/${state.auth.user.uid}/`;
-    return ref(firebaseDb, userPath);
+    const userRef = ref(firebaseDb, userPath)
+
+    const memberToJoinPath = `users/${state.clubJoin.clubToBeJoined.userId}`
+    const memberToJoinRef = ref(firebaseDb, memberToJoinPath)
+
+    return {
+        userRef,
+        memberToJoinRef
+    };
 }
 
 const toFirebase = (firebaseDb, state, prevState) => {
-    const userRef = getRefs(firebaseDb, state);
+    const { userRef,
+            memberToJoinRef } = getRefs(firebaseDb, state);
 
     const user = state.auth.user;
     const prevUser = prevState.auth.user;
@@ -18,7 +27,7 @@ const toFirebase = (firebaseDb, state, prevState) => {
         setChildData({userId}, userRef);
     }
 
-    const clubIds = user.clubIds;
+    let clubIds = user.clubIds;
     if (clubIds !== prevUser.clubIds) {
         setChildData({clubIds}, userRef);
     }
@@ -37,6 +46,11 @@ const toFirebase = (firebaseDb, state, prevState) => {
     if (languages !== prevUser.languages) {
         setChildData({languages}, userRef);
     }
+
+    clubIds = state.clubJoin.clubToBeJoined.clubIds;
+    if( clubIds !== prevState.clubJoin.clubToBeJoined.clubIds ) {
+        setChildData( {clubIds}, memberToJoinRef);
+    }
 };
 
 const fromFirebase = (userData, dispatch) => {
@@ -48,7 +62,7 @@ const fromFirebase = (userData, dispatch) => {
 }
 
 const fromFirebaseOnce = async (firebaseDb, state, dispatch) => {
-    const userRef = getRefs(firebaseDb, state);
+    const { userRef } = getRefs(firebaseDb, state);
     const userSnapshot = await get(userRef);
     const userData = userSnapshot.val();
 
@@ -56,7 +70,7 @@ const fromFirebaseOnce = async (firebaseDb, state, dispatch) => {
 }
 
 const fromFirebaseSub = (firebaseDb, state, dispatch) => {
-    const userRef = getRefs(firebaseDb, state);
+    const { userRef } = getRefs(firebaseDb, state);
 
     return onValue(userRef, async (snapshot) => {
         const userData = snapshot.val();
