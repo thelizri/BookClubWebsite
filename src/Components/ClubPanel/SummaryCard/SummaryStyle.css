@@ -56,6 +56,6 @@
 }
 
 .synopsis {
-    height: 10em;
-    overflow-y: scroll;
+    height: 9em;
+    overflow-y: auto;
 }
