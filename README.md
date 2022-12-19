@@ -37,6 +37,7 @@ The following commands can be run to perform tasks within the project:
 
 | Command         | Description                    |
 | --------------- | ------------------------------ |
+| `npm install`   | Install tools for running app  |
 | `npm run start` | Starts app in development mode |
 | `npm run build` | Builds the app for production  |
 

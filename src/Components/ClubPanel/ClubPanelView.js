@@ -22,7 +22,7 @@ const ClubPanelView = function ( { clubName } ) {
                             <Summary/>
                         </div>
                         <div className="col-md-4">
-                            <Votes/>
+                            <NextMeeting/>
                         </div>
                     </div>
                     <div className="row">
@@ -30,7 +30,7 @@ const ClubPanelView = function ( { clubName } ) {
                             <ReadingList/>
                         </div>
                         <div className="col-md-4">
-                            <NextMeeting/>
+                            <Votes/>
                         </div>
                     </div>
                 </div>
