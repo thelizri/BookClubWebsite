@@ -11,11 +11,10 @@ const initialState = {
     genres : [],
     language : null,
     maxMemberCount : null,
-    meetings : [],
+    meeting : null,
     meetingType : null,
     memberIds : [],
     readingList : [],
-    voteDeadline : null,
     votes : [],
 }
 
@@ -89,11 +88,8 @@ export const club = createSlice( {
                 memberIds : [ ...payload ]
             }
         },
-        setMeetings : ( state, { payload } ) => {
-            return {
-                ...state,
-                meetings : [ ...payload ]
-            }
+        setMeeting : ( state, { payload } ) => {
+            state.meeting = payload;
         },
         setMeetingType : ( state, { payload } ) => {
             state.meetingType = payload;
@@ -109,9 +105,6 @@ export const club = createSlice( {
                 ...state,
                 votes : [ ...payload ]
             }
-        },
-        setVoteDeadline : ( state, { payload } ) => {
-            state.voteDeadline = payload;
         },
         setCurrentlySelectedId : ( state, { payload } ) => {
             state.currentlySelectedId = payload;
@@ -152,12 +145,11 @@ export const {
     setGender,
     setGenres,
     setLanguage,
-    setMeetings,
     setMaxMembers,
+    setMeeting,
     setMembers,
     setMeetingType,
     setReadingList,
-    setVoteDeadline,
     setVotes,
     setCurrentlySelectedId,
     removeBookFromReadingList,

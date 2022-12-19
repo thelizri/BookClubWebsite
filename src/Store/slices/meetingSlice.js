@@ -7,7 +7,7 @@ const initialState = {
     online : false,
     meetingLink : "https://kth-se.zoom.us/j/3446757312312435",
     meetingDate : new Date().toISOString().slice(0, 16),
-    meetingTime : "19:00",
+    voteDeadline: new Date().toISOString().slice(0, 16),
 }
 
 export const meeting = createSlice( {

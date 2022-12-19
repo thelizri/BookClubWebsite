@@ -5,19 +5,25 @@ import {
     setOnline, setVoteDeadline
 } from "../../../Store/slices/meetingSlice";
 import NextMeetingView from "./NextMeetingView";
+import {useEffect} from "react";
+import {setMeeting} from "../../../Store/slices/clubSlice";
 
 export const NextMeeting = () => {
     const dispatch = useDispatch();
-    const meetingDescription = useSelector( state => state.meeting.description )
-    const isOnline = useSelector( state => state.meeting.online)
+    const meeting = useSelector( state => state.meeting );
+    const meetingDescription = useSelector( state => state.meeting.description );
+    const isOnline = useSelector( state => state.meeting.online);
     const meetingAddress = useSelector( state => state.meeting.address );
     const meetingLink = useSelector( state => state.meeting.meetingLink );
     const meetingDate = useSelector( state => state.meeting.meetingDate );
-    const meetingTime = useSelector( state => state.meeting.meetingTime );
+    const voteDate = useSelector( state => state.meeting.voteDeadline );
     const admin = useSelector( state => state.club.clubOwnerId );
     const user = useSelector( state => state.auth.user.uid)
     const isAdmin = admin === user
 
+    useEffect(() => {
+        if(meeting) dispatch(setMeeting(meeting));
+    }, [meeting])
 
     const onlineOrPhysical = ( newFormat ) => {
         dispatch( setOnline( newFormat === "online" ) );
@@ -53,7 +59,7 @@ export const NextMeeting = () => {
                             meetingAddress={meetingAddress}
                             meetingLink={meetingLink}
                             meetingDate={meetingDate}
-                            meetingTime={meetingTime}
+                            voteDate={voteDate}
 
                             onlineOrPhysical={onlineOrPhysical}
                             newDescription={setNewDescription}

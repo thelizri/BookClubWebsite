@@ -4,7 +4,7 @@ import {
     setClubOwnerId, setCurrentlyReadingId,
     setGenres,
     setLanguage,
-    setMaxMembers,
+    setMaxMembers, setMeeting,
     setMeetings,
     setMeetingType, setMembers, setReadingList, setVoteDeadline, setVotes
 } from "../../slices/clubSlice";
@@ -104,9 +104,9 @@ const toFirebase = (firebaseDb, state, prevState) => {
     }
 
     if( club.meeting ) {
-        const meetings = club.meetings;
-        if( meetings !== prevClub.meetings ) {
-            setChildData( { meetings }, clubRef );
+        const meeting = club.meeting;
+        if( meeting !== prevClub.meeting ) {
+            setChildData( { meeting }, clubRef );
         }
     }
 
@@ -142,8 +142,8 @@ const fromFirebase = (dispatch, clubData, createdClubData) => {
     if (clubData?.genres) dispatch(setGenres(clubData.genres));
     if (clubData?.language) dispatch(setLanguage(clubData.language));
     if (clubData?.maxMemberCount) dispatch(setMaxMembers(clubData.maxMemberCount));
-    if (clubData?.meetings) dispatch(setMeetings(clubData.meetings));
-    if (clubData?.meetingType) dispatch(setMeetingType(clubData.meetings));
+    if (clubData?.meeting) dispatch(setMeeting(clubData.meeting));
+    if (clubData?.meetingType) dispatch(setMeetingType(clubData.meetingType));
     if (clubData?.memberIds) dispatch(setMembers(clubData.memberIds));
     if (clubData?.readingList) dispatch(setReadingList(clubData.readingList));
     if (clubData?.votes) dispatch(setVotes(clubData.votes));

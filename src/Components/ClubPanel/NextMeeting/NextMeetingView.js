@@ -6,7 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const NextMeetingView = function( {
                                       isAdmin, meetingAddress,
-                                      meetingDate,
+                                      meetingDate, voteDate,
                                       meetingDescription, isOnline,
                                       onlineOrPhysical, newDescription,
                                       newAddress,
@@ -84,7 +84,7 @@ const NextMeetingView = function( {
                 <tr>
                     <td>
                         <DatePicker
-                            selected={new Date(meetingDate)}
+                            selected={new Date(voteDate)}
                             onChange={(date) => voteDateInput(date)}
                             showTimeInput
                             dateFormat="MM/dd/yyyy h:mm aa"
