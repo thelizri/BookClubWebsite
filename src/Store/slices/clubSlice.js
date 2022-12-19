@@ -175,3 +175,5 @@ export const selectMeetingType = state => state.club.meetingType;
 export const selectMembers = state => state.club.members;
 
 export const selectReadingList = state => state.club.readingList;
+
+export const selectCurrentlyReadingId = state => state.club.currentlyReadingId;
