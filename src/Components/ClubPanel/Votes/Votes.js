@@ -3,6 +3,7 @@ import VotesModalView from "./VotesModal/VotesModalView";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {getMemberNames, setWhoHasOrHasntVoted} from "../../../Store/slices/storageForMembersSlice";
+import VotesModal from "./VotesModal/VotesModal";
 
 export const Votes = () => {
     const dispatch = useDispatch();
@@ -39,7 +40,7 @@ export const Votes = () => {
     return (
         <div className="votes">
             <VotesView clubMembers={whoHasVotedAndWhoHasnt} />
-            <VotesModalView />
+            <VotesModal />
         </div>
     );
 }

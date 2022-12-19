@@ -34,7 +34,7 @@ export const voteCounting = createSlice({
 
                 const titleOfAssociatedBook = readingList.filter(book => book.googleBooksId == uniqueVote)[0].title;
 
-                newVoteCounts.push( { title: titleOfAssociatedBook, count: voteCount, id: uniqueVote} )
+                newVoteCounts.push( { title: titleOfAssociatedBook, votes: voteCount, id: uniqueVote} )
             })
 
             console.log(newVoteCounts);

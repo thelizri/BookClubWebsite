@@ -45,3 +45,9 @@ export const {
     setVoteDeadline
 } = meeting.actions;
 
+export const selectCurrentlyReadingId = state => {
+   const today = new Date();
+   const voteDeadline = new Date(state.meeting.voteDeadline);
+
+   return voteDeadline > today;
+}

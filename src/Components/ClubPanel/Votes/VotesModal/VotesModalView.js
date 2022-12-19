@@ -1,3 +1,5 @@
+import React from "react";
+
 function VotesModalView({
     isActive = true,
     results = [{title: "A", votes: 0}, {title: "B", votes: 1}],
@@ -33,8 +35,9 @@ function VotesModalView({
     
     return (
         <div className="votes-modal">
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#votes-modal">
-                View votes
+            <button type="button"
+                    className="btn btn-primary create-club-button" data-bs-toggle="modal" data-bs-target="#votes-modal">
+                View Votes
             </button>
             <div className="modal fade" id="votes-modal" tabIndex="-1" role="dialog" aria-labelledby="votes-modal-label">
                 <div className="modal-dialog" role="document">
