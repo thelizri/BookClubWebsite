@@ -44,6 +44,7 @@ export default function ClubListView({
                 eventKey={club.clubId}
                 callback={() => setCurrentClub(club)}
                 isActive={currentClub.clubId === club.clubId}
+                key={index}
             />
         );
     }
@@ -58,7 +59,7 @@ function CustomAccordionItem({
     index
 }) {
     return (
-        <Card bsPrefix={isActive ? "active-card" : "card"} key={index}>
+        <Card bsPrefix={isActive ? "active-card" : "card"}>
             <Card.Header
                 as="button"
                 onClick={useAccordionButton(eventKey, callback)}
