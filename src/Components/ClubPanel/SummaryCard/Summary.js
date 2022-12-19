@@ -26,7 +26,7 @@ export const Summary = () => {
                 data.volumeInfo.description ? data.volumeInfo.description :
                 null;
 
-            if( data.volumeInfo.imageLinks.medium ) {
+            if( data.volumeInfo.imageLinks ) {
                 if( data.volumeInfo.imageLinks.medium )
                     cover = data.volumeInfo.imageLinks.medium;
                 else if( data.volumeInfo.imageLinks.large )
