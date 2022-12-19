@@ -1,3 +1,15 @@
+.votes-modal td {
+    border-top: solid thin;
+}
+
+.votes-modal .col-titles {
+    text-align: left;
+}
+
+.votes-modal .col-votes {
+    text-align: left;
+}
+    
 #show-votes{
     background-color: #EE864B;
     border: transparent;

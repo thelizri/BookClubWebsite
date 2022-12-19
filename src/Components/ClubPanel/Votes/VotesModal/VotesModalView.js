@@ -8,10 +8,10 @@ function VotesModalView({
         <table>
             <thead>
                 <tr>
-                    <th>
+                    <th className="col-titles">
                         Book
                     </th>
-                    <th>
+                    <th className="col-votes">
                         Votes
                     </th>
                 </tr>
@@ -20,10 +20,10 @@ function VotesModalView({
                 {
                     results.map((result) => 
                         <tr key={result.title}>
-                            <td>
+                            <td className="col-9 col-titles">
                                 {result.title}
                             </td>
-                            <td>
+                            <td className="col-votes">
                                 {result.votes}
                             </td>
                         </tr>
@@ -42,14 +42,14 @@ function VotesModalView({
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header head-footer-modal">
-                            <button type="button" className="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h4 className="modal-title" id="votes-modal-label">Voting Results</h4>
+                            <button type="button" className="btn btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
                         </div>
                         <div className="modal-body row m-1">
                             { isActive ? votingResults : "The vote deadline has not been reached yet."}
                         </div>
                         <div className="modal-footer head-footer-modal">
-                            <button type="button" className="btn btn-default close-modal" data-bs-dismiss="modal">Close</button>
+                            <button type="button" className="btn btn-secondary close-modal" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
