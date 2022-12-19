@@ -37,7 +37,7 @@ function VotesModalView({
     return (
         <div className="votes-modal">
             <button type="button"
-                    className="btn btn-primary create-club-button" data-bs-toggle="modal" data-bs-target="#votes-modal">
+                    className="btn btn-primary create-club-button ms-3" data-bs-toggle="modal" data-bs-target="#votes-modal">
                 View Votes
 
             </button>
