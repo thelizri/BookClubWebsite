@@ -29,6 +29,9 @@ export const meeting = createSlice( {
         setMeetingDate : ( state, { payload } ) => {
             state.meetingDate = payload;
         },
+        setVoteDeadline : ( state, { payload } ) => {
+            state.voteDeadline = payload;
+        },
     }
 } )
 
@@ -38,6 +41,7 @@ export const {
     setOnline,
     setCurrentMeeting,
     setMeetingLink,
-    setMeetingDate
+    setMeetingDate,
+    setVoteDeadline
 } = meeting.actions;
 

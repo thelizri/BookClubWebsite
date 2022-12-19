@@ -80,7 +80,7 @@ const toFirebase = (firebaseDb, state, prevState) => {
     if( club.currentlyReadingId ) {
         const currentlyReadingId = club.currentlyReadingId;
         if( currentlyReadingId !== prevClub.currentlyReadingId ) {
-            setChildData( { currentlyReadingId }, clubRef )
+            setChildData( { currentlyReadingId }, clubRef );
         }
     }
 
@@ -103,7 +103,7 @@ const toFirebase = (firebaseDb, state, prevState) => {
         setChildData({maxMemberCount}, clubRef);
     }
 
-    if( club.meetings ) {
+    if( club.meeting ) {
         const meetings = club.meetings;
         if( meetings !== prevClub.meetings ) {
             setChildData( { meetings }, clubRef );
@@ -127,13 +127,6 @@ const toFirebase = (firebaseDb, state, prevState) => {
         }
     }
 
-    if( club.voteDeadline ) {
-        const voteDeadline = club.voteDeadline;
-        if( voteDeadline !== prevClub.voteDeadline ) {
-            setChildData( { voteDeadline }, clubRef );
-        }
-    }
-
     if( club.votes ) {
         const votes = club.votes;
         if( votes !== prevClub.votes ) {
@@ -153,7 +146,6 @@ const fromFirebase = (dispatch, clubData, createdClubData) => {
     if (clubData?.meetingType) dispatch(setMeetingType(clubData.meetings));
     if (clubData?.memberIds) dispatch(setMembers(clubData.memberIds));
     if (clubData?.readingList) dispatch(setReadingList(clubData.readingList));
-    if (clubData?.voteDeadline) dispatch(setVoteDeadline(clubData.voteDeadline));
     if (clubData?.votes) dispatch(setVotes(clubData.votes));
 }
 

@@ -12,7 +12,7 @@ export const Votes = () => {
     let aux = [];
 
     useEffect(() => {
-        if(memberIds.length !== 0) dispatch(getMemberNames(memberIds))
+        if(memberIds.length !== 0) dispatch(getMemberNames(memberIds));
     }, [memberIds])
 
     useEffect(() => {

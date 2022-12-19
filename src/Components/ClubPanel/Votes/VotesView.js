@@ -1,5 +1,6 @@
 import React from "react";
 import "./VotesStyle.css";
+import VoteResults from "./VoteResults/VoteResults";
 
 function renderVotesCB( member, index ) {
     if( member.voted ) {
@@ -53,6 +54,11 @@ const VotesView = function (
             { clubMembers.map( renderVotesCB ) }
             </tbody>
         </table>
+        <button type="button"
+                className="btn btn-primary create-club-button">
+            Vote Results
+        </button>
+        <VoteResults />
     </div> );
 }
 

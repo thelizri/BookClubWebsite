@@ -10,7 +10,7 @@ const NextMeetingView = function( {
                                       meetingDescription, isOnline,
                                       onlineOrPhysical, newDescription,
                                       newAddress,
-                                      newDate } ) {
+                                      newMeetingDate, newVoteDate } ) {
 
     const onSwitch = ( event ) => {
         onlineOrPhysical( event.target.value );
@@ -19,10 +19,14 @@ const NextMeetingView = function( {
         newDescription( event.target.value );
     }
     const addressInput = event => {
-        newAddress( event.target.value )
+        newAddress( event.target.value );
     };
-    const dateInput = event => {
-        newDate( event )
+    const meetingDateInput = event => {
+        newMeetingDate( event );
+    };
+
+    const voteDateInput = event => {
+        newVoteDate( event );
     };
 
     function radioOrText(isAdmin){
@@ -67,7 +71,21 @@ const NextMeetingView = function( {
                     <td>
                         <DatePicker
                             selected={new Date(meetingDate)}
-                            onChange={(date) => dateInput(date)}
+                            onChange={(date) => meetingDateInput(date)}
+                            showTimeInput
+                            dateFormat="MM/dd/yyyy h:mm aa"
+                            id={"datePickerMeeting"}
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Vote Deadline</td>
+                </tr>
+                <tr>
+                    <td>
+                        <DatePicker
+                            selected={new Date(meetingDate)}
+                            onChange={(date) => voteDateInput(date)}
                             showTimeInput
                             dateFormat="MM/dd/yyyy h:mm aa"
                             id={"datePickerMeeting"}

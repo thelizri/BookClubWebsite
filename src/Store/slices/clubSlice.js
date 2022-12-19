@@ -109,9 +109,6 @@ export const club = createSlice( {
                 votes : [ ...payload ]
             }
         },
-        setVoteDeadline : ( state, { payload } ) => {
-            state.voteDeadline = payload;
-        },
         removeBookFromReadingList : ( state, { payload } ) => {
             return {
                 ...state,
@@ -153,7 +150,6 @@ export const {
     setMembers,
     setMeetingType,
     setReadingList,
-    setVoteDeadline,
     setVotes,
     removeBookFromReadingList,
     removeGenre,
