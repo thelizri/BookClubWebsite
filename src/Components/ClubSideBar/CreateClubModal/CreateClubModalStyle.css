@@ -8,7 +8,13 @@
 
 .close-modal{
     background-color: #FC4F59;
+    border:none;
 }
+
+.close-modal:hover{
+    background-color: gray;
+}
+
 .head-footer-modal{
     background-color: #E8D8C9;
 }
