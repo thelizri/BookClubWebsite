@@ -1,0 +1,11 @@
+.votes-modal td {
+    border-top: solid thin;
+}
+
+.votes-modal .col-titles {
+    text-align: left;
+}
+
+.votes-modal .col-votes {
+    text-align: left;
+}

@@ -1,3 +1,5 @@
+import "./VotesModalStyle.css";
+
 function VotesModalView({
     isActive = true,
     results = [{title: "A", votes: 0}, {title: "B", votes: 1}],
@@ -6,10 +8,10 @@ function VotesModalView({
         <table>
             <thead>
                 <tr>
-                    <th>
+                    <th className="col-titles">
                         Book
                     </th>
-                    <th>
+                    <th className="col-votes">
                         Votes
                     </th>
                 </tr>
@@ -18,10 +20,10 @@ function VotesModalView({
                 {
                     results.map((result) => 
                         <tr key={result.title}>
-                            <td>
+                            <td className="col-9 col-titles">
                                 {result.title}
                             </td>
-                            <td>
+                            <td className="col-votes">
                                 {result.votes}
                             </td>
                         </tr>
