@@ -78,12 +78,9 @@ function CustomAccordionItem({
 function renderInfo(club) {
     const rows = [
         [membersIcon, "Members", `${club.memberIds.length}/${club.maxMemberCount}`],
-        // FOR GENRES UNCOMMENT BELOW AND REPLACE WITH THE ONE BELOW IT.
-        // [genreIcon, "Genres", clubs.genres.reduce((genres, genre) => `${genres}, ${genre}`)],
-        [genreIcon, "Genres", ["Abc", "Def"].reduce((genres, genre) => `${genres}, ${genre}`)],
+        [genreIcon, "Genres", club.genres.reduce((genres, genre) => `${genres}, ${genre}`)],
         [languageIcon, "Language", club.language],
         [meetingIcon, "Meetings", club.meetingType],
-        [paceIcon, "Pace", "<Pace placeholder>"],
         [genderIcon, "Gender", club.gender],
     ];
 
