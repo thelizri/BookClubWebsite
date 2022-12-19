@@ -7,12 +7,12 @@ Find readers with similar book tastes to co-read books with. Propose and vote fo
 
 - [x] Landing page
 - [x] User registration and login
-- [ ] Book club creation and administration
-- [ ] Search and join book clubs
+- [X] Book club creation and administration
+- [X] Search and join book clubs
 - [X] Add books to read in the book club
-- [ ] Vote for books to read in the book club
-- [ ] View relevant information about the book
-- [ ] Coordinate meeting (digital or physical)
+- [X] Vote for books to read in the book club
+- [X] View relevant information about the book
+- [X] Coordinate meeting (digital or physical)
 
 ## Folder Structure
 
