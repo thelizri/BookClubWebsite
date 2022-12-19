@@ -1,3 +1,5 @@
+import "./VotesModalStyle.css";
+
 function VotesModalView({
     isActive = true,
     results = [{title: "A", votes: 0}, {title: "B", votes: 1}],
@@ -33,21 +35,21 @@ function VotesModalView({
     
     return (
         <div className="votes-modal">
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#votes-modal">
+            <button type="button" className="btn btn-primary ms-3" data-bs-toggle="modal" data-bs-target="#votes-modal" id={"show-votes"}>
                 View votes
             </button>
             <div className="modal fade" id="votes-modal" tabIndex="-1" role="dialog" aria-labelledby="votes-modal-label">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
-                        <div className="modal-header">
+                        <div className="modal-header head-footer-modal">
                             <button type="button" className="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h4 className="modal-title" id="votes-modal-label">Voting Results</h4>
                         </div>
                         <div className="modal-body row m-1">
                             { isActive ? votingResults : "The vote deadline has not been reached yet."}
                         </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-default" data-bs-dismiss="modal">Close</button>
+                        <div className="modal-footer head-footer-modal">
+                            <button type="button" className="btn btn-default close-modal" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>

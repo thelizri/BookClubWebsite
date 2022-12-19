@@ -1,0 +1,7 @@
+#show-votes{
+    background-color: #EE864B;
+    border: transparent;
+}
+#show-votes:hover{
+    background-color: #EA671C;
+}
