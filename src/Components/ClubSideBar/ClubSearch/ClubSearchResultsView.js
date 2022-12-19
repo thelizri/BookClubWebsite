@@ -42,7 +42,6 @@ const ClubSearchResultsView = ({
                                         aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
-                                Body
                             </div>
                             <div className="modal-footer head-footer-modal">
                                 <button type="button"
