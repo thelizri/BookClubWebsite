@@ -12,11 +12,11 @@ const SummaryView = function ( { title, author = "", cover, summary = "No summar
                      className={ "img-fluid" } alt={ "Image Missing" }
                      id={ "imageSummary" }/>
             </div>
-            <div className={ "col" }>
+            <div className={ "col m-2" }>
                 <div><h4>{ title }</h4></div>
                 <div><h5 className={ "text-muted" }>{ author }</h5></div>
                 <br></br>
-                <div><span dangerouslySetInnerHTML={ { __html: summary } } /></div>
+                <div className="synopsis"><span dangerouslySetInnerHTML={ { __html: summary } } /></div>
             </div>
         </div>
     </div>
