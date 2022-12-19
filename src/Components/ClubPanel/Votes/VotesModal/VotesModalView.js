@@ -1,3 +1,4 @@
+import React from "react";
 import "./VotesModalStyle.css";
 
 function VotesModalView({
@@ -35,8 +36,10 @@ function VotesModalView({
     
     return (
         <div className="votes-modal">
-            <button type="button" className="btn btn-primary ms-3" data-bs-toggle="modal" data-bs-target="#votes-modal" id={"show-votes"}>
-                View votes
+            <button type="button"
+                    className="btn btn-primary create-club-button" data-bs-toggle="modal" data-bs-target="#votes-modal">
+                View Votes
+
             </button>
             <div className="modal fade" id="votes-modal" tabIndex="-1" role="dialog" aria-labelledby="votes-modal-label">
                 <div className="modal-dialog" role="document">

@@ -1,5 +1,6 @@
 import React from "react";
 import "./VotesStyle.css";
+import VotesModal from "./VotesModal/VotesModal";
 
 function renderVotesCB( member, index ) {
     if( member.voted ) {

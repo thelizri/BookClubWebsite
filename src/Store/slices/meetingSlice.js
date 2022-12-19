@@ -7,7 +7,7 @@ const initialState = {
     online : false,
     meetingLink : "https://kth-se.zoom.us/j/3446757312312435",
     meetingDate : new Date().toISOString().slice(0, 16),
-    meetingTime : "19:00",
+    voteDeadline: new Date().toISOString().slice(0, 16),
 }
 
 export const meeting = createSlice( {
@@ -29,6 +29,9 @@ export const meeting = createSlice( {
         setMeetingDate : ( state, { payload } ) => {
             state.meetingDate = payload;
         },
+        setVoteDeadline : ( state, { payload } ) => {
+            state.voteDeadline = payload;
+        },
     }
 } )
 
@@ -38,6 +41,13 @@ export const {
     setOnline,
     setCurrentMeeting,
     setMeetingLink,
-    setMeetingDate
+    setMeetingDate,
+    setVoteDeadline
 } = meeting.actions;
 
+export const selectCurrentlyReadingId = state => {
+   const today = new Date();
+   const voteDeadline = new Date(state.meeting.voteDeadline);
+
+   return voteDeadline > today;
+}

@@ -12,6 +12,7 @@ import { storageForUserClubs } from "./slices/storageForUserClubsSlice";
 import {clubSearch} from "./slices/clubSearchSlice";
 import {clubJoin} from "./slices/clubJoinSlice";
 import {storageForMembers} from "./slices/storageForMembersSlice";
+import {voteCounting} from "./slices/voteCountingSlice";
 
 
 export const firebaseApp = initializeApp( firebaseConfig );
@@ -25,9 +26,10 @@ const store = configureStore( {
         clubCreation : clubCreation.reducer,
         clubJoin : clubJoin.reducer,
         clubSearch : clubSearch.reducer,
+        meeting : meeting.reducer,
         storageForMembers : storageForMembers.reducer,
         storageForUserClubs : storageForUserClubs.reducer,
-        meeting : meeting.reducer,
+        voteCounting : voteCounting.reducer,
         [ googleBooksApi.reducerPath ] : googleBooksApi.reducer, // api reducer,
     },
     middleware : ( getDefaultMiddleware ) =>
