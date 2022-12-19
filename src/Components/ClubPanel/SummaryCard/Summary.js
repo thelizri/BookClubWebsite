@@ -1,13 +1,17 @@
 import * as React from "react";
 import { useSelector } from "react-redux";
 import { useGetBookDetailsQuery } from "../../../Store/slices/apiSlice";
-import { selectCurrentlySelectedId } from "../../../Store/slices/clubSlice";
+import {
+    selectCurrentlySelectedId,
+    selectReadingList
+} from "../../../Store/slices/clubSlice";
 import { LoadingIcon } from "../../LoadingIcon/LoadingIcon";
 import SummaryView from "./SummaryView";
 import bookCover from "../../../Images/book-cover.png"
 
 export const Summary = () => {
     const currentlySelected = useSelector(selectCurrentlySelectedId)
+    const readingList = useSelector(selectReadingList)
     const { data, isLoading, isFetching } =
         useGetBookDetailsQuery( currentlySelected );
 
@@ -43,7 +47,10 @@ export const Summary = () => {
             } else
                 cover = bookCover;
         } else {
-            title = "Add book to Reading List";
+            if( !readingList || readingList.length === 0 )
+                title = "Add book to Reading List"
+            else
+                title = "Select book from Reading List";
             cover = bookCover;
         }
     }
