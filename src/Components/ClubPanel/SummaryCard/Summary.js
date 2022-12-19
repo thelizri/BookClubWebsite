@@ -23,11 +23,12 @@ export const Summary = () => {
                 data.volumeInfo.description ? data.volumeInfo.description :
                 null;
 
+
             if( data.volumeInfo.authors )
                 author = data.volumeInfo.authors[ 0 ];
             else
                 author = "";
-
+                
             if( data.volumeInfo.imageLinks ) {
                 if( data.volumeInfo.imageLinks.medium )
                     cover = data.volumeInfo.imageLinks.medium;

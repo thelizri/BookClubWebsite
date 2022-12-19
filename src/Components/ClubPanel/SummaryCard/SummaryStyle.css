@@ -54,3 +54,8 @@
 .tab{
     border-radius: 0px 20px 20px 20px;
 }
+
+.synopsis {
+    height: 10em;
+    overflow-y: scroll;
+}
