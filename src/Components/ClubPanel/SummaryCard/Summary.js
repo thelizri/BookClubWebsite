@@ -8,7 +8,7 @@ import bookCover from "../../../Images/book-cover.png"
 
 export const Summary = () => {
     const currentlySelected = useSelector(selectCurrentlySelectedId)
-    const { data, isLoading, isFetching, error } =
+    const { data, isLoading, isFetching } =
         useGetBookDetailsQuery( currentlySelected );
 
     let title = "";
@@ -19,14 +19,16 @@ export const Summary = () => {
     const validateData = () => {
         if ( currentlySelected ) {
             title = data.volumeInfo.title ? data.volumeInfo.title : "";
-            author =
-                data.volumeInfo.authors[ 0 ] ? data.volumeInfo.authors[ 0 ] :
-                "";
             summary =
                 data.volumeInfo.description ? data.volumeInfo.description :
                 null;
 
-            if( data.volumeInfo.imageLinks.medium ) {
+            if( data.volumeInfo.authors )
+                author = data.volumeInfo.authors[ 0 ];
+            else
+                author = "";
+
+            if( data.volumeInfo.imageLinks ) {
                 if( data.volumeInfo.imageLinks.medium )
                     cover = data.volumeInfo.imageLinks.medium;
                 else if( data.volumeInfo.imageLinks.large )
