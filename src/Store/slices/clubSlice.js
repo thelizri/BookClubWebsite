@@ -6,6 +6,7 @@ const initialState = {
     clubOwnerId : null,
     clubName : null,
     currentlyReadingId : null,
+    currentlySelectedId : null,
     gender : null,
     genres : [],
     language : null,
@@ -53,7 +54,7 @@ export const club = createSlice( {
             }
         },
         setClub : ( state, { payload } ) => {
-            return { ...payload }
+            return { ...payload, currentlySelectedId: payload.currentlyReadingId  }
         },
         setClubId : ( state, { payload } ) => {
             state.clubId = payload;
@@ -112,6 +113,9 @@ export const club = createSlice( {
         setVoteDeadline : ( state, { payload } ) => {
             state.voteDeadline = payload;
         },
+        setCurrentlySelectedId : ( state, { payload } ) => {
+            state.currentlySelectedId = payload;
+        },
         removeBookFromReadingList : ( state, { payload } ) => {
             return {
                 ...state,
@@ -155,6 +159,7 @@ export const {
     setReadingList,
     setVoteDeadline,
     setVotes,
+    setCurrentlySelectedId,
     removeBookFromReadingList,
     removeGenre,
     removeMember
@@ -175,3 +180,7 @@ export const selectMeetingType = state => state.club.meetingType;
 export const selectMembers = state => state.club.members;
 
 export const selectReadingList = state => state.club.readingList;
+
+export const selectCurrentlyReadingId = state => state.club.currentlyReadingId;
+
+export const selectCurrentlySelectedId = state => state.club.currentlySelectedId;
