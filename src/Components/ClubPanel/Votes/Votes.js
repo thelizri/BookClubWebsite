@@ -1,4 +1,5 @@
 import VotesView from "./VotesView";
+import VotesModalView from "./VotesModal/VotesModalView";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {getMemberNames, setWhoHasOrHasntVoted} from "../../../Store/slices/storageForMembersSlice";
@@ -35,5 +36,10 @@ export const Votes = () => {
         }
     }, [memberNames, votes])
 
-    return <VotesView clubMembers={whoHasVotedAndWhoHasnt}  />;
+    return (
+        <div className="votes">
+            <VotesView clubMembers={whoHasVotedAndWhoHasnt} />
+            <VotesModalView />
+        </div>
+    );
 }
