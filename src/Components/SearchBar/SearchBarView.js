@@ -15,14 +15,13 @@ export const SearchBarView = function({
     const inputtedQuery = useRef();
 
     const handleSubmit = ( e ) => {
-        const test = inputtedQuery.current.value;
         onSubmit(inputtedQuery.current.value);
         e.preventDefault();
     }
 
     const handleKeyDown = ( e ) => {
         if( e.key === 'Enter' ) {
-            onSubmit();
+            onSubmit(inputtedQuery.current.value);
             e.preventDefault();
         }
     };
