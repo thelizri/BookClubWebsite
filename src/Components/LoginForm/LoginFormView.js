@@ -36,7 +36,6 @@ const LoginFormView = function( {
                         <h1><span id={ "name1" }>Yomu</span><span
                             id={ "name2" }>Bo</span></h1>
                         <h4>Sign into your account</h4>
-                        <form>
                             <div className={ "form-row" }>
                                 <div className={ "col" }
                                      id={ "formForEmailOrPasswordLogin" }>
@@ -81,10 +80,8 @@ const LoginFormView = function( {
                             </div>
                             <a href={ "#" }>Forgot password?</a>
                             <Link to="/registration">
-                                <p>Don't have an account? <a href={ "#" }>Sign
-                                    up here</a></p>
+                                <p>Don't have an account? Sign up here</p>
                             </Link>
-                        </form>
                     </div>
                 </div>
             </div>
