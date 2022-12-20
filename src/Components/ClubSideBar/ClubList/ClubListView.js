@@ -78,7 +78,7 @@ function CustomAccordionItem({
 function renderInfo(club) {
     const rows = [
         [membersIcon, "Members", `${club.memberIds.length}/${club.maxMemberCount}`],
-        [genreIcon, "Genres", club.genres.reduce((genres, genre) => `${genres}, ${genre}`)],
+        [genreIcon, "Genres", club.genres ? club.genres.reduce((genres, genre) => `${genres}, ${genre}`) : ""],
         [languageIcon, "Language", club.language],
         [meetingIcon, "Meetings", club.meetingType],
         [genderIcon, "Gender", club.gender],

@@ -122,6 +122,7 @@ export const clubCreation = createSlice({
                     clubName: payload.clubName,
                     clubOwnerId: payload.userId,
                     language: payload.language,
+                    gender: payload.gender,
                     genres: [ ...payload.genres ],
                     maxMemberCount: payload.maxMemberCount,
                     meetingType: payload.meetingType,

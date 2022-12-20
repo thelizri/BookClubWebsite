@@ -16,7 +16,7 @@ const VotesModal = function () {
         if(readingList && votes) dispatch(countVotes( { votes, readingList } ));
     }, [readingList, votes ])
 
-    return <VotesModalView isActive={voteDeadlinePassed} results={voteCounts} />
+    return <VotesModalView isActive={!voteDeadlinePassed} results={voteCounts} />
 
 }
 

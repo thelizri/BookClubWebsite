@@ -1,12 +1,11 @@
 import {get, onValue, ref} from "firebase/database";
 import {
     setClubId,
-    setClubOwnerId, setCurrentlyReadingId,
+    setClubOwnerId, setCurrentlyReadingId, setGender,
     setGenres,
     setLanguage,
     setMaxMembers, setMeeting,
-    setMeetings,
-    setMeetingType, setMembers, setReadingList, setVoteDeadline, setVotes
+    setMeetingType, setMembers, setReadingList, setVotes
 } from "../../slices/clubSlice";
 import {setParentData, setChildData} from "../../../Utils/persistenceUtil";
 import {setLatestCreatedClubId} from "../../slices/clubCreationSlice";
@@ -84,6 +83,13 @@ const toFirebase = (firebaseDb, state, prevState) => {
         }
     }
 
+    if( club.gender ) {
+        const gender = club.gender;
+        if( gender !== prevClub.gender ) {
+            setChildData(( { gender }, clubRef ));
+        }
+    }
+
     if( club.genres ) {
         const genres = club.genres;
         if( genres !== prevClub.genres ) {
@@ -139,6 +145,7 @@ const fromFirebase = (dispatch, clubData, createdClubData) => {
     if (createdClubData?.latestCreatedClubId) dispatch(setLatestCreatedClubId(createdClubData.latestCreatedClubId));
     if (clubData?.clubId) dispatch(setClubId(clubData.clubId));
     if (clubData?.clubOwnerId) dispatch(setClubOwnerId(clubData.clubOwnerId));
+    if (clubData?.gender) dispatch(setGender(clubData.gender));
     if (clubData?.genres) dispatch(setGenres(clubData.genres));
     if (clubData?.language) dispatch(setLanguage(clubData.language));
     if (clubData?.maxMemberCount) dispatch(setMaxMembers(clubData.maxMemberCount));

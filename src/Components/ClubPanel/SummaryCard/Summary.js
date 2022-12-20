@@ -8,12 +8,13 @@ import {
 import { LoadingIcon } from "../../LoadingIcon/LoadingIcon";
 import SummaryView from "./SummaryView";
 import bookCover from "../../../Images/book-cover.png"
+import {skipToken} from "@reduxjs/toolkit/query";
 
 export const Summary = () => {
     const currentlySelected = useSelector(selectCurrentlySelectedId)
     const readingList = useSelector(selectReadingList)
     const { data, isLoading, isFetching } =
-        useGetBookDetailsQuery( currentlySelected );
+        useGetBookDetailsQuery( currentlySelected ? currentlySelected : skipToken );
 
     let title = "";
     let author = "";

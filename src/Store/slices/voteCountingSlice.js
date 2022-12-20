@@ -37,7 +37,6 @@ export const voteCounting = createSlice({
                 newVoteCounts.push( { title: titleOfAssociatedBook, votes: voteCount, id: uniqueVote} )
             })
 
-            console.log(newVoteCounts);
             state.voteCounts = newVoteCounts;
         }
     }
