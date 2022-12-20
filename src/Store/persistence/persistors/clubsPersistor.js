@@ -86,7 +86,7 @@ const toFirebase = (firebaseDb, state, prevState) => {
     if( club.gender ) {
         const gender = club.gender;
         if( gender !== prevClub.gender ) {
-            setChildData(( { gender }, clubRef ));
+            setChildData( { gender }, clubRef );
         }
     }
 

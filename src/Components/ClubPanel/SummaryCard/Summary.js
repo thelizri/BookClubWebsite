@@ -35,7 +35,9 @@ export const Summary = () => {
                 author = "";
                 
             if( data.volumeInfo.imageLinks ) {
-                if( data.volumeInfo.imageLinks.medium )
+                if (data.volumeInfo.imageLinks.thumbnail)
+                    cover = data.volumeInfo.imageLinks.thumbnail;
+                else if( data.volumeInfo.imageLinks.medium )
                     cover = data.volumeInfo.imageLinks.medium;
                 else if( data.volumeInfo.imageLinks.large )
                     cover = data.volumeInfo.imageLinks.large;
